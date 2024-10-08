@@ -10,7 +10,6 @@ script = ExtResource("1_bfmrx")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_d5fii")
-autoplay = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
