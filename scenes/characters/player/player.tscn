@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://dug8ai683jkgg"]
+
+[ext_resource type="Script" path="res://scenes/characters/player/player.gd" id="1_ffous"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7jfrw"]
+radius = 0.4
+height = 1.8
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_udvii"]
+albedo_color = Color(0.907942, 0.907942, 0.907942, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_vu8xs"]
+material = SubResource("StandardMaterial3D_udvii")
+radius = 0.4
+height = 1.8
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_8ixpf"]
+dof_blur_far_enabled = true
+dof_blur_near_enabled = true
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_13ga1"]
+radius = 0.4
+height = 1.8
+
+[node name="Player" type="CharacterBody3D" groups=["player"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+script = ExtResource("1_ffous")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_7jfrw")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_vu8xs")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 5.04)
+attributes = SubResource("CameraAttributesPractical_8ixpf")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("CapsuleShape3D_13ga1")

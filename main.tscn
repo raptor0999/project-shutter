@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://palufeewp67b"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_bfmrx"]
+[ext_resource type="AudioStream" uid="uid://cn8n7k427ktik" path="res://assets/audio/music/dark_strings_1.mp3" id="3_d5fii"]
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_bfmrx")
+
+[node name="Level" type="Node3D" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_d5fii")
+autoplay = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
