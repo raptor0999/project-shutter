@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://wh34pdi8g5a"]
+[gd_scene load_steps=10 format=3 uid="uid://wh34pdi8g5a"]
 
 [ext_resource type="PackedScene" uid="uid://cqtrwihlqomka" path="res://assets/art/pre-fabs/level_01_wall.tscn" id="1_3s50r"]
+[ext_resource type="PackedScene" uid="uid://1654m7h7kemf" path="res://assets/art/pre-fabs/wall_02_7x4m.tscn" id="1_7tnpp"]
 [ext_resource type="PackedScene" uid="uid://dct634ct8ch0r" path="res://scenes/objects/doors/door_standard.tscn" id="1_sass0"]
 [ext_resource type="PackedScene" uid="uid://clagab5n8xk2t" path="res://assets/art/pre-fabs/wall_0_mat.tscn" id="3_kjt04"]
 
@@ -35,8 +36,12 @@ skeleton = NodePath("../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/Ground/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_tkbcj")
 
+[node name="Wall-02-7x4" parent="Geometry" instance=ExtResource("1_7tnpp")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -18, 0, -3)
+
 [node name="level-01-wall" parent="Geometry" instance=ExtResource("1_3s50r")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -14, 0, -3)
+visible = false
 
 [node name="BackWall" type="MeshInstance3D" parent="Geometry"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.00845432, 4.01743, -4.02046)
@@ -98,3 +103,4 @@ to_level = "level2"
 
 [node name="Wall-0-mat" parent="." instance=ExtResource("3_kjt04")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.418, 0, -2)
+visible = false

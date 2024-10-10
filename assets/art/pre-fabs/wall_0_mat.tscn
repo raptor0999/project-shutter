@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://clagab5n8xk2t"]
 
-[ext_resource type="PackedScene" uid="uid://dxickmx05le7i" path="res://assets/art/Wall-0-mat.glb" id="1_lxovl"]
+[ext_resource type="PackedScene" uid="uid://dxickmx05le7i" path="res://assets/art/import/Wall-0-mat.glb" id="1_lxovl"]
 [ext_resource type="Material" uid="uid://dfq1xkjc6pvvo" path="res://assets/art/materials/master_material_tileable.tres" id="2_dfq4u"]
 [ext_resource type="Material" uid="uid://iwy5li1gsds8" path="res://assets/art/materials/master_material_trim.tres" id="3_lk8on"]
 

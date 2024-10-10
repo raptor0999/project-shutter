@@ -1,15 +1,15 @@
 [gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://dfq1xkjc6pvvo"]
 
-[ext_resource type="Texture2D" uid="uid://blfgk01nmf5bt" path="res://assets/art/textures/bricks/T_Stylized Bricks_BaseColor-2048x2048.PNG" id="1_4p2n4"]
-[ext_resource type="Texture2D" uid="uid://b5hdxk0wn2d8n" path="res://assets/art/textures/bricks/T_Stylized Bricks_Normal-2048x2048.PNG" id="2_f8r3o"]
-[ext_resource type="Texture2D" uid="uid://bv56x4k2ucqwm" path="res://assets/art/textures/bricks/T_Stylized Bricks_AmbientOcclusion-2048x2048.PNG" id="2_ww8hs"]
-[ext_resource type="Texture2D" uid="uid://cjogytk07qk7x" path="res://assets/art/textures/bricks/T_Stylized Bricks_Roughness-2048x2048.PNG" id="4_jqbfq"]
+[ext_resource type="Texture2D" uid="uid://cd0kuq7niyg66" path="res://assets/art/textures/concrete/concrete_wall_03_color_2k.png" id="1_gip0e"]
+[ext_resource type="Texture2D" uid="uid://br7dsf5aqx8b6" path="res://assets/art/textures/concrete/concrete_wall_03_ambient_occlusion_2k.png" id="2_xdi68"]
+[ext_resource type="Texture2D" uid="uid://dmabdraah2g2e" path="res://assets/art/textures/concrete/concrete_wall_03_normal_gl_2k.png" id="3_sdjj1"]
+[ext_resource type="Texture2D" uid="uid://ck6w8svpcsu5w" path="res://assets/art/textures/concrete/concrete_wall_03_roughness_2k.png" id="4_dxy5e"]
 
 [resource]
-albedo_texture = ExtResource("1_4p2n4")
+albedo_texture = ExtResource("1_gip0e")
 metallic_specular = 0.0
-roughness_texture = ExtResource("4_jqbfq")
+roughness_texture = ExtResource("4_dxy5e")
 normal_enabled = true
-normal_texture = ExtResource("2_f8r3o")
+normal_texture = ExtResource("3_sdjj1")
 ao_enabled = true
-ao_texture = ExtResource("2_ww8hs")
+ao_texture = ExtResource("2_xdi68")
