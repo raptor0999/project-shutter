@@ -1,7 +1,18 @@
-class_name Door
-extends Node3D
+class_name Clue
+extends Node
 
-@export var to_level:String
+enum ClueTypes {
+	NOTE,
+	RECORDING,
+	PHOTO
+}
+
+@export var clue_name:String
+@export var clue_type:ClueTypes
+@export var description:String
+@export var text:String
+@export var audio:Resource
+@export var image:Resource
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

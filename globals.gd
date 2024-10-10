@@ -10,6 +10,12 @@ signal pause_main_toggle()
 signal option_menu_toggle()
 signal credits_menu_toggle()
 
+signal clue_menu_toggle()
+signal pick_up_clue(clue)
+signal add_clue(clue)
+signal remove_clue(clue)
+signal show_clue_description(clue)
+
 signal start_music()
 signal stop_music()
 signal switch_track(number)

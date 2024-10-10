@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://byivh27cjf6j6"]
+
+[ext_resource type="Script" path="res://scenes/objects/clues/clue.gd" id="1_0ykib"]
+[ext_resource type="AudioStream" uid="uid://dqknb6pgjdqlp" path="res://assets/audio/music/spooky_1_rough.mp3" id="2_ra8hj"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_spta2"]
+size = Vector3(0.2, 0.1, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cxe5f"]
+size = Vector3(0.2, 0.1, 0.2)
+
+[node name="Recording" type="Node3D" groups=["clue"]]
+script = ExtResource("1_0ykib")
+clue_name = "Lost Tape"
+clue_type = 1
+description = "Looks like an old song recording from an old employee."
+audio = ExtResource("2_ra8hj")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
+mesh = SubResource("BoxMesh_spta2")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
+shape = SubResource("BoxShape3D_cxe5f")

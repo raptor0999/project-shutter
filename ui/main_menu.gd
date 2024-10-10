@@ -28,7 +28,7 @@ func _on_continue_pressed() -> void:
 
 func _on_new_game_pressed() -> void:
 	Globals.stop_music.emit()
-	Globals.load_level.emit("level1", 0.0)
+	Globals.load_level.emit("test-level", 0.0)
 	Globals.game_started = true
 	Globals.freeze_pause_menu_toggle.emit()
 	hide()

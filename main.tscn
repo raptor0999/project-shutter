@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://palufeewp67b"]
+[gd_scene load_steps=10 format=3 uid="uid://palufeewp67b"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_bfmrx"]
 [ext_resource type="Script" path="res://music_player.gd" id="3_8marf"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bor4ftub4a6ph" path="res://ui/pause_menu.tscn" id="5_0j3jr"]
 [ext_resource type="PackedScene" uid="uid://ipy37off7gvd" path="res://ui/options_menu.tscn" id="7_0stfe"]
 [ext_resource type="PackedScene" uid="uid://xaa08aybhke3" path="res://ui/credits_menu.tscn" id="8_33f2e"]
+[ext_resource type="PackedScene" uid="uid://br457cwvr7vwr" path="res://ui/clue_menu.tscn" id="9_l25iq"]
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_bfmrx")
@@ -52,5 +53,9 @@ visible = false
 layout_mode = 1
 
 [node name="CreditsMenu" parent="UI" instance=ExtResource("8_33f2e")]
+visible = false
+layout_mode = 1
+
+[node name="ClueMenu" parent="UI" instance=ExtResource("9_l25iq")]
 visible = false
 layout_mode = 1

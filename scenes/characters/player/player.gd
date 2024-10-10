@@ -3,11 +3,13 @@ extends CharacterBody3D
 @onready var area:Area3D = $Area3D
 @onready var anim:AnimationPlayer = $AnimationPlayer
 
+const door_type = preload("res://scenes/objects/doors/door_standard.gd")
+const clue_type = preload("res://scenes/objects/clues/clue.gd")
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 
 func _ready():
-	pass
+	Globals.connect("pick_up_clue", pick_up_clue)
 	#anim.play("rotate_sound_test")
 
 func _physics_process(delta: float) -> void:
@@ -16,8 +18,8 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 		
 	# Handle doors.
-	if Input.is_action_just_pressed("door") and is_on_floor():
-		testForDoor()
+	if Input.is_action_just_pressed("interact") and is_on_floor():
+		interact()
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
@@ -36,6 +38,17 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 	
-func testForDoor():
+func interact():
 	for a in area.get_overlapping_areas():
-		Globals.load_level.emit(a.get_parent().to_level, a.global_position.x)
+		var parent_node = a.get_parent()
+		
+		if parent_node is Door:
+			Globals.load_level.emit(parent_node.to_level, a.global_position.x)
+			print("Door")
+		if parent_node is Clue:
+			Globals.pick_up_clue.emit(parent_node)
+			print("Clue")
+
+func pick_up_clue(clue):
+	Globals.add_clue.emit(clue)
+	clue.queue_free()

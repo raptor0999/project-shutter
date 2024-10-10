@@ -28,6 +28,7 @@ mesh = SubResource("BoxMesh_l55or")
 shape = SubResource("ConvexPolygonShape3D_2votf")
 
 [node name="Area3D" type="Area3D" parent="."]
+collision_layer = 8
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
