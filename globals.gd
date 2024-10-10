@@ -4,6 +4,7 @@ signal freeze_player()
 signal load_level(level_name, player_x)
 
 signal pause_toggle()
+signal main_menu_toggle()
 signal pause_main_toggle()
 signal option_menu_toggle()
 signal credits_menu_toggle()
@@ -14,6 +15,7 @@ signal switch_track(number)
 signal music_volume_adjust(amt)
 signal sound_volume_adjust(amt)
 
+var game_started = false
 var paused = false
 
 @export var music_volume = 0

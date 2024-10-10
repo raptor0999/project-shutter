@@ -2,6 +2,7 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Globals.connect("main_menu_toggle", main_menu_toggle)
 	Globals.start_music.emit()
 	
 	if true:
@@ -15,6 +16,12 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+	
+func main_menu_toggle():
+	if visible:
+		hide()
+	else:
+		show()
 
 func _on_continue_pressed() -> void:
 	print("Continue pressed...")
@@ -22,6 +29,7 @@ func _on_continue_pressed() -> void:
 func _on_new_game_pressed() -> void:
 	Globals.stop_music.emit()
 	Globals.load_level.emit("level1", 0.0)
+	Globals.game_started = true
 	hide()
 
 func _on_options_pressed() -> void:
