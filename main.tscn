@@ -1,22 +1,37 @@
-[gd_scene load_steps=3 format=3 uid="uid://palufeewp67b"]
+[gd_scene load_steps=5 format=3 uid="uid://palufeewp67b"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_bfmrx"]
+[ext_resource type="Script" path="res://music_player.gd" id="3_8marf"]
 [ext_resource type="AudioStream" uid="uid://cn8n7k427ktik" path="res://assets/audio/music/dark_strings_1.mp3" id="3_d5fii"]
+[ext_resource type="PackedScene" uid="uid://ba5e6bp3swt3m" path="res://ui/main_menu.tscn" id="3_lq843"]
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_bfmrx")
 
 [node name="Level" type="Node3D" parent="."]
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_d5fii")
+script = ExtResource("3_8marf")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+
+[node name="UI" type="Control" parent="."]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="MainMenu" parent="UI" instance=ExtResource("3_lq843")]
+layout_mode = 1
