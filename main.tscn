@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://palufeewp67b"]
+[gd_scene load_steps=7 format=3 uid="uid://palufeewp67b"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_bfmrx"]
 [ext_resource type="Script" path="res://music_player.gd" id="3_8marf"]
 [ext_resource type="AudioStream" uid="uid://cn8n7k427ktik" path="res://assets/audio/music/dark_strings_1.mp3" id="3_d5fii"]
 [ext_resource type="PackedScene" uid="uid://ba5e6bp3swt3m" path="res://ui/main_menu.tscn" id="3_lq843"]
+[ext_resource type="AudioStream" uid="uid://b6gtqyql47w0g" path="res://assets/audio/music/shutter_island_track_1.mp3" id="4_fb1bq"]
+[ext_resource type="PackedScene" uid="uid://bor4ftub4a6ph" path="res://ui/pause_menu.tscn" id="5_0j3jr"]
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_bfmrx")
@@ -11,10 +13,13 @@ script = ExtResource("1_bfmrx")
 [node name="Level" type="Node3D" parent="."]
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
 stream = ExtResource("3_d5fii")
 script = ExtResource("3_8marf")
+tracks = Array[Resource]([ExtResource("4_fb1bq"), ExtResource("3_d5fii")])
 
 [node name="ColorRect" type="ColorRect" parent="."]
+process_mode = 3
 modulate = Color(1, 1, 1, 0)
 anchors_preset = 15
 anchor_right = 1.0
@@ -34,4 +39,8 @@ grow_vertical = 2
 mouse_filter = 1
 
 [node name="MainMenu" parent="UI" instance=ExtResource("3_lq843")]
+layout_mode = 1
+
+[node name="PauseMenu" parent="UI" instance=ExtResource("5_0j3jr")]
+visible = false
 layout_mode = 1

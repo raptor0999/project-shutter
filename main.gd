@@ -9,10 +9,19 @@ var player:CharacterBody3D = null
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Globals.connect("load_level", load_level)
+	Globals.connect("pause_main_toggle", pause_toggle)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+	
+func pause_toggle():
+	if Globals.paused:
+		Globals.music_volume_adjust.emit(-Globals.pause_volume_adjustment)
+		process_mode = PROCESS_MODE_DISABLED
+	else:
+		Globals.music_volume_adjust.emit(Globals.pause_volume_adjustment)
+		process_mode = PROCESS_MODE_INHERIT
 
 func load_level(level_name: String, player_x: float):
 	clear_current_level()
@@ -37,13 +46,16 @@ func do_level_transition():
 	print("Doing level transition")
 	player.process_mode = Node.PROCESS_MODE_DISABLED
 	#var screen_size = get_viewport().get_visible_rect().size
-	#fade_rect.size = screen_size
+	#fade_rect.size = screen_size	
 	var tween:Tween = create_tween()
 	tween.tween_property(fade_rect, "modulate:a", 0.5, 1.5).from(1.0)
 	tween.play()
 	await tween.finished
-	Globals.start_music.emit()
-	print("Started music")
+	
+	# test for new music
+	if music_player.current_track != 1:
+		Globals.switch_track.emit(1)
+		
 	player.process_mode = Node.PROCESS_MODE_INHERIT
 	
 	tween = create_tween()
