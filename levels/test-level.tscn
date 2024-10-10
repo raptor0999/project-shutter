@@ -1,0 +1,100 @@
+[gd_scene load_steps=9 format=3 uid="uid://wh34pdi8g5a"]
+
+[ext_resource type="PackedScene" uid="uid://cqtrwihlqomka" path="res://assets/art/pre-fabs/level_01_wall.tscn" id="1_3s50r"]
+[ext_resource type="PackedScene" uid="uid://dct634ct8ch0r" path="res://scenes/objects/doors/door_standard.tscn" id="1_sass0"]
+[ext_resource type="PackedScene" uid="uid://clagab5n8xk2t" path="res://assets/art/pre-fabs/wall_0_mat.tscn" id="3_kjt04"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_orc2g"]
+albedo_color = Color(0.247614, 0.162934, 0.0877581, 1)
+clearcoat_enabled = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_gytyc"]
+lightmap_size_hint = Vector2i(152, 42)
+material = SubResource("StandardMaterial3D_orc2g")
+size = Vector2(30, 8)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_tkbcj"]
+points = PackedVector3Array(-15, 0, -4, -15, 0, 4, 15, 0, -4, 15, 0, 4)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gv6ah"]
+albedo_color = Color(0.501407, 0.501406, 0.501406, 1)
+
+[sub_resource type="Environment" id="Environment_wrbnn"]
+background_mode = 1
+
+[node name="Level1" type="Node3D"]
+
+[node name="Geometry" type="Node3D" parent="."]
+
+[node name="Ground" type="MeshInstance3D" parent="Geometry"]
+mesh = SubResource("PlaneMesh_gytyc")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Geometry/Ground"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/Ground/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_tkbcj")
+
+[node name="level-01-wall" parent="Geometry" instance=ExtResource("1_3s50r")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -14, 0, -3)
+
+[node name="BackWall" type="MeshInstance3D" parent="Geometry"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.00845432, 4.01743, -4.02046)
+mesh = SubResource("PlaneMesh_gytyc")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gv6ah")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Geometry/BackWall"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/BackWall/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_tkbcj")
+
+[node name="LeftWall" type="MeshInstance3D" parent="Geometry"]
+transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, -15, 4, -11)
+mesh = SubResource("PlaneMesh_gytyc")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gv6ah")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Geometry/LeftWall"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/LeftWall/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_tkbcj")
+
+[node name="RightWall" type="MeshInstance3D" parent="Geometry"]
+transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, 15, 4, -11)
+mesh = SubResource("PlaneMesh_gytyc")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gv6ah")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Geometry/RightWall"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/RightWall/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_tkbcj")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_wrbnn")
+
+[node name="Lights" type="Node3D" parent="."]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 2, 0)
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0335236, 2, 0)
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.88289, 2, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 0.241515, 0.970397, 0, -0.970397, 0.241515, -1.56603, 22.8494, 24.4055)
+light_energy = 0.091
+shadow_enabled = true
+
+[node name="Doors" type="Node3D" parent="."]
+
+[node name="DoorStandard" parent="Doors" instance=ExtResource("1_sass0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -4)
+to_level = "level2"
+
+[node name="Wall-0-mat" parent="." instance=ExtResource("3_kjt04")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.418, 0, -2)
