@@ -25,9 +25,11 @@ func _on_new_game_pressed() -> void:
 	hide()
 
 func _on_options_pressed() -> void:
+	Globals.option_menu_toggle.emit()
 	print("Options pressed...")
 
 func _on_credits_pressed() -> void:
+	Globals.credits_menu_toggle.emit()
 	print("Credits pressed...")
 
 func _on_quit_pressed() -> void:

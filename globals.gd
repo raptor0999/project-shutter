@@ -5,6 +5,8 @@ signal load_level(level_name, player_x)
 
 signal pause_toggle()
 signal pause_main_toggle()
+signal option_menu_toggle()
+signal credits_menu_toggle()
 
 signal start_music()
 signal stop_music()
