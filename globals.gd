@@ -3,7 +3,8 @@ extends Node
 signal freeze_player()
 signal load_level(level_name, player_x)
 
-signal pause_toggle()
+signal freeze_pause_menu_toggle()
+signal pause_menu_toggle()
 signal main_menu_toggle()
 signal pause_main_toggle()
 signal option_menu_toggle()

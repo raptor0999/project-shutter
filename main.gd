@@ -5,11 +5,13 @@ var player:CharacterBody3D = null
 @onready var level_node:Node3D = $Level
 @onready var fade_rect:ColorRect = $ColorRect
 @onready var music_player:AudioStreamPlayer = $MusicPlayer
+@onready var pause_menu:Control = $UI/PauseMenu
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Globals.connect("load_level", load_level)
 	Globals.connect("pause_main_toggle", pause_toggle)
+	Globals.connect("freeze_pause_menu_toggle", freeze_pause_menu_toggle)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -22,6 +24,14 @@ func pause_toggle():
 	else:
 		Globals.music_volume_adjust.emit(Globals.pause_volume_adjustment)
 		process_mode = PROCESS_MODE_INHERIT
+		
+func freeze_pause_menu_toggle():
+	if pause_menu.process_mode == Node.PROCESS_MODE_ALWAYS:
+		pause_menu.process_mode = Node.PROCESS_MODE_DISABLED
+		print("Pause menu frozen")
+	else:
+		pause_menu.process_mode = Node.PROCESS_MODE_ALWAYS
+		print("Pause menu active")
 
 func load_level(level_name: String, player_x: float):
 	clear_current_level()
