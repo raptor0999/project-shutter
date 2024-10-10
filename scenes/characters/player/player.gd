@@ -1,10 +1,13 @@
 extends CharacterBody3D
 
 @onready var area:Area3D = $Area3D
+@onready var anim:AnimationPlayer = $AnimationPlayer
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 
+func _ready():
+	anim.play("rotate_sound_test")
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
