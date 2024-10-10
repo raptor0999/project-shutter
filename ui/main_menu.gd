@@ -9,7 +9,7 @@ func _ready() -> void:
 		
 	print(OS.get_name())
 		
-	if OS.get_name() == "HTML5":
+	if OS.get_name() == "Web":
 		$HBoxContainer/Control4.hide()
 		$HBoxContainer/Quit.hide()
 

@@ -24,9 +24,6 @@ func load_level(level_name: String, player_x: float):
 	level_node.add_child(level_instance)
 	print("Loaded level named: " + level_name)
 	
-	Globals.start_music.emit()
-	print("Started music")
-	
 	spawn_player(player_x)
 	print("Spawned player")
 	
@@ -42,10 +39,17 @@ func do_level_transition():
 	#var screen_size = get_viewport().get_visible_rect().size
 	#fade_rect.size = screen_size
 	var tween:Tween = create_tween()
-	tween.tween_property(fade_rect, "modulate:a", 0.0, 3.0).from(1.0)
+	tween.tween_property(fade_rect, "modulate:a", 0.5, 1.5).from(1.0)
 	tween.play()
 	await tween.finished
+	Globals.start_music.emit()
+	print("Started music")
 	player.process_mode = Node.PROCESS_MODE_INHERIT
+	
+	tween = create_tween()
+	tween.tween_property(fade_rect, "modulate:a", 0.0, 1.5).from(0.5)
+	tween.play()
+	await tween.finished
 	print("Transition finished")
 	
 func spawn_player(player_x: float):
