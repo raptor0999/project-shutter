@@ -53,5 +53,6 @@ func hud_text(text):
 		tween.tween_property(hud_text, "modulate:a", 0.0, 1.5).from(1.0)
 		tween.play()
 		await tween.finished
-		hud_text.text = ""
-		hud_text.queue_free()
+		if is_instance_valid(hud_text):
+			hud_text.text = ""
+			hud_text.queue_free()

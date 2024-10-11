@@ -18,8 +18,9 @@ points = PackedVector3Array(-15, 0, -4, -15, 0, 4, 15, 0, -4, 15, 0, 4)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gv6ah"]
 albedo_color = Color(0.501407, 0.501406, 0.501406, 1)
 
-[sub_resource type="Environment" id="Environment_wrbnn"]
+[sub_resource type="Environment" id="Environment_vsx08"]
 background_mode = 1
+adjustment_enabled = true
 
 [node name="Level2" type="Node3D"]
 script = ExtResource("1_wxf2s")
@@ -69,9 +70,6 @@ surface_material_override/0 = SubResource("StandardMaterial3D_gv6ah")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/RightWall/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_tkbcj")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_wrbnn")
-
 [node name="Lights" type="Node3D" parent="."]
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Lights"]
@@ -93,3 +91,6 @@ shadow_enabled = true
 [node name="DoorStandard" parent="Doors" instance=ExtResource("1_m0up8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.97227, 0, -3.92414)
 to_level = "level1"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_vsx08")

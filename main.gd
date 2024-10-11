@@ -7,11 +7,16 @@ var player:CharacterBody3D = null
 @onready var music_player:AudioStreamPlayer = $MusicPlayer
 @onready var pause_menu:Control = $UI/PauseMenu
 
+var worldEnv
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Globals.connect("load_level", load_level)
 	Globals.connect("pause_main_toggle", pause_toggle)
 	Globals.connect("freeze_pause_menu_toggle", freeze_pause_menu_toggle)
+	Globals.connect("brightness_set", brightness_set)
+	Globals.connect("contrast_set", contrast_set)
+	Globals.connect("saturation_set", saturation_set)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -39,6 +44,11 @@ func load_level(level_name: String, player_x: float):
 	
 	var level_scene = load("res://levels/" + level_name + ".tscn")
 	var level_instance:Level = level_scene.instantiate()
+	worldEnv = level_instance.get_node("WorldEnvironment")
+	
+	worldEnv.environment.adjustment_brightness = Globals.brightness
+	worldEnv.environment.adjustment_contrast = Globals.contrast
+	worldEnv.environment.adjustment_saturation = Globals.saturation
 	
 	level_node.add_child(level_instance)
 	print("Loaded level named: " + level_name)
@@ -86,3 +96,18 @@ func spawn_player(player_x: float):
 	player = player_instance
 	
 	level_node.add_child(player_instance)
+
+func brightness_set(value):
+	Globals.brightness = value
+	if is_instance_valid(worldEnv):
+		worldEnv.environment.adjustment_brightness = value
+	
+func contrast_set(value):
+	Globals.contrast = value
+	if is_instance_valid(worldEnv):
+		worldEnv.environment.adjustment_contrast = value
+	
+func saturation_set(value):
+	Globals.saturation = value
+	if is_instance_valid(worldEnv):
+		worldEnv.environment.adjustment_saturation = value

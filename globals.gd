@@ -25,12 +25,20 @@ signal music_volume_adjust(amt)
 signal sound_volume_set(value)
 signal sound_volume_adjust(amt)
 
+signal brightness_set(value)
+signal contrast_set(value)
+signal saturation_set(value)
+
 signal hud_level(level)
 signal hud_text(text)
 signal hud_hint(hint)
 
 var game_started = false
 var paused = false
+
+var brightness = 1
+var contrast = 1
+var saturation = 1
 
 @export var music_volume = 0
 @export var sound_volume = 0

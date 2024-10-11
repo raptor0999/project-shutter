@@ -25,8 +25,9 @@ points = PackedVector3Array(-15, 0, -4, -15, 0, 4, 15, 0, -4, 15, 0, 4)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gv6ah"]
 albedo_color = Color(0.501407, 0.501406, 0.501406, 1)
 
-[sub_resource type="Environment" id="Environment_wrbnn"]
+[sub_resource type="Environment" id="Environment_m2o4k"]
 background_mode = 1
+adjustment_enabled = true
 
 [node name="TestLevel" type="Node3D"]
 script = ExtResource("1_b4nfu")
@@ -84,9 +85,6 @@ surface_material_override/0 = SubResource("StandardMaterial3D_gv6ah")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/RightWall/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_tkbcj")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_wrbnn")
-
 [node name="Lights" type="Node3D" parent="."]
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Lights"]
@@ -131,3 +129,6 @@ audio = ExtResource("7_rn6nq")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.66021, 0, 0)
 clue_name = "Worn Picture"
 description = "A worn photo of who knows what."
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_m2o4k")

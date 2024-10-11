@@ -42,7 +42,7 @@ anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
 offset_left = 398.0
-offset_top = -93.0
+offset_top = -156.0
 offset_right = -399.0
 offset_bottom = 121.0
 grow_horizontal = 2
@@ -52,7 +52,6 @@ theme_override_constants/separation = 20
 [node name="Music" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 text = "Music Volume"
-horizontal_alignment = 1
 
 [node name="MusicVolume" type="HSlider" parent="VBoxContainer"]
 layout_mode = 2
@@ -63,13 +62,49 @@ step = 2.0
 [node name="Sound" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 text = "Sound Volume"
-horizontal_alignment = 1
 
 [node name="SoundVolume" type="HSlider" parent="VBoxContainer"]
 layout_mode = 2
 min_value = -30.0
 max_value = 8.0
 step = 2.0
+
+[node name="Note" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Below values will only be noticable in game"
+
+[node name="Brightness" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Brightness"
+
+[node name="BrightnessSlider" type="HSlider" parent="VBoxContainer"]
+layout_mode = 2
+min_value = 0.5
+max_value = 1.5
+step = 0.1
+value = 1.0
+
+[node name="Contrast" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Contrast"
+
+[node name="ContrastSlider" type="HSlider" parent="VBoxContainer"]
+layout_mode = 2
+min_value = 0.5
+max_value = 1.5
+step = 0.1
+value = 1.0
+
+[node name="Saturation" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Saturation"
+
+[node name="SaturationSlider" type="HSlider" parent="VBoxContainer"]
+layout_mode = 2
+min_value = 0.5
+max_value = 1.5
+step = 0.1
+value = 1.0
 
 [node name="Close" type="Button" parent="."]
 layout_mode = 1
@@ -89,4 +124,7 @@ flat = true
 
 [connection signal="value_changed" from="VBoxContainer/MusicVolume" to="." method="_on_music_volume_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/SoundVolume" to="." method="_on_sound_volume_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/BrightnessSlider" to="." method="_on_brightness_slider_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/ContrastSlider" to="." method="_on_contrast_slider_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/SaturationSlider" to="." method="_on_saturation_slider_value_changed"]
 [connection signal="pressed" from="Close" to="." method="_on_close_pressed"]
