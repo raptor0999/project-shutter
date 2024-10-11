@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://byivh27cjf6j6"]
+[gd_scene load_steps=5 format=3 uid="uid://dktnbgpc3rfvg"]
 
-[ext_resource type="Script" path="res://scenes/objects/clues/clue.gd" id="1_0ykib"]
+[ext_resource type="Script" path="res://scenes/objects/clues/clue.gd" id="1_8fd8k"]
+[ext_resource type="Texture2D" uid="uid://bgoxpardirv7m" path="res://assets/clues/picture.png" id="2_n2ske"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_spta2"]
 size = Vector3(0.2, 0.1, 0.2)
@@ -8,9 +9,11 @@ size = Vector3(0.2, 0.1, 0.2)
 [sub_resource type="BoxShape3D" id="BoxShape3D_cxe5f"]
 size = Vector3(0.2, 0.1, 0.2)
 
-[node name="Recording" type="Node3D" groups=["clue"]]
-script = ExtResource("1_0ykib")
-clue_type = 1
+[node name="Photo" type="Node3D" groups=["clue"]]
+script = ExtResource("1_8fd8k")
+clue_type = 2
+description = "A worn photo of who knows what"
+image = ExtResource("2_n2ske")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)

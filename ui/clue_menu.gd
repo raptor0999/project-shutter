@@ -6,6 +6,9 @@ var photo_icon = preload("res://assets/images/icons/picture_icon.png")
 
 @onready var item_list:ItemList = $HBoxContainer/ItemList
 @onready var desc_label:Label = $Description
+@onready var popup:PopupPanel = $HBoxContainer/ItemList/PopupPanel
+@onready var popup_label:Label = $HBoxContainer/ItemList/PopupPanel/Label
+@onready var popup_texture:TextureRect = $HBoxContainer/ItemList/PopupPanel/TextureRect
 @onready var recording_player:AudioStreamPlayer = $RecordingPlayer
 
 var clues: Array[Clue] = []
@@ -40,6 +43,8 @@ func add_clue(clue):
 		item_list.add_item(new_clue.clue_name, recording_icon)
 	if new_clue.clue_type == Clue.ClueTypes.PHOTO:
 		item_list.add_item(new_clue.clue_name, photo_icon)
+		
+	Globals.hud_text.emit("Picked up " + new_clue.clue_name)
 	
 func remove_clue(clue):
 	pass
@@ -59,10 +64,19 @@ func _on_close_pressed() -> void:
 	clue_menu_toggle()
 
 func _on_item_list_item_clicked(index: int, at_position: Vector2, mouse_button_index: int) -> void:
-	print(clues[index].description)
 	desc_label.text = clues[index].description
 
 func _on_item_list_item_activated(index: int) -> void:
+	if clues[index].clue_type == Clue.ClueTypes.NOTE:
+		popup.title = clues[index].clue_name
+		popup_label.text = clues[index].text
+		popup.visible = true
+		
+	if clues[index].clue_type == Clue.ClueTypes.PHOTO:
+		popup.title = clues[index].clue_name
+		popup_texture.texture = clues[index].image
+		popup.visible = true
+		
 	if clues[index].clue_type == Clue.ClueTypes.RECORDING and not recording_player.playing:
 		recording_player.stop()
 		recording_player.stream = load(clues[index].audio.resource_path)
@@ -71,3 +85,7 @@ func _on_item_list_item_activated(index: int) -> void:
 	elif clues[index].clue_type == Clue.ClueTypes.RECORDING and recording_player.playing:
 		recording_player.stop()
 		Globals.music_volume_adjust.emit(18)
+
+func _on_popup_panel_popup_hide() -> void:
+	popup_label.text = ""
+	popup_texture.texture = null

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://palufeewp67b"]
+[gd_scene load_steps=12 format=3 uid="uid://palufeewp67b"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_bfmrx"]
 [ext_resource type="Script" path="res://music_player.gd" id="3_8marf"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://ipy37off7gvd" path="res://ui/options_menu.tscn" id="7_0stfe"]
 [ext_resource type="PackedScene" uid="uid://xaa08aybhke3" path="res://ui/credits_menu.tscn" id="8_33f2e"]
 [ext_resource type="PackedScene" uid="uid://br457cwvr7vwr" path="res://ui/clue_menu.tscn" id="9_l25iq"]
+[ext_resource type="PackedScene" uid="uid://dviokinhnqyhj" path="res://ui/hud.tscn" id="11_pvpaj"]
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_bfmrx")
@@ -41,6 +42,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
+
+[node name="hud" parent="UI" instance=ExtResource("11_pvpaj")]
+layout_mode = 1
 
 [node name="MainMenu" parent="UI" instance=ExtResource("3_lq843")]
 layout_mode = 1

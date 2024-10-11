@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://wh34pdi8g5a"]
+[gd_scene load_steps=14 format=3 uid="uid://wh34pdi8g5a"]
 
 [ext_resource type="PackedScene" uid="uid://cqtrwihlqomka" path="res://assets/art/pre-fabs/level_01_wall.tscn" id="1_3s50r"]
 [ext_resource type="PackedScene" uid="uid://1654m7h7kemf" path="res://assets/art/pre-fabs/wall_02_7x4m.tscn" id="1_7tnpp"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://clagab5n8xk2t" path="res://assets/art/pre-fabs/wall_0_mat.tscn" id="3_kjt04"]
 [ext_resource type="PackedScene" uid="uid://bmlenb35wimka" path="res://scenes/objects/clues/note.tscn" id="5_3mus6"]
 [ext_resource type="PackedScene" uid="uid://byivh27cjf6j6" path="res://scenes/objects/clues/recording.tscn" id="6_tol8w"]
+[ext_resource type="PackedScene" uid="uid://dktnbgpc3rfvg" path="res://scenes/objects/clues/photo.tscn" id="7_77t6a"]
+[ext_resource type="AudioStream" uid="uid://dqknb6pgjdqlp" path="res://assets/audio/music/spooky_1_rough.mp3" id="7_rn6nq"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_orc2g"]
 albedo_color = Color(0.247614, 0.162934, 0.0877581, 1)
@@ -117,3 +119,11 @@ text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
 
 [node name="Recording" parent="Clues" instance=ExtResource("6_tol8w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.66095, 0, 0)
+clue_name = "Old Tape"
+description = "Some old tape dropped and forgotten."
+audio = ExtResource("7_rn6nq")
+
+[node name="Photo" parent="Clues" instance=ExtResource("7_77t6a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.66021, 0, 0)
+clue_name = "Worn Picture"
+description = "A worn photo of who knows what."

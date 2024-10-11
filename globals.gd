@@ -23,6 +23,9 @@ signal previous_track()
 signal music_volume_adjust(amt)
 signal sound_volume_adjust(amt)
 
+signal hud_text(text)
+signal hud_hint(hint)
+
 var game_started = false
 var paused = false
 
