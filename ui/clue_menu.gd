@@ -61,6 +61,7 @@ func clue_menu_toggle():
 		Globals.switch_track.emit(2)
 
 func _on_close_pressed() -> void:
+	Globals.play_sound_2d.emit("ui_select")
 	clue_menu_toggle()
 
 func _on_item_list_item_clicked(index: int, at_position: Vector2, mouse_button_index: int) -> void:

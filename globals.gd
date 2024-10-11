@@ -9,6 +9,7 @@ signal main_menu_toggle()
 signal pause_main_toggle()
 signal option_menu_toggle()
 signal credits_menu_toggle()
+signal throw_menu_focus()
 
 signal clue_menu_toggle()
 signal pick_up_clue(clue)
@@ -24,6 +25,9 @@ signal music_volume_set(value)
 signal music_volume_adjust(amt)
 signal sound_volume_set(value)
 signal sound_volume_adjust(amt)
+
+signal play_sound_2d(name)
+signal play_sound_3d(name, position)
 
 signal brightness_set(value)
 signal contrast_set(value)
