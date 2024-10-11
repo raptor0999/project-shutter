@@ -19,6 +19,7 @@ signal show_clue_description(clue)
 signal start_music()
 signal stop_music()
 signal switch_track(number)
+signal previous_track()
 signal music_volume_adjust(amt)
 signal sound_volume_adjust(amt)
 

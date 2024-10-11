@@ -50,8 +50,10 @@ func clue_menu_toggle():
 			recording_player.stop()
 			Globals.music_volume_adjust.emit(18)
 		hide()
+		Globals.previous_track.emit()
 	else:
 		show()
+		Globals.switch_track.emit(2)
 
 func _on_close_pressed() -> void:
 	clue_menu_toggle()
