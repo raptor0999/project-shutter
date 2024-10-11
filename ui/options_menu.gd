@@ -1,5 +1,8 @@
 extends Control
 
+@onready var musicVolSlider:HSlider = $VBoxContainer/MusicVolume
+@onready var soundVolSlider:HSlider = $VBoxContainer/SoundVolume
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Globals.connect("option_menu_toggle", option_menu_toggle)
@@ -22,3 +25,9 @@ func option_menu_toggle():
 
 func _on_close_pressed() -> void:
 	option_menu_toggle()
+
+func _on_music_volume_value_changed(value: float) -> void:
+	Globals.music_volume_set.emit(value)
+
+func _on_sound_volume_value_changed(value: float) -> void:
+	Globals.sound_volume_set.emit(value)

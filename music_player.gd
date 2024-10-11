@@ -13,7 +13,9 @@ func _ready() -> void:
 	Globals.connect("switch_track", switch_track)
 	Globals.connect("previous_track", prev_track)
 	Globals.connect("stop_music", stop_music)
+	Globals.connect("music_volume_set", music_volume_set)
 	Globals.connect("music_volume_adjust",  music_volume_adjust)
+	Globals.connect("sound_volume_set", sound_volume_set)
 	Globals.connect("sound_volume_adjust", sound_volume_adjust)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -36,10 +38,17 @@ func prev_track():
 		
 func stop_music():
 	stop()
+	
+func music_volume_set(value):
+	Globals.music_volume = value
+	volume_db = Globals.music_volume
 		
 func music_volume_adjust(amt):
 	Globals.music_volume += amt
 	volume_db = Globals.music_volume
+	
+func sound_volume_set(value):
+	Globals.sound_volume = value
 	
 func sound_volume_adjust(amt):
 	Globals.sound_volume += amt
