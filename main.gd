@@ -38,15 +38,18 @@ func load_level(level_name: String, player_x: float):
 	print("Cleared current level")
 	
 	var level_scene = load("res://levels/" + level_name + ".tscn")
-	var level_instance = level_scene.instantiate()
+	var level_instance:Level = level_scene.instantiate()
 	
 	level_node.add_child(level_instance)
 	print("Loaded level named: " + level_name)
+	Globals.hud_level.emit(level_instance.display_name)
 	
 	spawn_player(player_x)
 	print("Spawned player")
 	
 	do_level_transition()
+	
+	Globals.hud_hint.emit(level_instance.display_description)
 	
 func clear_current_level():
 	for l in level_node.get_children():

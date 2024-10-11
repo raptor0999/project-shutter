@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://dgqvex1fss1m3"]
+[gd_scene load_steps=9 format=3 uid="uid://dgqvex1fss1m3"]
 
+[ext_resource type="Script" path="res://levels/level.gd" id="1_ixx7h"]
 [ext_resource type="PackedScene" uid="uid://dct634ct8ch0r" path="res://scenes/objects/doors/door_standard.tscn" id="1_wr3n0"]
 [ext_resource type="PackedScene" uid="uid://bmlenb35wimka" path="res://scenes/objects/clues/note.tscn" id="2_onxne"]
 
@@ -22,6 +23,8 @@ albedo_color = Color(0.501407, 0.501406, 0.501406, 1)
 background_mode = 1
 
 [node name="Level1" type="Node3D"]
+script = ExtResource("1_ixx7h")
+display_name = "Level 1"
 
 [node name="Geometry" type="Node3D" parent="."]
 

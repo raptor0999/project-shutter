@@ -25,6 +25,7 @@ signal music_volume_adjust(amt)
 signal sound_volume_set(value)
 signal sound_volume_adjust(amt)
 
+signal hud_level(level)
 signal hud_text(text)
 signal hud_hint(hint)
 

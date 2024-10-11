@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://dlihh3jvomtoa"]
+[gd_scene load_steps=8 format=3 uid="uid://dlihh3jvomtoa"]
 
 [ext_resource type="PackedScene" uid="uid://dct634ct8ch0r" path="res://scenes/objects/doors/door_standard.tscn" id="1_m0up8"]
+[ext_resource type="Script" path="res://levels/level.gd" id="1_wxf2s"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_orc2g"]
 albedo_color = Color(0.247614, 0.162934, 0.0877581, 1)
@@ -20,7 +21,9 @@ albedo_color = Color(0.501407, 0.501406, 0.501406, 1)
 [sub_resource type="Environment" id="Environment_wrbnn"]
 background_mode = 1
 
-[node name="Level1" type="Node3D"]
+[node name="Level2" type="Node3D"]
+script = ExtResource("1_wxf2s")
+display_name = "Level 2"
 
 [node name="Geometry" type="Node3D" parent="."]
 

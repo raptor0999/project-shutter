@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://wh34pdi8g5a"]
+[gd_scene load_steps=15 format=3 uid="uid://wh34pdi8g5a"]
 
 [ext_resource type="PackedScene" uid="uid://cqtrwihlqomka" path="res://assets/art/pre-fabs/level_01_wall.tscn" id="1_3s50r"]
 [ext_resource type="PackedScene" uid="uid://1654m7h7kemf" path="res://assets/art/pre-fabs/wall_02_7x4m.tscn" id="1_7tnpp"]
+[ext_resource type="Script" path="res://levels/level.gd" id="1_b4nfu"]
 [ext_resource type="PackedScene" uid="uid://dct634ct8ch0r" path="res://scenes/objects/doors/door_standard.tscn" id="1_sass0"]
 [ext_resource type="PackedScene" uid="uid://clagab5n8xk2t" path="res://assets/art/pre-fabs/wall_0_mat.tscn" id="3_kjt04"]
 [ext_resource type="PackedScene" uid="uid://bmlenb35wimka" path="res://scenes/objects/clues/note.tscn" id="5_3mus6"]
@@ -27,7 +28,10 @@ albedo_color = Color(0.501407, 0.501406, 0.501406, 1)
 [sub_resource type="Environment" id="Environment_wrbnn"]
 background_mode = 1
 
-[node name="Level1" type="Node3D"]
+[node name="TestLevel" type="Node3D"]
+script = ExtResource("1_b4nfu")
+display_name = "Test Level"
+display_description = "Testing assets, audio and clues"
 
 [node name="Geometry" type="Node3D" parent="."]
 
