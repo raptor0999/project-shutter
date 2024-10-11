@@ -22,6 +22,9 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("clue_menu_toggle") and Globals.game_started:
 		clue_menu_toggle()
+	if Input.is_action_just_pressed("ui_cancel") and visible:
+		Globals.play_sound_2d.emit("ui_select")
+		clue_menu_toggle()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -51,13 +54,13 @@ func remove_clue(clue):
 	
 func clue_menu_toggle():
 	if visible:
-		if recording_player.playing:
-			recording_player.stop()
-			Globals.music_volume_adjust.emit(18)
+		Globals.music_volume_adjust.emit(18)
 		hide()
 		Globals.previous_track.emit()
 	else:
 		show()
+		item_list.grab_focus()
+		Globals.music_volume_adjust.emit(-18)
 		Globals.switch_track.emit(2)
 
 func _on_close_pressed() -> void:
@@ -78,15 +81,15 @@ func _on_item_list_item_activated(index: int) -> void:
 		popup_texture.texture = clues[index].image
 		popup.visible = true
 		
-	if clues[index].clue_type == Clue.ClueTypes.RECORDING and not recording_player.playing:
+	if clues[index].clue_type == Clue.ClueTypes.RECORDING:
 		recording_player.stop()
 		recording_player.stream = load(clues[index].audio.resource_path)
-		Globals.music_volume_adjust.emit(-18)
 		recording_player.play()
-	elif clues[index].clue_type == Clue.ClueTypes.RECORDING and recording_player.playing:
-		recording_player.stop()
-		Globals.music_volume_adjust.emit(18)
+		popup.title = clues[index].clue_name
+		popup_label.text = "Recording playing..."
+		popup.visible = true
 
 func _on_popup_panel_popup_hide() -> void:
 	popup_label.text = ""
 	popup_texture.texture = null
+	recording_player.stop()
