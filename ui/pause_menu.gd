@@ -6,10 +6,7 @@ func _ready() -> void:
 	Globals.connect("throw_menu_focus", menu_focus)
 
 func _input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("pause_toggle") and Globals.game_started:
-		Globals.play_sound_2d.emit("ui_select")
-		Globals.pause_menu_toggle.emit()
-	if Input.is_action_just_pressed("ui_cancel") and visible:
+	if Input.is_action_just_pressed("pause_toggle") or Input.is_action_just_pressed("ui_cancel") and Globals.game_started:
 		Globals.play_sound_2d.emit("ui_select")
 		Globals.pause_menu_toggle.emit()
 
@@ -30,7 +27,7 @@ func _on_options_pressed() -> void:
 	Globals.option_menu_toggle.emit()
 
 func _on_back_to_main_menu_pressed() -> void:
-	Globals.play_sound_2d.emit("ui_select")
+	Globals.play_sound_2d.emit("ui_close")
 	hide()
 	Globals.game_started = false
 	Globals.switch_track.emit(0)

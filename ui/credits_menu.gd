@@ -6,7 +6,7 @@ func _ready() -> void:
 	
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_cancel") and visible:
-		Globals.play_sound_2d.emit("ui_select")
+		Globals.play_sound_2d.emit("ui_close")
 		credits_menu_toggle()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -24,5 +24,5 @@ func credits_menu_toggle():
 		Globals.freeze_pause_menu_toggle.emit()
 
 func _on_close_pressed() -> void:
-	Globals.play_sound_2d.emit("ui_select")
+	Globals.play_sound_2d.emit("ui_close")
 	credits_menu_toggle()

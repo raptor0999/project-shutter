@@ -2,7 +2,10 @@ extends Node
 
 var sounds_dict = {
 	"ui_accept": load("res://assets/audio/sounds/ui/ui_accept.mp3"),
-	"ui_select": load("res://assets/audio/sounds/ui/ui_select.mp3")
+	"ui_select": load("res://assets/audio/sounds/ui/ui_select.mp3"),
+	"ui_close": load("res://assets/audio/sounds/ui/ui_close.mp3"),
+	"clue_pick_up": load("res://assets/audio/sounds/clues/clue_pick_up.mp3"),
+	"clue_open": load("res://assets/audio/sounds/clues/clue_open.mp3"),
 }
 
 # Called when the node enters the scene tree for the first time.

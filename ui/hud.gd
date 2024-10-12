@@ -42,7 +42,6 @@ func hud_text(text):
 	var tween:Tween = create_tween()
 	
 	if is_instance_valid(hud_text):
-		
 		tween.tween_property(hud_text, "modulate:a", 1.0, 1.5).from(0.0)
 		tween.play()
 		await tween.finished

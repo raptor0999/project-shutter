@@ -50,5 +50,6 @@ func interact():
 			print("Clue")
 
 func pick_up_clue(clue):
+	Globals.play_sound_2d.emit("clue_pick_up")
 	Globals.add_clue.emit(clue)
 	clue.queue_free()

@@ -23,7 +23,7 @@ func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("clue_menu_toggle") and Globals.game_started:
 		clue_menu_toggle()
 	if Input.is_action_just_pressed("ui_cancel") and visible:
-		Globals.play_sound_2d.emit("ui_select")
+		Globals.play_sound_2d.emit("ui_close")
 		clue_menu_toggle()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -64,13 +64,14 @@ func clue_menu_toggle():
 		Globals.switch_track.emit(2)
 
 func _on_close_pressed() -> void:
-	Globals.play_sound_2d.emit("ui_select")
+	Globals.play_sound_2d.emit("ui_close")
 	clue_menu_toggle()
 
 func _on_item_list_item_clicked(index: int, at_position: Vector2, mouse_button_index: int) -> void:
 	desc_label.text = clues[index].description
 
 func _on_item_list_item_activated(index: int) -> void:
+	Globals.play_sound_2d.emit("clue_open")
 	if clues[index].clue_type == Clue.ClueTypes.NOTE:
 		popup.title = clues[index].clue_name
 		popup_label.text = clues[index].text
@@ -82,6 +83,7 @@ func _on_item_list_item_activated(index: int) -> void:
 		popup.visible = true
 		
 	if clues[index].clue_type == Clue.ClueTypes.RECORDING:
+		Globals.stop_music.emit()
 		recording_player.stop()
 		recording_player.stream = load(clues[index].audio.resource_path)
 		recording_player.play()
@@ -93,3 +95,4 @@ func _on_popup_panel_popup_hide() -> void:
 	popup_label.text = ""
 	popup_texture.texture = null
 	recording_player.stop()
+	Globals.start_music.emit()
