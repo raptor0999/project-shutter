@@ -1,14 +1,13 @@
 [gd_scene load_steps=5 format=3 uid="uid://bnjbxwpk8m1p0"]
 
-[ext_resource type="PackedScene" uid="uid://cxe3wriiga3ir" path="res://assets/art/import/Wall-02.glb" id="1_t4q7t"]
+[ext_resource type="PackedScene" uid="uid://bgaskejwmh6e0" path="res://assets/art/import/Wall-01.glb" id="1_q0xy7"]
 [ext_resource type="Material" uid="uid://bktywtfpewkbh" path="res://assets/art/materials/m_tile_wood_bark.tres" id="2_glypf"]
 [ext_resource type="Material" uid="uid://b6xvtcpvsjsqr" path="res://assets/art/materials/m_tile_concrete.tres" id="2_l5eom"]
 [ext_resource type="Material" uid="uid://ijihm2hk1r74" path="res://assets/art/materials/m_tile_wood.tres" id="2_nwfop"]
 
-[node name="Wall-022" instance=ExtResource("1_t4q7t")]
+[node name="Wall-01" instance=ExtResource("1_q0xy7")]
 
 [node name="Wall-02" parent="." index="0"]
 surface_material_override/0 = ExtResource("2_glypf")
 surface_material_override/1 = ExtResource("2_l5eom")
-surface_material_override/2 = ExtResource("2_nwfop")
 surface_material_override/3 = ExtResource("2_nwfop")

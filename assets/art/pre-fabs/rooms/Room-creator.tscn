@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5twiudhxfbg0"]
+
+[ext_resource type="MeshLibrary" uid="uid://b2kemvli5urdh" path="res://assets/Mesh-library-v1.tres" id="1_6bs3p"]
+
+[node name="MeshLibraryRooms" type="Node3D"]
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource("1_6bs3p")
+cell_size = Vector3(1, 1, 1)
+cell_octant_size = 1
+cell_center_x = false
+cell_center_y = false
+cell_center_z = false
+data = {
+"cells": PackedInt32Array(0, 0, 1441799, 4, 0, 1441799, 8, 0, 1441799, 12, 0, 1441799, 16, 0, 1441799, 0, 4, 1441799, 4, 4, 1441799, 8, 4, 1441799, 12, 4, 1441799, 16, 4, 1441799)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="GridMap2" type="GridMap" parent="."]
+mesh_library = ExtResource("1_6bs3p")
+cell_size = Vector3(1, 1, 1)
+cell_octant_size = 1
+cell_center_x = false
+cell_center_y = false
+cell_center_z = false
+data = {
+"cells": PackedInt32Array(0, 0, 1441798, 4, 0, 1441798, 8, 0, 1441798, 12, 0, 1441798, 16, 0, 1441798, 0, 4, 6, 4, 4, 1441799, 8, 4, 1441799, 12, 4, 1441799, 16, 4, 1441799, 0, 8, 6)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)

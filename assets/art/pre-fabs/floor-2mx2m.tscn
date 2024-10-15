@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://d20kknqty3bu4"]
+
+[ext_resource type="PackedScene" uid="uid://cmwut0s88i41u" path="res://assets/art/import/Floor-2x2-B.glb" id="1_bfm8y"]
+[ext_resource type="Material" uid="uid://ijihm2hk1r74" path="res://assets/art/materials/m_tile_wood.tres" id="2_fis7u"]
+
+[node name="Floor-2x2-B" instance=ExtResource("1_bfm8y")]
+
+[node name="Floor-2mx2m-B" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_fis7u")

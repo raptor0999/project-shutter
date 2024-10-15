@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmth2vw5k7r17"]
+
+[ext_resource type="PackedScene" uid="uid://c4iugkah1v5ww" path="res://assets/art/import/Floor-4x4-A.glb" id="1_kusvh"]
+[ext_resource type="Material" uid="uid://dyhl5eal7nib6" path="res://assets/art/materials/m_tile_wood_planks.tres" id="2_6siqw"]
+
+[node name="Floor-4x4-A" instance=ExtResource("1_kusvh")]
+
+[node name="Floor-4mx4m" parent="." index="0"]
+material_override = ExtResource("2_6siqw")
+surface_material_override/0 = ExtResource("2_6siqw")

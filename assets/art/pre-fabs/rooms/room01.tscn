@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://cvj8pmpqg3s7o"]
+
+[ext_resource type="MeshLibrary" uid="uid://b2kemvli5urdh" path="res://assets/Mesh-library-v1.tres" id="1_5pivr"]
+
+[node name="GridMap" type="GridMap"]
+mesh_library = ExtResource("1_5pivr")
+cell_size = Vector3(1, 1, 1)
+cell_octant_size = 16
+cell_center_y = false
+data = {
+"cells": PackedInt32Array(-15007744, 65432, 6, -2162688, 65520, 6, -1114112, 65527, 6, -786432, 65529, 6, 65521, 65532, 1441798, 65525, 65532, 1441798, 65529, 65532, 1441798, 65533, 65532, 1441798, 1, 65532, 1441798, 5, 65532, 1441798, 9, 65532, 1441798, 13, 65532, 655366, 13, 0, 655366, 65521, 0, 6, 65521, 4, 6, 65521, 65534, 1)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)

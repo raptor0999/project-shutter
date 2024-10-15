@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7g5w4feyrr0d"]
+
+[ext_resource type="PackedScene" uid="uid://c4iugkah1v5ww" path="res://assets/art/import/Floor-4x4-A.glb" id="1_3gske"]
+[ext_resource type="Material" uid="uid://bktywtfpewkbh" path="res://assets/art/materials/m_tile_wood_bark.tres" id="2_mmsr2"]
+
+[node name="Floor-4x4-A" instance=ExtResource("1_3gske")]
+
+[node name="Floor-4mx4m" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_mmsr2")
