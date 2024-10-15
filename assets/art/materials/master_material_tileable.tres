@@ -3,12 +3,12 @@
 [ext_resource type="Texture2D" uid="uid://cd0kuq7niyg66" path="res://assets/art/textures/concrete/concrete_wall_03_color_2k.png" id="1_gip0e"]
 [ext_resource type="Texture2D" uid="uid://br7dsf5aqx8b6" path="res://assets/art/textures/concrete/concrete_wall_03_ambient_occlusion_2k.png" id="2_xdi68"]
 [ext_resource type="Texture2D" uid="uid://dmabdraah2g2e" path="res://assets/art/textures/concrete/concrete_wall_03_normal_gl_2k.png" id="3_sdjj1"]
-[ext_resource type="Texture2D" uid="uid://ck6w8svpcsu5w" path="res://assets/art/textures/concrete/concrete_wall_03_roughness_2k.png" id="4_dxy5e"]
+[ext_resource type="Texture2D" uid="uid://blfgk01nmf5bt" path="res://assets/art/textures/bricks/T_Stylized Bricks_BaseColor-2048x2048.PNG" id="4_2cfm7"]
 
 [resource]
 albedo_texture = ExtResource("1_gip0e")
 metallic_specular = 0.0
-roughness_texture = ExtResource("4_dxy5e")
+roughness_texture = ExtResource("4_2cfm7")
 normal_enabled = true
 normal_texture = ExtResource("3_sdjj1")
 ao_enabled = true

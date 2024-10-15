@@ -1,0 +1,19 @@
+[gd_resource type="StandardMaterial3D" load_steps=6 format=3 uid="uid://dyhl5eal7nib6"]
+
+[ext_resource type="Texture2D" uid="uid://d31sl2ed66fr5" path="res://assets/art/textures/wood/wood_planks_12_color_2k.png" id="1_kfeep"]
+[ext_resource type="Texture2D" uid="uid://b7s5eiusak831" path="res://assets/art/textures/wood/wood_planks_12_height_2k.png" id="2_dp7m7"]
+[ext_resource type="Texture2D" uid="uid://dx2u3hvt71sjb" path="res://assets/art/textures/wood/wood_planks_12_ambient_occlusion_2k.png" id="2_p5kuq"]
+[ext_resource type="Texture2D" uid="uid://buvkbjyjgan0y" path="res://assets/art/textures/wood/wood_planks_12_normal_dx_2k.png" id="4_h2ixn"]
+[ext_resource type="Texture2D" uid="uid://c1md8dkhlen5x" path="res://assets/art/textures/wood/wood_planks_12_roughness_2k.png" id="5_1b46w"]
+
+[resource]
+albedo_texture = ExtResource("1_kfeep")
+metallic_specular = 0.0
+roughness_texture = ExtResource("5_1b46w")
+normal_enabled = true
+normal_texture = ExtResource("4_h2ixn")
+ao_enabled = true
+ao_texture = ExtResource("2_p5kuq")
+heightmap_enabled = true
+heightmap_texture = ExtResource("2_dp7m7")
+uv1_offset = Vector3(512, 0, 0)

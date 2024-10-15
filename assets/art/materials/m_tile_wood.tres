@@ -16,3 +16,4 @@ ao_enabled = true
 ao_texture = ExtResource("2_n1wuh")
 heightmap_enabled = true
 heightmap_texture = ExtResource("3_v4wrq")
+uv1_offset = Vector3(512, 0, 0)
