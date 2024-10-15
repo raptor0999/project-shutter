@@ -1,15 +1,13 @@
-[gd_scene load_steps=16 format=3 uid="uid://wh34pdi8g5a"]
+[gd_scene load_steps=14 format=3 uid="uid://d1irubra7hcxk"]
 
-[ext_resource type="PackedScene" uid="uid://cqtrwihlqomka" path="res://assets/art/pre-fabs/level_01_wall.tscn" id="1_3s50r"]
-[ext_resource type="PackedScene" uid="uid://1654m7h7kemf" path="res://assets/art/pre-fabs/wall_02_7x4m.tscn" id="1_7tnpp"]
-[ext_resource type="Script" path="res://levels/level.gd" id="1_b4nfu"]
-[ext_resource type="PackedScene" uid="uid://dct634ct8ch0r" path="res://scenes/objects/doors/door_standard.tscn" id="1_sass0"]
-[ext_resource type="PackedScene" uid="uid://clagab5n8xk2t" path="res://assets/art/pre-fabs/wall_0_mat.tscn" id="3_kjt04"]
-[ext_resource type="PackedScene" uid="uid://bmlenb35wimka" path="res://scenes/objects/clues/note.tscn" id="5_3mus6"]
-[ext_resource type="PackedScene" uid="uid://byivh27cjf6j6" path="res://scenes/objects/clues/recording.tscn" id="6_tol8w"]
-[ext_resource type="PackedScene" uid="uid://dktnbgpc3rfvg" path="res://scenes/objects/clues/photo.tscn" id="7_77t6a"]
-[ext_resource type="AudioStream" uid="uid://dqknb6pgjdqlp" path="res://assets/audio/music/spooky_1_rough.mp3" id="7_rn6nq"]
-[ext_resource type="MeshLibrary" uid="uid://cqd48vkdapc6c" path="res://assets/Mesh-library.tres" id="10_63ce0"]
+[ext_resource type="Script" path="res://levels/level.gd" id="1_1i4kd"]
+[ext_resource type="PackedScene" uid="uid://dct634ct8ch0r" path="res://scenes/objects/doors/door_standard.tscn" id="4_ji8tp"]
+[ext_resource type="PackedScene" uid="uid://clagab5n8xk2t" path="res://assets/art/pre-fabs/wall_0_mat.tscn" id="5_07l1k"]
+[ext_resource type="PackedScene" uid="uid://bmlenb35wimka" path="res://scenes/objects/clues/note.tscn" id="6_56uej"]
+[ext_resource type="PackedScene" uid="uid://byivh27cjf6j6" path="res://scenes/objects/clues/recording.tscn" id="7_rl2u7"]
+[ext_resource type="AudioStream" uid="uid://dqknb6pgjdqlp" path="res://assets/audio/music/spooky_1_rough.mp3" id="8_47kmb"]
+[ext_resource type="PackedScene" uid="uid://cvj8pmpqg3s7o" path="res://assets/art/pre-fabs/rooms/room01.tscn" id="8_tu2d7"]
+[ext_resource type="PackedScene" uid="uid://dktnbgpc3rfvg" path="res://scenes/objects/clues/photo.tscn" id="9_b5adn"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_orc2g"]
 albedo_color = Color(0.247614, 0.162934, 0.0877581, 1)
@@ -31,7 +29,7 @@ background_mode = 1
 adjustment_enabled = true
 
 [node name="TestLevel" type="Node3D"]
-script = ExtResource("1_b4nfu")
+script = ExtResource("1_1i4kd")
 display_name = "Test Level"
 display_description = "Testing assets, audio and clues"
 
@@ -45,13 +43,6 @@ skeleton = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/Ground/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_tkbcj")
-
-[node name="Wall-02-7x4" parent="Geometry" instance=ExtResource("1_7tnpp")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -18, 0, -3)
-
-[node name="level-01-wall" parent="Geometry" instance=ExtResource("1_3s50r")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -14, 0, -3)
-visible = false
 
 [node name="BackWall" type="MeshInstance3D" parent="Geometry"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.00845432, 4.01743, -4.02046)
@@ -104,29 +95,29 @@ shadow_enabled = true
 
 [node name="Doors" type="Node3D" parent="."]
 
-[node name="DoorStandard" parent="Doors" instance=ExtResource("1_sass0")]
+[node name="DoorStandard" parent="Doors" instance=ExtResource("4_ji8tp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -4)
 to_level = "level2"
 
-[node name="Wall-0-mat" parent="." instance=ExtResource("3_kjt04")]
+[node name="Wall-0-mat" parent="." instance=ExtResource("5_07l1k")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.418, 0, -2)
 visible = false
 
 [node name="Clues" type="Node3D" parent="."]
 
-[node name="Note" parent="Clues" instance=ExtResource("5_3mus6")]
+[node name="Note" parent="Clues" instance=ExtResource("6_56uej")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.20198, 0, 0)
 clue_name = "Aunt's Journal"
 description = "Seems to be an old journal written by your aunt."
 text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
 
-[node name="Recording" parent="Clues" instance=ExtResource("6_tol8w")]
+[node name="Recording" parent="Clues" instance=ExtResource("7_rl2u7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.66095, 0, 0)
 clue_name = "Old Tape"
 description = "Some old tape dropped and forgotten."
-audio = ExtResource("7_rn6nq")
+audio = ExtResource("8_47kmb")
 
-[node name="Photo" parent="Clues" instance=ExtResource("7_77t6a")]
+[node name="Photo" parent="Clues" instance=ExtResource("9_b5adn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.66021, 0, 0)
 clue_name = "Worn Picture"
 description = "A worn photo of who knows what."
@@ -134,11 +125,4 @@ description = "A worn photo of who knows what."
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_m2o4k")
 
-[node name="GridMap" type="GridMap" parent="."]
-mesh_library = ExtResource("10_63ce0")
-cell_size = Vector3(4, 1, 4)
-cell_octant_size = 16
-data = {
-"cells": PackedInt32Array(65532, 65535, 6, 65533, 65535, 6, -15007744, 65432, 6, -2162688, 65520, 6, -1114112, 65527, 6, -786432, 65529, 6, 65532, 65534, 6, 65533, 65534, 6, 65531, 65533, 6, 65532, 65533, 6, 65532, 65532, 6)
-}
-metadata/_editor_floor_ = Vector3(0, 0, 0)
+[node name="GridMap" parent="." instance=ExtResource("8_tu2d7")]
