@@ -1,12 +1,12 @@
 [gd_scene load_steps=14 format=3 uid="uid://d1irubra7hcxk"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_1i4kd"]
+[ext_resource type="PackedScene" uid="uid://dxajwjuar42b7" path="res://assets/art/pre-fabs/rooms/l_01_living_room.tscn" id="2_54wfm"]
 [ext_resource type="PackedScene" uid="uid://dct634ct8ch0r" path="res://scenes/objects/doors/door_standard.tscn" id="4_ji8tp"]
 [ext_resource type="PackedScene" uid="uid://clagab5n8xk2t" path="res://assets/art/pre-fabs/wall_0_mat.tscn" id="5_07l1k"]
 [ext_resource type="PackedScene" uid="uid://bmlenb35wimka" path="res://scenes/objects/clues/note.tscn" id="6_56uej"]
 [ext_resource type="PackedScene" uid="uid://byivh27cjf6j6" path="res://scenes/objects/clues/recording.tscn" id="7_rl2u7"]
 [ext_resource type="AudioStream" uid="uid://dqknb6pgjdqlp" path="res://assets/audio/music/spooky_1_rough.mp3" id="8_47kmb"]
-[ext_resource type="PackedScene" uid="uid://cvj8pmpqg3s7o" path="res://assets/art/pre-fabs/rooms/room01.tscn" id="8_tu2d7"]
 [ext_resource type="PackedScene" uid="uid://dktnbgpc3rfvg" path="res://scenes/objects/clues/photo.tscn" id="9_b5adn"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_orc2g"]
@@ -77,6 +77,9 @@ surface_material_override/0 = SubResource("StandardMaterial3D_gv6ah")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/RightWall/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_tkbcj")
 
+[node name="L01-LivingRoom" parent="Geometry" instance=ExtResource("2_54wfm")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8.53167, 0, -2.40367)
+
 [node name="Lights" type="Node3D" parent="."]
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Lights"]
@@ -104,6 +107,7 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.418
 visible = false
 
 [node name="Clues" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="Note" parent="Clues" instance=ExtResource("6_56uej")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.20198, 0, 0)
@@ -124,5 +128,3 @@ description = "A worn photo of who knows what."
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_m2o4k")
-
-[node name="GridMap" parent="." instance=ExtResource("8_tu2d7")]

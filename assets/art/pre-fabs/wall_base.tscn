@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cpxo1w4u3d74v"]
+
+[ext_resource type="PackedScene" uid="uid://b0agrgjkuc5j3" path="res://assets/art/import/Wall-base.glb" id="1_xemxy"]
+[ext_resource type="Material" uid="uid://b6xvtcpvsjsqr" path="res://assets/art/materials/m_tile_concrete.tres" id="2_xtw65"]
+
+[node name="Wall-base" instance=ExtResource("1_xemxy")]
+
+[node name="Cube_006" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_xtw65")
