@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://dug8ai683jkgg"]
+[gd_scene load_steps=13 format=3 uid="uid://dug8ai683jkgg"]
 
 [ext_resource type="Script" path="res://scenes/characters/player/player.gd" id="1_ffous"]
 [ext_resource type="AudioStream" uid="uid://c41iwsv2pi0gp" path="res://assets/audio/sounds/ghost_scream.mp3" id="2_ffmdf"]
+[ext_resource type="Script" path="res://scenes/characters/player/footsteps.gd" id="3_bso3d"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7jfrw"]
 radius = 0.4
@@ -78,6 +79,11 @@ mesh = SubResource("CapsuleMesh_vu8xs")
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 5.04)
 attributes = SubResource("CameraAttributesPractical_8ixpf")
+current = true
+
+[node name="ChaseCamera" type="Camera3D" parent="."]
+transform = Transform3D(-4.25185e-08, 0.23202, -0.972711, 1.01419e-08, 0.972711, 0.23202, 1, 6.66134e-16, -4.37114e-08, -1.567, 1.79635, 0)
+attributes = SubResource("CameraAttributesPractical_8ixpf")
 
 [node name="Area3D" type="Area3D" parent="."]
 collision_mask = 13
@@ -103,3 +109,6 @@ mesh = SubResource("SphereMesh_k7wtq")
 libraries = {
 "": SubResource("AnimationLibrary_mll56")
 }
+
+[node name="Footsteps" type="Node3D" parent="."]
+script = ExtResource("3_bso3d")

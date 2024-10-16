@@ -73,13 +73,13 @@ shape = SubResource("ConvexPolygonShape3D_tkbcj")
 [node name="Lights" type="Node3D" parent="."]
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Lights"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 5, 0)
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="Lights"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0335236, 2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0335236, 5, 0)
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="Lights"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.88289, 2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.88289, 5, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lights"]
 transform = Transform3D(1, 0, 0, 0, 0.241515, 0.970397, 0, -0.970397, 0.241515, -1.56603, 22.8494, 24.4055)
@@ -89,8 +89,8 @@ shadow_enabled = true
 [node name="Doors" type="Node3D" parent="."]
 
 [node name="DoorStandard" parent="Doors" instance=ExtResource("1_m0up8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.97227, 0, -3.92414)
-to_level = "level1"
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -3.924)
+to_level = "test-level"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_vsx08")

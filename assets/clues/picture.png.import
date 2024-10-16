@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bgoxpardirv7m"
 path.s3tc="res://.godot/imported/picture.png-07782a67e69051047f11c0b13955c715.s3tc.ctex"
+path.etc2="res://.godot/imported/picture.png-07782a67e69051047f11c0b13955c715.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/clues/picture.png"
-dest_files=["res://.godot/imported/picture.png-07782a67e69051047f11c0b13955c715.s3tc.ctex"]
+dest_files=["res://.godot/imported/picture.png-07782a67e69051047f11c0b13955c715.s3tc.ctex", "res://.godot/imported/picture.png-07782a67e69051047f11c0b13955c715.etc2.ctex"]
 
 [params]
 

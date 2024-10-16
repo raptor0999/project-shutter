@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://drrj6xtn5qv4b"
 path.s3tc="res://.godot/imported/Wall-0-mat_Trim-Setup.png-846cf3b7b82209317f0becc55d0a85c8.s3tc.ctex"
+path.etc2="res://.godot/imported/Wall-0-mat_Trim-Setup.png-846cf3b7b82209317f0becc55d0a85c8.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/art/Wall-0-mat_Trim-Setup.png"
-dest_files=["res://.godot/imported/Wall-0-mat_Trim-Setup.png-846cf3b7b82209317f0becc55d0a85c8.s3tc.ctex"]
+dest_files=["res://.godot/imported/Wall-0-mat_Trim-Setup.png-846cf3b7b82209317f0becc55d0a85c8.s3tc.ctex", "res://.godot/imported/Wall-0-mat_Trim-Setup.png-846cf3b7b82209317f0becc55d0a85c8.etc2.ctex"]
 
 [params]
 

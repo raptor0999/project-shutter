@@ -63,15 +63,16 @@ fixed_icon_size = Vector2i(24, 24)
 
 [node name="PopupPanel" type="PopupPanel" parent="HBoxContainer/ItemList"]
 initial_position = 1
-size = Vector2i(500, 300)
+size = Vector2i(700, 700)
+unresizable = false
 borderless = false
-max_size = Vector2i(500, 300)
+max_size = Vector2i(700, 700)
 
 [node name="Label" type="Label" parent="HBoxContainer/ItemList/PopupPanel"]
 offset_left = 4.0
 offset_top = 4.0
-offset_right = 496.0
-offset_bottom = 296.0
+offset_right = 696.0
+offset_bottom = 696.0
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
@@ -79,8 +80,8 @@ autowrap_mode = 2
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer/ItemList/PopupPanel"]
 offset_left = 4.0
 offset_top = 4.0
-offset_right = 496.0
-offset_bottom = 296.0
+offset_right = 696.0
+offset_bottom = 696.0
 expand_mode = 2
 stretch_mode = 3
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cdmmfg5jfmdcr"
 path.s3tc="res://.godot/imported/bark_09_ambientOcclusion_2k.png-b4281522b9593d75b8dd3148f9462c13.s3tc.ctex"
+path.etc2="res://.godot/imported/bark_09_ambientOcclusion_2k.png-b4281522b9593d75b8dd3148f9462c13.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/art/textures/wood/bark_09_ambientOcclusion_2k.png"
-dest_files=["res://.godot/imported/bark_09_ambientOcclusion_2k.png-b4281522b9593d75b8dd3148f9462c13.s3tc.ctex"]
+dest_files=["res://.godot/imported/bark_09_ambientOcclusion_2k.png-b4281522b9593d75b8dd3148f9462c13.s3tc.ctex", "res://.godot/imported/bark_09_ambientOcclusion_2k.png-b4281522b9593d75b8dd3148f9462c13.etc2.ctex"]
 
 [params]
 

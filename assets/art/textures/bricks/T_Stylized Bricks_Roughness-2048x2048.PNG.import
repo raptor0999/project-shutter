@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cjogytk07qk7x"
 path.s3tc="res://.godot/imported/T_Stylized Bricks_Roughness-2048x2048.PNG-97e919dbeb873e463a104d77acb92436.s3tc.ctex"
+path.etc2="res://.godot/imported/T_Stylized Bricks_Roughness-2048x2048.PNG-97e919dbeb873e463a104d77acb92436.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/art/textures/bricks/T_Stylized Bricks_Roughness-2048x2048.PNG"
-dest_files=["res://.godot/imported/T_Stylized Bricks_Roughness-2048x2048.PNG-97e919dbeb873e463a104d77acb92436.s3tc.ctex"]
+dest_files=["res://.godot/imported/T_Stylized Bricks_Roughness-2048x2048.PNG-97e919dbeb873e463a104d77acb92436.s3tc.ctex", "res://.godot/imported/T_Stylized Bricks_Roughness-2048x2048.PNG-97e919dbeb873e463a104d77acb92436.etc2.ctex"]
 
 [params]
 

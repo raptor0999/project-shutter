@@ -1,0 +1,257 @@
+[gd_scene load_steps=23 format=3 uid="uid://c3khvreuc08g2"]
+
+[ext_resource type="Script" path="res://levels/level.gd" id="1_djsgb"]
+[ext_resource type="Material" uid="uid://m43l0whjlwrd" path="res://assets/materials/temp-brown-floor.tres" id="2_12umh"]
+[ext_resource type="PackedScene" uid="uid://1654m7h7kemf" path="res://assets/art/pre-fabs/wall_02_7x4m.tscn" id="2_u8x55"]
+[ext_resource type="PackedScene" uid="uid://cqtrwihlqomka" path="res://assets/art/pre-fabs/level_01_wall.tscn" id="3_pr5no"]
+[ext_resource type="PackedScene" uid="uid://dct634ct8ch0r" path="res://scenes/objects/doors/door_standard.tscn" id="4_6w6xs"]
+[ext_resource type="Script" path="res://levels/turn.gd" id="5_3depy"]
+[ext_resource type="PackedScene" uid="uid://clagab5n8xk2t" path="res://assets/art/pre-fabs/wall_0_mat.tscn" id="5_ur78j"]
+[ext_resource type="PackedScene" uid="uid://bmlenb35wimka" path="res://scenes/objects/clues/note.tscn" id="6_u1ap6"]
+[ext_resource type="PackedScene" uid="uid://byivh27cjf6j6" path="res://scenes/objects/clues/recording.tscn" id="7_7nn1w"]
+[ext_resource type="AudioStream" uid="uid://c14oe06lejp6b" path="res://assets/audio/sounds/steps/slower_footsteps_with_chain.mp3" id="8_r6362"]
+[ext_resource type="AudioStream" uid="uid://c41iwsv2pi0gp" path="res://assets/audio/sounds/ghost_scream.mp3" id="9_kpni3"]
+[ext_resource type="PackedScene" uid="uid://dktnbgpc3rfvg" path="res://scenes/objects/clues/photo.tscn" id="10_v3uno"]
+[ext_resource type="Texture2D" uid="uid://ngqukhtayc8s" path="res://assets/clues/photos/photo_1.jpg" id="13_8mnfl"]
+[ext_resource type="Texture2D" uid="uid://bsm64bcq21bx4" path="res://assets/clues/photos/photo_2.jpg" id="14_r6jje"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_gytyc"]
+lightmap_size_hint = Vector2i(152, 42)
+material = ExtResource("2_12umh")
+size = Vector2(28, 8)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_dc0j3"]
+points = PackedVector3Array(-14, 0, -4, -14, 0, 4, 14, 0, -4, 14, 0, 4)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gv6ah"]
+albedo_color = Color(0.501407, 0.501406, 0.501406, 1)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_tkbcj"]
+points = PackedVector3Array(-15, 0, -4, -15, 0, 4, 15, 0, -4, 15, 0, 4)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_hf7kn"]
+material = ExtResource("2_12umh")
+size = Vector2(8, 8)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_jiw0v"]
+points = PackedVector3Array(-4, 0, -4, -4, 0, 4, 4, 0, -4, 4, 0, 4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6m4v6"]
+size = Vector3(1, 3, 1)
+
+[sub_resource type="Environment" id="Environment_m2o4k"]
+background_mode = 1
+glow_enabled = true
+fog_enabled = true
+fog_density = 0.005
+adjustment_enabled = true
+
+[node name="ChaseTestLevel" type="Node3D"]
+script = ExtResource("1_djsgb")
+display_name = "Chase!"
+
+[node name="Geometry" type="Node3D" parent="."]
+
+[node name="Ground" type="MeshInstance3D" parent="Geometry"]
+mesh = SubResource("PlaneMesh_gytyc")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Geometry/Ground"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/Ground/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_dc0j3")
+
+[node name="Wall-02-7x4" parent="Geometry/Ground" instance=ExtResource("2_u8x55")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -18, 0, -3)
+
+[node name="Lights" type="Node3D" parent="Geometry/Ground"]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Geometry/Ground/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 5, 0)
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Geometry/Ground/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0335236, 5, 0)
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="Geometry/Ground/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.88289, 5, 0)
+
+[node name="Ground2" type="MeshInstance3D" parent="Geometry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, 0, 0)
+mesh = SubResource("PlaneMesh_gytyc")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Geometry/Ground2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/Ground2/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_dc0j3")
+
+[node name="Wall-02-7x4" parent="Geometry/Ground2" instance=ExtResource("2_u8x55")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -18, 0, -3)
+
+[node name="Lights" type="Node3D" parent="Geometry/Ground2"]
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Geometry/Ground2/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0335236, 5, 0)
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="Geometry/Ground2/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.88289, 5, 0)
+
+[node name="Ground3" type="MeshInstance3D" parent="Geometry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56, 0, 0)
+mesh = SubResource("PlaneMesh_gytyc")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Geometry/Ground3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/Ground3/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_dc0j3")
+
+[node name="Wall-02-7x4" parent="Geometry/Ground3" instance=ExtResource("2_u8x55")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -18, 0, -3)
+
+[node name="Lights" type="Node3D" parent="Geometry/Ground3"]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Geometry/Ground3/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 5, 0)
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="Geometry/Ground3/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.88289, 5, 0)
+
+[node name="Ground4" type="MeshInstance3D" parent="Geometry"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 74, 0, -18)
+mesh = SubResource("PlaneMesh_gytyc")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Geometry/Ground4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/Ground4/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_dc0j3")
+
+[node name="Wall-02-7x4" parent="Geometry/Ground4" instance=ExtResource("2_u8x55")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -18, 0, -3)
+
+[node name="Lights" type="Node3D" parent="Geometry/Ground4"]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Geometry/Ground4/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 5, 0)
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="Geometry/Ground4/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.88289, 5, 0)
+
+[node name="Ground5" type="MeshInstance3D" parent="Geometry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 92, 0, 0)
+mesh = SubResource("PlaneMesh_gytyc")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Geometry/Ground5"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/Ground5/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_dc0j3")
+
+[node name="Wall-02-7x4" parent="Geometry/Ground5" instance=ExtResource("2_u8x55")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -18, 0, -3)
+
+[node name="Lights" type="Node3D" parent="Geometry/Ground5"]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Geometry/Ground5/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 5, 0)
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Geometry/Ground5/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0335236, 5, 0)
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="Geometry/Ground5/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.88289, 5, 0)
+
+[node name="level-01-wall" parent="Geometry" instance=ExtResource("3_pr5no")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -14, 0, -3)
+visible = false
+
+[node name="LeftWall" type="MeshInstance3D" parent="Geometry"]
+transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, -15, 4, -11)
+mesh = SubResource("PlaneMesh_gytyc")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gv6ah")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Geometry/LeftWall"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/LeftWall/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_tkbcj")
+
+[node name="RightWall" type="MeshInstance3D" parent="Geometry"]
+transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, 106, 4, -11)
+mesh = SubResource("PlaneMesh_gytyc")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gv6ah")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Geometry/RightWall"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/RightWall/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_tkbcj")
+
+[node name="Floor" type="MeshInstance3D" parent="Geometry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74, 0, 0)
+mesh = SubResource("PlaneMesh_hf7kn")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Geometry/Floor"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/Floor/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_jiw0v")
+
+[node name="Turn" type="Area3D" parent="Geometry/Floor"]
+script = ExtResource("5_3depy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/Floor/Turn"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+shape = SubResource("BoxShape3D_6m4v6")
+
+[node name="Lights" type="Node3D" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 0.241515, 0.970397, 0, -0.970397, 0.241515, -1.56603, 22.8494, 24.4055)
+light_energy = 0.091
+shadow_enabled = true
+
+[node name="Doors" type="Node3D" parent="."]
+
+[node name="DoorStandard" parent="Doors" instance=ExtResource("4_6w6xs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -2.91227)
+to_level = "level2"
+
+[node name="Wall-0-mat" parent="." instance=ExtResource("5_ur78j")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.418, 0, -2)
+visible = false
+
+[node name="Clues" type="Node3D" parent="."]
+
+[node name="Note" parent="Clues" instance=ExtResource("6_u1ap6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.20198, 0, 0)
+clue_name = "Aunt's Journal"
+description = "Seems to be an old journal written by your aunt."
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+
+[node name="Recording" parent="Clues" instance=ExtResource("7_7nn1w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.66095, 0, 0)
+clue_name = "Recording"
+description = "An old recording of who knows what."
+audio = ExtResource("8_r6362")
+
+[node name="Recording2" parent="Clues" instance=ExtResource("7_7nn1w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.91869, 0, 0)
+clue_name = "Monster"
+description = "Not sure why this is labeled monster."
+audio = ExtResource("9_kpni3")
+
+[node name="Photo" parent="Clues" instance=ExtResource("10_v3uno")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.66021, 0, 0)
+clue_name = "Picture"
+description = "A photo."
+image = ExtResource("13_8mnfl")
+
+[node name="Photo2" parent="Clues" instance=ExtResource("10_v3uno")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.12169, 0, 0)
+clue_name = "Old Picture"
+description = "An older photo."
+image = ExtResource("14_r6jje")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_m2o4k")

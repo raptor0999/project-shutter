@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://d0nga6h4wrq5q"
 path.s3tc="res://.godot/imported/bark_09_height_2k.png-fed4f7e97eb4e653b0e94d97982384ce.s3tc.ctex"
+path.etc2="res://.godot/imported/bark_09_height_2k.png-fed4f7e97eb4e653b0e94d97982384ce.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/art/textures/wood/bark_09_height_2k.png"
-dest_files=["res://.godot/imported/bark_09_height_2k.png-fed4f7e97eb4e653b0e94d97982384ce.s3tc.ctex"]
+dest_files=["res://.godot/imported/bark_09_height_2k.png-fed4f7e97eb4e653b0e94d97982384ce.s3tc.ctex", "res://.godot/imported/bark_09_height_2k.png-fed4f7e97eb4e653b0e94d97982384ce.etc2.ctex"]
 
 [params]
 

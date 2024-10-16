@@ -38,7 +38,7 @@ func freeze_pause_menu_toggle():
 		pause_menu.process_mode = Node.PROCESS_MODE_ALWAYS
 		print("Pause menu active")
 
-func load_level(level_name: String, player_x: float):
+func load_level(level_name: String, player_x: float, cam:String):
 	clear_current_level()
 	print("Cleared current level")
 	
@@ -54,8 +54,13 @@ func load_level(level_name: String, player_x: float):
 	print("Loaded level named: " + level_name)
 	Globals.hud_level.emit(level_instance.display_name)
 	
-	spawn_player(player_x)
+	var p:Node = spawn_player(player_x)
 	print("Spawned player")
+	
+	if cam == "standard_cam":
+		p.standardCam.make_current()
+	else:
+		p.chaseCam.make_current()
 	
 	do_level_transition()
 	
@@ -96,6 +101,8 @@ func spawn_player(player_x: float):
 	player = player_instance
 	
 	level_node.add_child(player_instance)
+	
+	return player_instance
 
 func brightness_set(value):
 	Globals.brightness = value

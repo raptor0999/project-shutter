@@ -67,5 +67,5 @@ layout_mode = 1
 visible = false
 layout_mode = 1
 
-[node name="SoundPlayer" type="Node" parent="."]
+[node name="SoundPlayer" type="Node3D" parent="."]
 script = ExtResource("12_ne80j")

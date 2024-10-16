@@ -68,6 +68,7 @@ func _on_close_pressed() -> void:
 	clue_menu_toggle()
 
 func _on_item_list_item_clicked(index: int, at_position: Vector2, mouse_button_index: int) -> void:
+	Globals.play_sound_2d.emit("clue_select")
 	desc_label.text = clues[index].description
 
 func _on_item_list_item_activated(index: int) -> void:

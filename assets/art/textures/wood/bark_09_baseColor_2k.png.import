@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://2biq21pswktj"
 path.s3tc="res://.godot/imported/bark_09_baseColor_2k.png-9dba2b172e62d1ed73cff09e9c813e77.s3tc.ctex"
+path.etc2="res://.godot/imported/bark_09_baseColor_2k.png-9dba2b172e62d1ed73cff09e9c813e77.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/art/textures/wood/bark_09_baseColor_2k.png"
-dest_files=["res://.godot/imported/bark_09_baseColor_2k.png-9dba2b172e62d1ed73cff09e9c813e77.s3tc.ctex"]
+dest_files=["res://.godot/imported/bark_09_baseColor_2k.png-9dba2b172e62d1ed73cff09e9c813e77.s3tc.ctex", "res://.godot/imported/bark_09_baseColor_2k.png-9dba2b172e62d1ed73cff09e9c813e77.etc2.ctex"]
 
 [params]
 
