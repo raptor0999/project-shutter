@@ -1,8 +1,11 @@
-[gd_scene load_steps=7 format=4 uid="uid://cl5gpc4mf6qhe"]
+[gd_scene load_steps=9 format=4 uid="uid://cl5gpc4mf6qhe"]
 
 [ext_resource type="PackedScene" uid="uid://b0agrgjkuc5j3" path="res://assets/art/import/Wall-base.glb" id="1_duu3a"]
 [ext_resource type="Material" uid="uid://b6xvtcpvsjsqr" path="res://assets/art/materials/m_tile_concrete.tres" id="2_r6qbx"]
 [ext_resource type="Material" uid="uid://bktywtfpewkbh" path="res://assets/art/materials/m_tile_wood_bark.tres" id="3_2yx0k"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ai6bn"]
+points = PackedVector3Array(-2.01667, 0, -1.33333, -0.016668, 0, -1.33333, -2.01667, 0, 0, -2.01667, 3, -1.33333, -0.016668, 0, 0, -0.016668, 3, -1.33333, -2.01667, 3, 0, -0.016668, 3, 0)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wt1y1"]
 
@@ -38,10 +41,18 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_b6ei6")
 
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_asnja"]
+points = PackedVector3Array(-2.00021, -0.100183, -1.5, -2.00021, 0.100164, -1.5, 0, -0.100183, -1.5, -2.00021, -0.100183, 0, -2.65, -0.100006, -0.740016, -2.59319, -0.100006, -1.02707, -2.43055, -0.100006, -1.27036, -2.18724, -0.100006, -1.43305, -2.00021, 0.100164, 0, 0, 0.100184, -1.5, -2.18724, 0.0999879, -1.43305, -2.43055, 0.0999879, -1.27036, -2.59319, 0.0999879, -1.02707, -2.65, 0.0999879, -0.740016, -2.59319, 0.100007, -0.739722, -2.18724, 0.100125, -0.73752, 0, -0.100183, 0, -2.18724, -0.100006, -0.0471319, -2.43055, -0.100006, -0.209818, -2.59319, -0.100006, -0.453113, 0, 0.100184, 0, -2.59319, 0.0999879, -0.453113, -2.43055, 0.0999879, -0.209818, -2.18724, 0.0999879, -0.0471319)
+
 [node name="Wall-base" instance=ExtResource("1_duu3a")]
 
 [node name="Cube_006" parent="." index="0"]
 surface_material_override/0 = ExtResource("2_r6qbx")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube_006" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube_006/StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_ai6bn")
 
 [node name="Door-01" type="Node3D" parent="." index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.25)
@@ -51,3 +62,8 @@ transform = Transform3D(0, 1.99634, 0, -1, 0, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_48l5l")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("3_2yx0k")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Door-01/Cylinder_002" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Door-01/Cylinder_002/StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_asnja")

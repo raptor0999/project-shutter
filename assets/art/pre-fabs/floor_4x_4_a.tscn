@@ -1,9 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://b73jl1r6ql17y"]
+[gd_scene load_steps=4 format=3 uid="uid://b73jl1r6ql17y"]
 
 [ext_resource type="PackedScene" uid="uid://c4iugkah1v5ww" path="res://assets/art/import/Floor-4x4-A.glb" id="1_vv7aq"]
 [ext_resource type="Material" uid="uid://ijihm2hk1r74" path="res://assets/art/materials/m_tile_wood.tres" id="2_gjesf"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_627to"]
+points = PackedVector3Array(0, -0.2, -4, 0, 0.2, -4, 4, -0.2, -4, 0, -0.2, 0, 0, 0.2, 0, 4, 0.2, -4, 4, -0.2, 0, 4, 0.2, 0)
 
 [node name="Floor-4x4-A" instance=ExtResource("1_vv7aq")]
 
 [node name="Floor-4mx4m" parent="." index="0"]
 surface_material_override/0 = ExtResource("2_gjesf")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Floor-4mx4m" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor-4mx4m/StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_627to")

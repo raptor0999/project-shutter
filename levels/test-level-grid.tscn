@@ -33,9 +33,14 @@ script = ExtResource("1_1i4kd")
 display_name = "Test Level"
 display_description = "Testing assets, audio and clues"
 
+[node name="L01-LivingRoom" parent="." instance=ExtResource("2_54wfm")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -9.49, -1, -2.073)
+
 [node name="Geometry" type="Node3D" parent="."]
 
 [node name="Ground" type="MeshInstance3D" parent="Geometry"]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 18.5132, 0.696028, 2.07461)
+visible = false
 mesh = SubResource("PlaneMesh_gytyc")
 skeleton = NodePath("../..")
 
@@ -43,9 +48,10 @@ skeleton = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/Ground/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_tkbcj")
+disabled = true
 
 [node name="BackWall" type="MeshInstance3D" parent="Geometry"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.00845432, 4.01743, -4.02046)
+transform = Transform3D(1.23, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 5.65977, 4.01743, -2.52139)
 mesh = SubResource("PlaneMesh_gytyc")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_gv6ah")
@@ -56,7 +62,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_gv6ah")
 shape = SubResource("ConvexPolygonShape3D_tkbcj")
 
 [node name="LeftWall" type="MeshInstance3D" parent="Geometry"]
-transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, -15, 4, -11)
+transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, -13.6088, 4, -0.221886)
 mesh = SubResource("PlaneMesh_gytyc")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_gv6ah")
@@ -67,7 +73,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_gv6ah")
 shape = SubResource("ConvexPolygonShape3D_tkbcj")
 
 [node name="RightWall" type="MeshInstance3D" parent="Geometry"]
-transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, 15, 4, -11)
+transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, 23.5587, 4, -2.47965)
 mesh = SubResource("PlaneMesh_gytyc")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_gv6ah")
@@ -76,9 +82,6 @@ surface_material_override/0 = SubResource("StandardMaterial3D_gv6ah")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/RightWall/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_tkbcj")
-
-[node name="L01-LivingRoom" parent="Geometry" instance=ExtResource("2_54wfm")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8.53167, 0, -2.40367)
 
 [node name="Lights" type="Node3D" parent="."]
 

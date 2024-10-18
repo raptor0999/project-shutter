@@ -1,5 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://0c8ldpdgcd6g"]
+[gd_scene load_steps=3 format=3 uid="uid://0c8ldpdgcd6g"]
 
-[ext_resource type="PackedScene" uid="uid://dfm1ngwchldk2" path="res://assets/art/import/Wall-01.glb" id="1_rl7yo"]
+[ext_resource type="PackedScene" uid="uid://bgaskejwmh6e0" path="res://assets/art/import/Wall-01.glb" id="1_rl7yo"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_pky5a"]
+points = PackedVector3Array(-0.0035876, -9.08747e-05, 0.697546, -0.267965, -9.08747e-05, 0.644739, -0.403536, -0.0888972, 0.00783873, 0.0966702, -0.0888972, 0.00783873, 0.260925, -9.08747e-05, 0.644739, 0.230347, 6, 0.570809, -0.0035876, 6, 0.617188, -0.237387, 6, 0.570809, -0.492158, -9.08747e-05, 0.495042, -0.403536, -0.0888972, -3.99173, -0.642071, -9.08747e-05, 0.270497, -0.694568, -9.08747e-05, 0.00600171, 0.0966702, -0.0888972, -3.99173, 0.687663, -9.08747e-05, 0.00600171, 0.635031, -9.08747e-05, 0.270497, 0.485118, -9.08747e-05, 0.495042, 0.428562, 6, 0.438102, -0.435602, 6, 0.438102, -0.568062, 6, 0.24019, -0.628541, -9.08747e-05, -3.99357, -0.628541, 6, 0.00600171, -0.628541, 6, -3.99357, -0.0284829, -9.08747e-05, -3.99357, 0.0966702, 1.51081, -3.99173, 0.130495, 5.99881, -3.56514, 0.60743, 6, 0.00600171, 0.561022, 6, 0.24019, -0.0284829, 6, -3.99357)
 
 [node name="Wall-01" instance=ExtResource("1_rl7yo")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Wall-02" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall-02/StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_pky5a")
