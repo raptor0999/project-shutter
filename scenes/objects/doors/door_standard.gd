@@ -1,7 +1,9 @@
 class_name Door
 extends Node3D
 
+@export var locked:bool
 @export var to_level:String
+@export var to_door:String
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

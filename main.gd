@@ -38,7 +38,7 @@ func freeze_pause_menu_toggle():
 		pause_menu.process_mode = Node.PROCESS_MODE_ALWAYS
 		print("Pause menu active")
 
-func load_level(level_name: String, player_x: float, cam:String):
+func load_level(level_name: String, cam:String, named_element:String):
 	clear_current_level()
 	print("Cleared current level")
 	
@@ -46,15 +46,17 @@ func load_level(level_name: String, player_x: float, cam:String):
 	var level_instance:Level = level_scene.instantiate()
 	worldEnv = level_instance.get_node("WorldEnvironment")
 	
-	worldEnv.environment.adjustment_brightness = Globals.brightness
-	worldEnv.environment.adjustment_contrast = Globals.contrast
-	worldEnv.environment.adjustment_saturation = Globals.saturation
+	if is_instance_valid(worldEnv):
+		worldEnv.environment.adjustment_brightness = Globals.brightness
+		worldEnv.environment.adjustment_contrast = Globals.contrast
+		worldEnv.environment.adjustment_saturation = Globals.saturation
 	
 	level_node.add_child(level_instance)
 	print("Loaded level named: " + level_name)
 	Globals.hud_level.emit(level_instance.display_name)
 	
-	var p:Node = spawn_player(player_x)
+	var player_spawn_pos:Vector3 = level_instance.get_node("Doors/"+named_element).get_node("PlayerSpawn").global_position
+	var p:Node = spawn_player(player_spawn_pos)
 	print("Spawned player")
 	
 	if cam == "standard_cam":
@@ -92,15 +94,17 @@ func do_level_transition():
 	await tween.finished
 	print("Transition finished")
 	
-func spawn_player(player_x: float):
+func spawn_player(player_spawn:Vector3):
 	var player_scene = load("res://scenes/characters/player/player.tscn")
 	var player_instance = player_scene.instantiate()
-	player_instance.position.x = player_x
-	print("Player X: " + str(player_x))
 	
 	player = player_instance
-	
+	var player_pos:Vector3 = player_spawn
+	#var player_rot:Vector3 = player_spawn.rotation
 	level_node.add_child(player_instance)
+	player_instance.position = player_pos
+	#player_instance.rotation = player_rot
+	print("Player pos: " + str(player_pos))
 	
 	return player_instance
 

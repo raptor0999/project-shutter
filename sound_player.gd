@@ -8,7 +8,8 @@ var sounds_dict = {
 	"clue_open": load("res://assets/audio/sounds/clues/clue_open_ext.mp3"),
 	"clue_select": load("res://assets/audio/sounds/clues/clue_select.mp3"),
 	"door_open": load("res://assets/audio/sounds/doors/door_open_1.mp3"),
-	"door_close": load("res://assets/audio/sounds/doors/door_close_1.mp3")
+	"door_close": load("res://assets/audio/sounds/doors/door_close_1.mp3"),
+	"door_locked": load("res://assets/audio/sounds/doors/door_locked_1.mp3")
 }
 
 # Called when the node enters the scene tree for the first time.
