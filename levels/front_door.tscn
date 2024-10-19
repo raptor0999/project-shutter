@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://crwg1bxqcmqxe"]
+[gd_scene load_steps=24 format=4 uid="uid://crwg1bxqcmqxe"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_hdl3p"]
 [ext_resource type="PackedScene" uid="uid://bniqk4limmnq0" path="res://assets/art/import/Level-01-LR.glb" id="2_i74n4"]
@@ -7,6 +7,8 @@
 [ext_resource type="Material" uid="uid://bktywtfpewkbh" path="res://assets/art/materials/m_tile_wood_bark.tres" id="5_uwloe"]
 [ext_resource type="MeshLibrary" uid="uid://b2kemvli5urdh" path="res://assets/Mesh-library-v1.tres" id="6_7500b"]
 [ext_resource type="PackedScene" uid="uid://dct634ct8ch0r" path="res://scenes/objects/doors/door_standard.tscn" id="7_bkrl1"]
+[ext_resource type="AudioStream" uid="uid://cn8n7k427ktik" path="res://assets/audio/music/dark_strings_1.mp3" id="8_gv67m"]
+[ext_resource type="Script" path="res://levels/intro_cut.gd" id="8_scbup"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yj84b"]
 
@@ -47,9 +49,155 @@ background_mode = 1
 ambient_light_color = Color(1, 1, 1, 1)
 adjustment_enabled = true
 
-[node name="Pantry" type="Node3D"]
+[sub_resource type="Animation" id="Animation_wsfyu"]
+resource_name = "intro_pan_in"
+length = 20.0
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 6, 21, 92.5, 3.96667, 1, 6, 21, 92.5, 20, 1, 6, 3, -6)
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.785398, 0, 0), Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/Label:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(2, 4.03333, 8, 9.06667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control/Label2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(17.9667, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ljgqq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.785398, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/Label:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/Label2:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c7mlt"]
+_data = {
+"RESET": SubResource("Animation_ljgqq"),
+"intro_pan_in": SubResource("Animation_wsfyu")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7q81o"]
+size = Vector3(0.6, 1.6, 0.6)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_udvii"]
+albedo_color = Color(0.907942, 0.907942, 0.907942, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_vu8xs"]
+lightmap_size_hint = Vector2i(14, 13)
+material = SubResource("StandardMaterial3D_udvii")
+radius = 0.4
+height = 1.8
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_13ga1"]
+radius = 0.4
+height = 1.8
+
+[sub_resource type="Animation" id="Animation_0nmio"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RotateNode:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ia346"]
+resource_name = "rotate_sound_test"
+length = 14.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RotateNode:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 7, 14),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 6.28319, 0), Vector3(0, 6.28319, 6.28319)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mll56"]
+_data = {
+"RESET": SubResource("Animation_0nmio"),
+"rotate_sound_test": SubResource("Animation_ia346")
+}
+
+[node name="FrontDoor" type="Node3D"]
 script = ExtResource("1_hdl3p")
-display_name = "Pantry"
+display_name = "Front Door"
 
 [node name="Level-01-LR" parent="." instance=ExtResource("2_i74n4")]
 visible = false
@@ -140,3 +288,83 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1, -11)
 to_level = "foyer"
 to_door = "FrontDoorFoyer"
 y_rot = 180.0
+
+[node name="Intro_Cut" type="Node3D" parent="."]
+script = ExtResource("8_scbup")
+
+[node name="Camera3D" type="Camera3D" parent="Intro_Cut"]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 6, 21, 92.5)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Intro_Cut"]
+stream = ExtResource("8_gv67m")
+autoplay = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Intro_Cut"]
+libraries = {
+"": SubResource("AnimationLibrary_c7mlt")
+}
+
+[node name="Player" type="CharacterBody3D" parent="Intro_Cut" groups=["player"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1.4, -10)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Intro_Cut/Player"]
+shape = SubResource("BoxShape3D_7q81o")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Intro_Cut/Player"]
+mesh = SubResource("CapsuleMesh_vu8xs")
+
+[node name="Area3D" type="Area3D" parent="Intro_Cut/Player"]
+collision_mask = 13
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Intro_Cut/Player/Area3D"]
+shape = SubResource("CapsuleShape3D_13ga1")
+
+[node name="AudioListener3D" type="AudioListener3D" parent="Intro_Cut/Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Intro_Cut/Player"]
+libraries = {
+"": SubResource("AnimationLibrary_mll56")
+}
+
+[node name="Control" type="Control" parent="Intro_Cut"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Intro_Cut/Control"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -9.5
+offset_bottom = 9.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "The Shutter Project
+by
+Some Team Name"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="Label2" type="Label" parent="Intro_Cut/Control"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -9.5
+offset_bottom = 9.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Now that we are here, let's get inside...
+Press Interact to open the door and begin"
+horizontal_alignment = 1
+
+[connection signal="animation_finished" from="Intro_Cut/AnimationPlayer" to="Intro_Cut" method="_on_animation_player_animation_finished"]

@@ -11,6 +11,7 @@ var worldEnv
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Globals.connect("load_scene", load_scene)
 	Globals.connect("load_level", load_level)
 	Globals.connect("pause_main_toggle", pause_toggle)
 	Globals.connect("freeze_pause_menu_toggle", freeze_pause_menu_toggle)
@@ -37,6 +38,24 @@ func freeze_pause_menu_toggle():
 	else:
 		pause_menu.process_mode = Node.PROCESS_MODE_ALWAYS
 		print("Pause menu active")
+		
+func load_scene(scene_name:String):
+	clear_current_level()
+	Globals.clear_hud.emit()
+	print("Cleared current level")
+	
+	var level_scene = load("res://levels/" + scene_name + ".tscn")
+	var level_instance:Level = level_scene.instantiate()
+	worldEnv = level_instance.get_node("WorldEnvironment")
+	
+	if is_instance_valid(worldEnv):
+		worldEnv.environment.adjustment_brightness = Globals.brightness
+		worldEnv.environment.adjustment_contrast = Globals.contrast
+		worldEnv.environment.adjustment_saturation = Globals.saturation
+	
+	level_node.add_child(level_instance)
+	print("Loaded scene named: " + scene_name)
+	Globals.hud_level.emit(level_instance.display_name)
 
 func load_level(level_name: String, cam:String, named_element:String):
 	clear_current_level()

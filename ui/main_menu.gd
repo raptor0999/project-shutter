@@ -43,9 +43,10 @@ func menu_focus():
 func _on_new_game_pressed() -> void:
 	Globals.play_sound_2d.emit("ui_select")
 	Globals.stop_music.emit()
-	Globals.load_level.emit("foyer", "standard_cam", "FrontDoorFoyer")
-	Globals.game_started = true
-	Globals.freeze_pause_menu_toggle.emit()
+	Globals.load_scene.emit("front_door")
+	#Globals.load_level.emit("foyer", "standard_cam", "FrontDoorFoyer")
+	#Globals.game_started = true
+	#Globals.freeze_pause_menu_toggle.emit()
 	hide()
 
 func _on_options_pressed() -> void:

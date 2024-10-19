@@ -1,0 +1,71 @@
+[gd_scene load_steps=13 format=3 uid="uid://pug5o86lm14g"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_ywsi4"]
+[ext_resource type="AudioStream" uid="uid://cn8n7k427ktik" path="res://assets/audio/music/dark_strings_1.mp3" id="2_h3bj0"]
+[ext_resource type="Script" path="res://music_player.gd" id="3_rro66"]
+[ext_resource type="AudioStream" uid="uid://b6gtqyql47w0g" path="res://assets/audio/music/shutter_island_track_1.mp3" id="4_gx3fm"]
+[ext_resource type="AudioStream" uid="uid://dv65ox5dp2sce" path="res://assets/audio/music/shutter_island_clue_music.mp3" id="5_uimiu"]
+[ext_resource type="PackedScene" uid="uid://dviokinhnqyhj" path="res://ui/hud.tscn" id="6_j200x"]
+[ext_resource type="PackedScene" uid="uid://ba5e6bp3swt3m" path="res://ui/main_menu.tscn" id="7_fefic"]
+[ext_resource type="PackedScene" uid="uid://bor4ftub4a6ph" path="res://ui/pause_menu.tscn" id="8_mvnoa"]
+[ext_resource type="PackedScene" uid="uid://ipy37off7gvd" path="res://ui/options_menu.tscn" id="9_ussv1"]
+[ext_resource type="PackedScene" uid="uid://xaa08aybhke3" path="res://ui/credits_menu.tscn" id="10_qc0cm"]
+[ext_resource type="PackedScene" uid="uid://br457cwvr7vwr" path="res://ui/clue_menu.tscn" id="11_6ey5x"]
+[ext_resource type="Script" path="res://sound_player.gd" id="12_hb610"]
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_ywsi4")
+
+[node name="Level" type="Node3D" parent="."]
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("2_h3bj0")
+script = ExtResource("3_rro66")
+tracks = Array[Resource]([ExtResource("4_gx3fm"), ExtResource("2_h3bj0"), ExtResource("5_uimiu")])
+
+[node name="ColorRect" type="ColorRect" parent="."]
+process_mode = 3
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="UI" type="Control" parent="."]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="hud" parent="UI" instance=ExtResource("6_j200x")]
+layout_mode = 1
+
+[node name="MainMenu" parent="UI" instance=ExtResource("7_fefic")]
+visible = false
+layout_mode = 1
+
+[node name="PauseMenu" parent="UI" instance=ExtResource("8_mvnoa")]
+visible = false
+layout_mode = 1
+
+[node name="OptionsMenu" parent="UI" instance=ExtResource("9_ussv1")]
+visible = false
+layout_mode = 1
+
+[node name="CreditsMenu" parent="UI" instance=ExtResource("10_qc0cm")]
+visible = false
+layout_mode = 1
+
+[node name="ClueMenu" parent="UI" instance=ExtResource("11_6ey5x")]
+visible = false
+layout_mode = 1
+
+[node name="SoundPlayer" type="Node3D" parent="."]
+script = ExtResource("12_hb610")
