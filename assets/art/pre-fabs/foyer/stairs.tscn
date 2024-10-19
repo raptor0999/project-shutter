@@ -1,27 +1,75 @@
-[gd_scene format=3 uid="uid://dvs74sh33oynf"]
+[gd_scene load_steps=2 format=3 uid="uid://dvs74sh33oynf"]
 
-[node name="CSGCombiner3D" type="CSGCombiner3D"]
+[ext_resource type="Material" uid="uid://cf7dikkc1ac3t" path="res://assets/art/materials/prototype/grid_dark.tres" id="1_bp2si"]
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 1.6, -23)
+[node name="Stairs" type="Node3D"]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+material_override = ExtResource("1_bp2si")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 3, -8)
+size = Vector3(4, 6, 4)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1, 5, -8)
 size = Vector3(4, 2, 4)
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2.6, -26)
-size = Vector3(4, 2, 4)
+[node name="CSGBox3D5" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4, 5, -4.5)
+size = Vector3(11, 2, 4)
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 3.6, -29)
-size = Vector3(4, 2, 4)
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="CSGCombiner3D"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+polygon = PackedVector2Array(-6, 0, -6, 6, 1, 0)
+depth = 4.0
 
-[node name="CSGBox3D4" type="CSGBox3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7, 4.6, -29)
-size = Vector3(4, 2, 4)
+[node name="CSGPolygon3D2" type="CSGPolygon3D" parent="CSGCombiner3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2, 6, -5)
+polygon = PackedVector2Array(-6, 0, -6, 6, 1, 0)
+depth = 4.0
 
-[node name="CSGBox3D5" type="CSGBox3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4, 5.6, -28.5)
-size = Vector3(5, 2, 4)
+[node name="CSGCombiner3D2" type="CSGCombiner3D" parent="."]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -1.7, 0, -1)
+material_override = ExtResource("1_bp2si")
 
-[node name="CSGBox3D6" type="CSGBox3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4, 6.6, -25)
-size = Vector3(4, 2, 4)
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.750001, 0.15, -0.5)
+size = Vector3(2, 0.3, 1)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -0.5)
+operation = 1
+sides = 16
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.55, 0.15, -0.5)
+size = Vector3(1, 0.3, 1)
+
+[node name="CSGCombiner3D3" type="CSGCombiner3D" parent="."]
+material_override = ExtResource("1_bp2si")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -0.5)
+size = Vector3(0.25, 2, 0.25)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, -7.5)
+size = Vector3(0.25, 2, 0.25)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D3"]
+transform = Transform3D(1, 0, 0, 0, 0.642788, 0.766044, 0, -0.766044, 0.642788, 0, 4.23553, -3.93435)
+size = Vector3(0.25, 9.4, 0.25)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSGCombiner3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 7, -7.5)
+size = Vector3(0.25, 2, 0.25)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="CSGCombiner3D3"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -1, 6.9, -7.5)
+size = Vector3(0.25, 2.2, 0.25)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="CSGCombiner3D3"]
+transform = Transform3D(1, 0, 0, 0, -0.642788, 0.766044, 0, -0.766044, -0.642788, -2, 9.83553, -3.93435)
+size = Vector3(0.25, 9.4, 0.25)
