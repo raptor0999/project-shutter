@@ -32,6 +32,11 @@ func _ready():
 	#anim.play("rotate_sound_test")
 	
 func _input(event):
+	if Input.is_action_just_pressed("back_track"):
+		Globals.back_track.emit()
+	if Input.is_action_just_pressed("forward_track"):
+		Globals.forward_track.emit()
+		
 	if event is InputEventMouseMotion and mouse_look:
 		_mouse_position = event.relative
 
