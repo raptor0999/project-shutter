@@ -16,6 +16,9 @@ const JUMP_VELOCITY = 4.5
 
 @export_range(0.0, 1.0) var sensitivity: float = 0.25
 
+var smooth_rotation:Vector3
+var turning = false
+
 # Mouse state
 var mouse_look = false
 var _mouse_position = Vector2(0.0, 0.0)
@@ -55,11 +58,23 @@ func _physics_process(delta: float) -> void:
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir
 	
-	if Input.is_action_just_pressed("rotate_left_90"):
-		camera_holder.rotate_y(deg_to_rad(90))
+	if Input.is_action_just_pressed("rotate_left_90") and not turning:
+		#camera_holder.rotate_y(deg_to_rad(90))
+		var tween:Tween = create_tween()
+		var curr_y = camera_holder.rotation.y
+		tween.tween_property(camera_holder, "rotation:y", curr_y + deg_to_rad(90), 0.8).from(curr_y)
+		turning = true
+		tween.play()
+		tween.finished.connect(func(): turning = false)
 		
-	if Input.is_action_just_pressed("rotate_right_90"):
-		camera_holder.rotate_y(deg_to_rad(-90))
+	if Input.is_action_just_pressed("rotate_right_90") and not turning:
+		#camera_holder.rotate_y(deg_to_rad(-90))
+		var tween:Tween = create_tween()
+		var curr_y = camera_holder.rotation.y
+		tween.tween_property(camera_holder, "rotation:y", curr_y - deg_to_rad(90), 0.8).from(curr_y)
+		turning = true
+		tween.play()
+		tween.finished.connect(func(): turning = false)
 		
 	if Input.is_action_pressed("free_look_toggle"):
 		mouse_look = true

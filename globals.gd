@@ -33,6 +33,7 @@ signal brightness_set(value)
 signal contrast_set(value)
 signal saturation_set(value)
 
+signal clear_hud()
 signal hud_level(level)
 signal hud_text(text)
 signal hud_hint(hint)

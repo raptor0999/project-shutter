@@ -8,6 +8,7 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Globals.connect("clear_hud", clear_hud)
 	Globals.connect("hud_level", hud_level)
 	Globals.connect("hud_hint", hud_hint)
 	Globals.connect("hud_text", hud_text)
@@ -15,6 +16,13 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+	
+func clear_hud():
+	level.text = ""
+	hint.text = ""
+	bottom.text = ""
+	for h in hud_texts.get_children():
+		h.queue_free()
 	
 func hud_level(text):
 	level.text = text
@@ -46,12 +54,11 @@ func hud_text(text):
 		tween.play()
 		await tween.finished
 		await get_tree().create_timer(2.0).timeout
-		
-	if is_instance_valid(hud_text):
-		tween = create_tween()
-		tween.tween_property(hud_text, "modulate:a", 0.0, 1.5).from(1.0)
-		tween.play()
-		await tween.finished
 		if is_instance_valid(hud_text):
-			hud_text.text = ""
-			hud_text.queue_free()
+			tween = create_tween()
+			tween.tween_property(hud_text, "modulate:a", 0.0, 1.5).from(1.0)
+			tween.play()
+			await tween.finished
+			if is_instance_valid(hud_text):
+				hud_text.text = ""
+				hud_text.queue_free()

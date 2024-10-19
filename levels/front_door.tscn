@@ -1,12 +1,12 @@
-[gd_scene load_steps=12 format=4 uid="uid://cnst3ldnq22g8"]
+[gd_scene load_steps=12 format=4 uid="uid://crwg1bxqcmqxe"]
 
-[ext_resource type="Script" path="res://levels/level.gd" id="1_trpey"]
-[ext_resource type="PackedScene" uid="uid://bniqk4limmnq0" path="res://assets/art/import/Level-01-LR.glb" id="2_c7dkq"]
-[ext_resource type="PackedScene" uid="uid://bnjbxwpk8m1p0" path="res://assets/art/pre-fabs/wall_02.tscn" id="3_ne855"]
-[ext_resource type="PackedScene" uid="uid://cl5gpc4mf6qhe" path="res://assets/art/pre-fabs/wall_02_door.tscn" id="4_o61k0"]
-[ext_resource type="Material" uid="uid://bktywtfpewkbh" path="res://assets/art/materials/m_tile_wood_bark.tres" id="5_2bdeo"]
-[ext_resource type="MeshLibrary" uid="uid://b2kemvli5urdh" path="res://assets/Mesh-library-v1.tres" id="6_duyy3"]
-[ext_resource type="PackedScene" uid="uid://dct634ct8ch0r" path="res://scenes/objects/doors/door_standard.tscn" id="7_uf5vb"]
+[ext_resource type="Script" path="res://levels/level.gd" id="1_hdl3p"]
+[ext_resource type="PackedScene" uid="uid://bniqk4limmnq0" path="res://assets/art/import/Level-01-LR.glb" id="2_i74n4"]
+[ext_resource type="PackedScene" uid="uid://bnjbxwpk8m1p0" path="res://assets/art/pre-fabs/wall_02.tscn" id="3_7chb6"]
+[ext_resource type="PackedScene" uid="uid://cl5gpc4mf6qhe" path="res://assets/art/pre-fabs/wall_02_door.tscn" id="4_6hy3f"]
+[ext_resource type="Material" uid="uid://bktywtfpewkbh" path="res://assets/art/materials/m_tile_wood_bark.tres" id="5_uwloe"]
+[ext_resource type="MeshLibrary" uid="uid://b2kemvli5urdh" path="res://assets/Mesh-library-v1.tres" id="6_7500b"]
+[ext_resource type="PackedScene" uid="uid://dct634ct8ch0r" path="res://scenes/objects/doors/door_standard.tscn" id="7_bkrl1"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yj84b"]
 
@@ -47,70 +47,62 @@ background_mode = 1
 ambient_light_color = Color(1, 1, 1, 1)
 adjustment_enabled = true
 
-[node name="Kitchen" type="Node3D"]
-script = ExtResource("1_trpey")
-display_name = "Kitchen"
+[node name="Pantry" type="Node3D"]
+script = ExtResource("1_hdl3p")
+display_name = "Pantry"
 
-[node name="Level-01-LR" parent="." instance=ExtResource("2_c7dkq")]
+[node name="Level-01-LR" parent="." instance=ExtResource("2_i74n4")]
 visible = false
 
 [node name="Walls" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
 
-[node name="Wall-01" parent="Walls" instance=ExtResource("3_ne855")]
+[node name="Wall-01" parent="Walls" instance=ExtResource("3_7chb6")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8, 0, -12)
 
-[node name="Wall-02" parent="Walls" instance=ExtResource("3_ne855")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
+[node name="Wall-02" parent="Walls" instance=ExtResource("3_7chb6")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4, 0, -11.5)
 
-[node name="Wall-07" parent="Walls" instance=ExtResource("3_ne855")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 12, 0, -4)
+[node name="Wall-03" parent="Walls" instance=ExtResource("3_7chb6")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8, 0, -12)
 
-[node name="Wall-09" parent="Walls" instance=ExtResource("3_ne855")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 12, 0, -12)
+[node name="Wall-07" parent="Walls" instance=ExtResource("3_7chb6")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 20, 0, -12)
 
-[node name="Wall-05" parent="Walls" instance=ExtResource("3_ne855")]
+[node name="Wall-09" parent="Walls" instance=ExtResource("3_7chb6")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 12, 0, -12)
+
+[node name="Wall-10" parent="Walls" instance=ExtResource("3_7chb6")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 16, 0, -12)
+
+[node name="Wall-05" parent="Walls" instance=ExtResource("3_7chb6")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.99382e-07, 0, -12)
 
-[node name="Wall-06" parent="Walls" instance=ExtResource("3_ne855")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4, 0, -12)
-
-[node name="Wall-20" parent="Walls" instance=ExtResource("3_ne855")]
+[node name="Wall-20" parent="Walls" instance=ExtResource("3_7chb6")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8, 0, -12)
 
-[node name="Wall-11" parent="Walls" instance=ExtResource("3_ne855")]
-transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 4, 0, 5.24537e-07)
-
-[node name="Wall-12" parent="Walls" instance=ExtResource("3_ne855")]
-transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 8, 0, 5.24537e-07)
-
-[node name="Wall-19" parent="Walls" instance=ExtResource("3_ne855")]
-transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 12, 0, 1.04907e-06)
-
-[node name="Wall-base" parent="Walls" instance=ExtResource("4_o61k0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+[node name="Wall-base" parent="Walls" instance=ExtResource("4_6hy3f")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4, 0, -12)
 
 [node name="Prop-Column-01" type="Node3D" parent="Walls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -12)
 
 [node name="Column-01" type="MeshInstance3D" parent="Walls/Prop-Column-01"]
 mesh = SubResource("ArrayMesh_80wuv")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("5_2bdeo")
-
-[node name="Wall-base3" parent="Walls" instance=ExtResource("4_o61k0")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 12.003, 0, -8)
+surface_material_override/0 = ExtResource("5_uwloe")
 
 [node name="Prop-Column-03" type="Node3D" parent="Walls"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 12.003, 0, -8)
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 12.003, 0, -12)
 
 [node name="Column-01" type="MeshInstance3D" parent="Walls/Prop-Column-03"]
 mesh = SubResource("ArrayMesh_80wuv")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("5_2bdeo")
+surface_material_override/0 = ExtResource("5_uwloe")
 
 [node name="GridMap" type="GridMap" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
-mesh_library = ExtResource("6_duyy3")
+mesh_library = ExtResource("6_7500b")
 cell_size = Vector3(2, 1, 2)
 cell_center_x = false
 cell_center_z = false
@@ -125,25 +117,26 @@ environment = SubResource("Environment_u2td3")
 [node name="Lights" type="Node3D" parent="."]
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Lights"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 5, -5)
-omni_range = 9.86
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 4.5, -11)
+light_energy = 0.673
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 4.5, -11)
+light_energy = 0.346
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 4.5, -11)
+light_energy = 0.346
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lights"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -1.56603, 22.8494, 24.4055)
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, -1.56603, 22.8494, 24.4055)
 light_energy = 0.01
 shadow_enabled = true
 
 [node name="Doors" type="Node3D" parent="."]
 
-[node name="LivingRoomKitchen" parent="Doors" instance=ExtResource("7_uf5vb")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 1, -5.5)
-to_level = "living_room"
-to_door = "KitchenLivingRoom"
-y_rot = -90.0
-
-[node name="UnknownKitchen" parent="Doors" instance=ExtResource("7_uf5vb")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 11, 1, -6)
-locked = true
-to_level = "unknown"
-to_door = "KitchenUnknown"
-y_rot = 90.0
+[node name="FoyerFrontDoor" parent="Doors" instance=ExtResource("7_bkrl1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1, -11)
+to_level = "foyer"
+to_door = "FrontDoorFoyer"
+y_rot = 180.0

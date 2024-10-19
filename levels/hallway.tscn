@@ -144,11 +144,13 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 1, 
 locked = true
 to_level = "unknown"
 to_door = "HallwayUnknown"
+y_rot = -90.0
 
 [node name="FoyerHallway" parent="Doors" instance=ExtResource("7_5yqud")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 11, 1, -6)
 to_level = "foyer"
 to_door = "HallwayFoyer"
+y_rot = 90.0
 
 [node name="DiningRoomHallway" parent="Doors" instance=ExtResource("7_5yqud")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2, 1, -1)
@@ -159,8 +161,10 @@ to_door = "HallwayDiningRoom"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, -11)
 to_level = "pantry"
 to_door = "HallwayPantry"
+y_rot = 180.0
 
 [node name="BathroomHallway" parent="Doors" instance=ExtResource("7_5yqud")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 1, -11)
 to_level = "bathroom"
 to_door = "HallwayBathroom"
+y_rot = 180.0

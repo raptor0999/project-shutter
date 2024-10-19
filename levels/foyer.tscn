@@ -236,8 +236,9 @@ shadow_enabled = true
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 11, 1, -10)
 to_level = "living_room"
 to_door = "FoyerLivingRoom"
+y_rot = 90.0
 
-[node name="FrontDoor" parent="Doors" instance=ExtResource("6_igekv")]
+[node name="FrontDoorFoyer" parent="Doors" instance=ExtResource("6_igekv")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 6, 1, -1)
 locked = true
 to_level = "front_door"
@@ -247,8 +248,10 @@ to_door = "FoyerFrontDoor"
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3, 1, -10)
 to_level = "dining_room"
 to_door = "FoyerDiningRoom"
+y_rot = -90.0
 
 [node name="HallwayFoyer" parent="Doors" instance=ExtResource("6_igekv")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3, 1, -22)
 to_level = "hallway"
 to_door = "FoyerHallway"
+y_rot = -90.0
