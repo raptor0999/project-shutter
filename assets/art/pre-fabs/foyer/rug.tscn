@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bt1jg7mwq5mj8"]
+
+[ext_resource type="Texture2D" uid="uid://c56o623uymti6" path="res://assets/art/textures/greybox/Dark/texture_07.png" id="1_ik3me"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Decal" type="Decal" parent="."]
+size = Vector3(10, 1, 3)
+texture_albedo = ExtResource("1_ik3me")

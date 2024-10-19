@@ -1,11 +1,20 @@
-[gd_scene load_steps=12 format=4 uid="uid://bvhdtxrxbbl62"]
+[gd_scene load_steps=19 format=4 uid="uid://bvhdtxrxbbl62"]
 
 [ext_resource type="PackedScene" uid="uid://bnjbxwpk8m1p0" path="res://assets/art/pre-fabs/wall_02.tscn" id="1_4ocef"]
 [ext_resource type="Script" path="res://levels/level.gd" id="1_k5un2"]
 [ext_resource type="PackedScene" uid="uid://cl5gpc4mf6qhe" path="res://assets/art/pre-fabs/wall_02_door.tscn" id="2_b0b56"]
 [ext_resource type="MeshLibrary" uid="uid://b2kemvli5urdh" path="res://assets/Mesh-library-v1.tres" id="3_ywu2k"]
 [ext_resource type="Material" uid="uid://bktywtfpewkbh" path="res://assets/art/materials/m_tile_wood_bark.tres" id="4_mt8dn"]
+[ext_resource type="PackedScene" uid="uid://dtkcmk327cpg3" path="res://assets/art/import/Prop-Column-01.glb" id="4_olf25"]
+[ext_resource type="PackedScene" uid="uid://c4dt8huqmrroj" path="res://assets/art/pre-fabs/foyer/foyer_table.tscn" id="5_5s5e2"]
 [ext_resource type="PackedScene" uid="uid://dct634ct8ch0r" path="res://scenes/objects/doors/door_standard.tscn" id="6_igekv"]
+[ext_resource type="PackedScene" uid="uid://dvs74sh33oynf" path="res://assets/art/pre-fabs/foyer/stairs.tscn" id="7_dvjwa"]
+[ext_resource type="PackedScene" uid="uid://dgwaqdvjul22p" path="res://assets/art/pre-fabs/foyer/obstacle.tscn" id="9_pwljv"]
+[ext_resource type="PackedScene" uid="uid://bt1jg7mwq5mj8" path="res://assets/art/pre-fabs/foyer/rug.tscn" id="10_n0vqv"]
+[ext_resource type="PackedScene" uid="uid://bairytaoaefdv" path="res://assets/art/pre-fabs/foyer/couch.tscn" id="12_12bsy"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_7yyt5"]
+points = PackedVector3Array(-0.1156, -2.38419e-07, 0.688396, -0.368066, -2.38419e-07, 0.593471, 0.153955, -2.38419e-07, 0.679318, 0.135664, 6, 0.601348, -0.10265, 6, 0.609225, -0.325744, 6, 0.525382, -0.564992, -2.38419e-07, 0.409362, -0.499973, 6, 0.362634, 0.399479, -2.38419e-07, 0.567838, 0.35275, 6, 0.502685, -0.676472, -2.38419e-07, 0.163839, -0.598503, 6, 0.145548, 0.583588, -2.38419e-07, 0.370911, 0.515498, 6, 0.328589, -0.685418, -2.38419e-07, -0.105717, -0.60638, 6, -0.0927663, 0.678513, -2.38419e-07, 0.118445, 0.599342, 6, 0.105495, -0.590626, -2.38419e-07, -0.358183, -0.52267, 6, -0.31586, 0.669434, -2.38419e-07, -0.15111, 0.591465, 6, -0.132819, -0.406517, -2.38419e-07, -0.555109, -0.359788, 6, -0.49009, 0.557954, -2.38419e-07, -0.396633, 0.492802, 6, -0.349905, -0.160993, -2.38419e-07, -0.666589, -0.142702, 6, -0.58862, 0.361028, -2.38419e-07, -0.580743, 0.318706, 6, -0.512786, 0.108562, -2.38419e-07, -0.675534, 0.0956116, 6, -0.596497)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7fbk5"]
 size = Vector3(16.7, 1.4, 33.3)
@@ -140,6 +149,23 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 12, 0,
 [node name="Prop-Column-03" type="Node3D" parent="Walls"]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 12, 0, -8)
 
+[node name="Prop-Column-04" parent="Walls" instance=ExtResource("4_olf25")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, -12)
+
+[node name="Column-01" parent="Walls/Prop-Column-04" index="0"]
+surface_material_override/0 = ExtResource("4_mt8dn")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Walls/Prop-Column-04/Column-01" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/Prop-Column-04/Column-01/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_7yyt5")
+
+[node name="Prop-Column-04" parent="Walls/Prop-Column-04" instance=ExtResource("4_olf25")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, -8)
+
+[node name="Column-01" parent="Walls/Prop-Column-04/Prop-Column-04" index="0"]
+surface_material_override/0 = ExtResource("4_mt8dn")
+
 [node name="GridMap" type="GridMap" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
 mesh_library = ExtResource("3_ywu2k")
@@ -160,6 +186,22 @@ shape = SubResource("BoxShape3D_7fbk5")
 
 [node name="Props" type="Node3D" parent="."]
 
+[node name="Table" parent="Props" instance=ExtResource("5_5s5e2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0.75, -13)
+
+[node name="Obstacle" parent="Props" instance=ExtResource("9_pwljv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.78716, 1.3735, -19.5569)
+
+[node name="Rug" parent="Props" instance=ExtResource("10_n0vqv")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5.85977, 0.9, -4.24052)
+
+[node name="Rug2" parent="Props" instance=ExtResource("10_n0vqv")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9.85977, 0.9, -10.2405)
+
+[node name="Decal" parent="Props/Rug2" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0, 1)
+size = Vector3(4, 1, 2)
+
 [node name="Prop-Column-01" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7, 0.8, -8)
 
@@ -170,31 +212,7 @@ surface_material_override/0 = ExtResource("4_mt8dn")
 
 [node name="Stairs" type="Node3D" parent="."]
 
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Stairs"]
-
-[node name="CSGBox3D" type="CSGBox3D" parent="Stairs/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 1.6, -23)
-size = Vector3(4, 2, 4)
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="Stairs/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2.6, -26)
-size = Vector3(4, 2, 4)
-
-[node name="CSGBox3D3" type="CSGBox3D" parent="Stairs/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 3.6, -29)
-size = Vector3(4, 2, 4)
-
-[node name="CSGBox3D4" type="CSGBox3D" parent="Stairs/CSGCombiner3D"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7, 4.6, -29)
-size = Vector3(4, 2, 4)
-
-[node name="CSGBox3D5" type="CSGBox3D" parent="Stairs/CSGCombiner3D"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4, 5.6, -28.5)
-size = Vector3(5, 2, 4)
-
-[node name="CSGBox3D6" type="CSGBox3D" parent="Stairs/CSGCombiner3D"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4, 6.6, -25)
-size = Vector3(4, 2, 4)
+[node name="CSGCombiner3D" parent="Stairs" instance=ExtResource("7_dvjwa")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_c5okn")
@@ -255,3 +273,10 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3, 1,
 to_level = "hallway"
 to_door = "FoyerHallway"
 y_rot = -90.0
+
+[node name="Node3D" parent="." instance=ExtResource("12_12bsy")]
+transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 2, 2, -25)
+
+[editable path="Walls/Prop-Column-04"]
+[editable path="Walls/Prop-Column-04/Prop-Column-04"]
+[editable path="Props/Rug2"]

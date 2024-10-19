@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgwaqdvjul22p"]
+
+[ext_resource type="Material" uid="uid://cf7dikkc1ac3t" path="res://assets/art/materials/prototype/grid_dark.tres" id="1_oe2jr"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_02xoc"]
+size = Vector3(3.78687, 1.64551, 2.0791)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+material_override = ExtResource("1_oe2jr")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.295837, 0)
+size = Vector3(2.8, 1.6, 2)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.310059, 0)
+shape = SubResource("BoxShape3D_02xoc")

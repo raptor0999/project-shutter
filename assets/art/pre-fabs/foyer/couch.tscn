@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://bairytaoaefdv"]
+
+[ext_resource type="Material" uid="uid://bvmoq11yic1ki" path="res://assets/art/materials/prototype/grid_orange.tres" id="1_0gwrv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1hei3"]
+size = Vector3(4.1, 1.6, 2.3)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+material_override = ExtResource("1_0gwrv")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+size = Vector3(4, 1.5, 2)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.7, 0)
+operation = 2
+size = Vector3(3.6, 2, 2)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15, 0.8, 0.2)
+operation = 2
+size = Vector3(3.7, 2, 2)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 0.906308, 0.422618, 0, -0.422618, 0.906308, -1, 0.216998, -0.6)
+size = Vector3(1, 1, 0.2)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 0.906308, 0.422618, 0, -0.422618, 0.906308, 1, 0.216998, -0.6)
+size = Vector3(1, 1, 0.2)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="CSGCombiner3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CSGCombiner3D/StaticBody3D"]
+shape = SubResource("BoxShape3D_1hei3")
