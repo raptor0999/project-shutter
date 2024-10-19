@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://c73t111i0oxsa"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+use_collision = true
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D/CSGSphere3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0)
+operation = 2
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner3D/CSGSphere3D"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0.4, 0, 0)
+radius = 0.1
+height = 0.6
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="CSGCombiner3D/CSGSphere3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0.6, 0)
+radius = 0.1
+height = 1.2
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="CSGCombiner3D/CSGSphere3D"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0.9, 1.2, 0)
+radius = 0.1
+height = 1.4
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="CSGCombiner3D/CSGSphere3D"]
+transform = Transform3D(-1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0, 1, 1.4, 0.8, 0)
+radius = 0.1
+height = 0.8
+
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4, 0.6, 0)
+radius = 0.3
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.7, 0, 0)
+spot_range = 4.0

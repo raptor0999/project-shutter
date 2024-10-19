@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://bvhdtxrxbbl62"]
+[gd_scene load_steps=21 format=4 uid="uid://bvhdtxrxbbl62"]
 
 [ext_resource type="PackedScene" uid="uid://bnjbxwpk8m1p0" path="res://assets/art/pre-fabs/wall_02.tscn" id="1_4ocef"]
 [ext_resource type="Script" path="res://levels/level.gd" id="1_k5un2"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://dtkcmk327cpg3" path="res://assets/art/import/Prop-Column-01.glb" id="4_olf25"]
 [ext_resource type="PackedScene" uid="uid://c4dt8huqmrroj" path="res://assets/art/pre-fabs/foyer/foyer_table.tscn" id="5_5s5e2"]
 [ext_resource type="PackedScene" uid="uid://dct634ct8ch0r" path="res://scenes/objects/doors/door_standard.tscn" id="6_igekv"]
+[ext_resource type="PackedScene" uid="uid://btmac6707pvyt" path="res://assets/art/pre-fabs/foyer/wall_foyer.tscn" id="6_ijq7n"]
+[ext_resource type="PackedScene" uid="uid://c73t111i0oxsa" path="res://assets/art/pre-fabs/foyer/wall_lamp.tscn" id="7_7q003"]
 [ext_resource type="PackedScene" uid="uid://dvs74sh33oynf" path="res://assets/art/pre-fabs/foyer/stairs.tscn" id="7_dvjwa"]
 [ext_resource type="PackedScene" uid="uid://dgwaqdvjul22p" path="res://assets/art/pre-fabs/foyer/obstacle.tscn" id="9_pwljv"]
 [ext_resource type="PackedScene" uid="uid://bt1jg7mwq5mj8" path="res://assets/art/pre-fabs/foyer/rug.tscn" id="10_n0vqv"]
@@ -165,6 +167,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, -8)
 
 [node name="Column-01" parent="Walls/Prop-Column-04/Prop-Column-04" index="0"]
 surface_material_override/0 = ExtResource("4_mt8dn")
+
+[node name="Wall-Foyer" parent="Walls" instance=ExtResource("6_ijq7n")]
+
+[node name="Node3D" parent="Walls" instance=ExtResource("7_7q003")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7.5, 3.2, -11.6)
+
+[node name="Node3D2" parent="Walls" instance=ExtResource("7_7q003")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.5, 3.2, -11.6)
 
 [node name="GridMap" type="GridMap" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
