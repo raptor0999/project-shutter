@@ -1,10 +1,8 @@
-class_name Door
-extends Interactable
+class_name Interactable
+extends Node
 
-@export var locked:bool
-@export var to_level:String
-@export var to_door:String
-@export var y_rot:float = 0
+@export var interactable_name:String
+@export var interactable_text:String
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

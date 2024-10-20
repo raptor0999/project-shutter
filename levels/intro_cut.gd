@@ -16,6 +16,7 @@ func _input(event) -> void:
 	if Input.is_action_just_pressed("interact"):
 		if intro_done:
 			Globals.load_level.emit("foyer", "standard_cam", "FrontDoorFoyer")
+			Globals.game_started = true
 		else:
 			if not skip_label.visible:
 				skip_label.show()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://bvhdtxrxbbl62"]
+[gd_scene load_steps=23 format=4 uid="uid://bvhdtxrxbbl62"]
 
 [ext_resource type="PackedScene" uid="uid://bnjbxwpk8m1p0" path="res://assets/art/pre-fabs/wall_02.tscn" id="1_4ocef"]
 [ext_resource type="Script" path="res://levels/level.gd" id="1_k5un2"]
@@ -14,6 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://dgwaqdvjul22p" path="res://assets/art/pre-fabs/foyer/obstacle.tscn" id="9_pwljv"]
 [ext_resource type="PackedScene" uid="uid://bt1jg7mwq5mj8" path="res://assets/art/pre-fabs/foyer/rug.tscn" id="10_n0vqv"]
 [ext_resource type="PackedScene" uid="uid://bairytaoaefdv" path="res://assets/art/pre-fabs/foyer/couch.tscn" id="12_12bsy"]
+[ext_resource type="Script" path="res://scenes/objects/interactable.gd" id="15_ms7ce"]
+[ext_resource type="PackedScene" uid="uid://bmlenb35wimka" path="res://scenes/objects/clues/note.tscn" id="16_vmcoc"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_7yyt5"]
 points = PackedVector3Array(-0.1156, -2.38419e-07, 0.688396, -0.368066, -2.38419e-07, 0.593471, 0.153955, -2.38419e-07, 0.679318, 0.135664, 6, 0.601348, -0.10265, 6, 0.609225, -0.325744, 6, 0.525382, -0.564992, -2.38419e-07, 0.409362, -0.499973, 6, 0.362634, 0.399479, -2.38419e-07, 0.567838, 0.35275, 6, 0.502685, -0.676472, -2.38419e-07, 0.163839, -0.598503, 6, 0.145548, 0.583588, -2.38419e-07, 0.370911, 0.515498, 6, 0.328589, -0.685418, -2.38419e-07, -0.105717, -0.60638, 6, -0.0927663, 0.678513, -2.38419e-07, 0.118445, 0.599342, 6, 0.105495, -0.590626, -2.38419e-07, -0.358183, -0.52267, 6, -0.31586, 0.669434, -2.38419e-07, -0.15111, 0.591465, 6, -0.132819, -0.406517, -2.38419e-07, -0.555109, -0.359788, 6, -0.49009, 0.557954, -2.38419e-07, -0.396633, 0.492802, 6, -0.349905, -0.160993, -2.38419e-07, -0.666589, -0.142702, 6, -0.58862, 0.361028, -2.38419e-07, -0.580743, 0.318706, 6, -0.512786, 0.108562, -2.38419e-07, -0.675534, 0.0956116, 6, -0.596497)
@@ -198,6 +200,22 @@ shape = SubResource("BoxShape3D_7fbk5")
 
 [node name="Table" parent="Props" instance=ExtResource("5_5s5e2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0.75, -13)
+layers = 17
+script = ExtResource("15_ms7ce")
+interactable_name = "Coffee Table"
+interactable_text = "Pretty coffee table."
+
+[node name="Note" parent="Props/Table" instance=ExtResource("16_vmcoc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.842485, 0.998261, -0.958043)
+clue_name = "Letter to Tony"
+description = "A letter written to Tony"
+text = "Dear Tony, 
+
+I hope this letter finds you well after your trip here. Unfortunately, I could not be here for your arrival, but I should be back soon enough. Please make yourself comfortable. We will discuss what we need to when I make it back.
+
+Love, Aunt Monica
+
+P.S. Whenever you make it to the kitchen you will find your favorite snack!"
 
 [node name="Obstacle" parent="Props" instance=ExtResource("9_pwljv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.78716, 1.3735, -20.5569)
@@ -287,6 +305,17 @@ y_rot = -90.0
 
 [node name="Node3D" parent="." instance=ExtResource("12_12bsy")]
 transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 2, 2, -25)
+script = ExtResource("15_ms7ce")
+interactable_name = "Orange Couch"
+interactable_text = "This couch seems kind of hard. Not sure I will sit on it."
+
+[node name="Note" parent="Node3D" instance=ExtResource("16_vmcoc")]
+transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 1.73775, -0.189507, -0.493172)
+clue_name = "Monica's Note"
+description = "A note written by Monica, your aunt"
+text = "My head’s not quite right. The migraines are getting stronger. The time between migraines is also decreasing, and each migraine lasts longer than the previous one. That’s not even the worst part. Whenever I feel symptoms of my condition, it also feels like the world is breaking, everything becomes purple and I can see my surroundings affected by this time-space rift.
+
+At this point, I don’t even know what’s real and what’s not. On one hand, I feel my existence is fading away, but on the other, the rifts and glitches make me feel like I’m closer to finding my voice and my true self."
 
 [editable path="Walls/Prop-Column-04"]
 [editable path="Walls/Prop-Column-04/Prop-Column-04"]

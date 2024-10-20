@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://cnst3ldnq22g8"]
+[gd_scene load_steps=13 format=4 uid="uid://cnst3ldnq22g8"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_trpey"]
 [ext_resource type="PackedScene" uid="uid://bniqk4limmnq0" path="res://assets/art/import/Level-01-LR.glb" id="2_c7dkq"]
@@ -7,6 +7,7 @@
 [ext_resource type="Material" uid="uid://bktywtfpewkbh" path="res://assets/art/materials/m_tile_wood_bark.tres" id="5_2bdeo"]
 [ext_resource type="MeshLibrary" uid="uid://b2kemvli5urdh" path="res://assets/Mesh-library-v1.tres" id="6_duyy3"]
 [ext_resource type="PackedScene" uid="uid://dct634ct8ch0r" path="res://scenes/objects/doors/door_standard.tscn" id="7_uf5vb"]
+[ext_resource type="PackedScene" uid="uid://cbjcccecwqif3" path="res://scenes/objects/items/cookie.tscn" id="8_ri8an"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yj84b"]
 
@@ -136,7 +137,7 @@ shadow_enabled = true
 [node name="Doors" type="Node3D" parent="."]
 
 [node name="LivingRoomKitchen" parent="Doors" instance=ExtResource("7_uf5vb")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 1, -5.5)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 1, -6)
 to_level = "living_room"
 to_door = "KitchenLivingRoom"
 y_rot = -90.0
@@ -147,3 +148,10 @@ locked = true
 to_level = "unknown"
 to_door = "KitchenUnknown"
 y_rot = 90.0
+
+[node name="Clues" type="Node3D" parent="."]
+
+[node name="Items" type="Node3D" parent="."]
+
+[node name="Cookie" parent="Items" instance=ExtResource("8_ri8an")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, -1.5)

@@ -1,5 +1,5 @@
 class_name Clue
-extends Node
+extends Interactable
 
 enum ClueTypes {
 	NOTE,
@@ -10,7 +10,7 @@ enum ClueTypes {
 @export var clue_name:String
 @export var clue_type:ClueTypes
 @export var description:String
-@export var text:String
+@export_multiline var text:String
 @export var audio:Resource
 @export var image:Resource
 

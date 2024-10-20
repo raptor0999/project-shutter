@@ -1,0 +1,135 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdn87b2f7mm6t"]
+
+[ext_resource type="Script" path="res://ui/item_menu.gd" id="1_fo550"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5amls"]
+
+[node name="ItemMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -301.0
+offset_top = -234.0
+offset_right = 299.0
+offset_bottom = 215.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fo550")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.317647, 0.560784, 0.682353, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 184.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 46
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5amls")
+text = "Items"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -140.5
+offset_right = 250.0
+offset_bottom = 59.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ItemList" type="ItemList" parent="HBoxContainer"]
+custom_minimum_size = Vector2(500, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+fixed_icon_size = Vector2i(24, 24)
+
+[node name="PopupPanel" type="PopupPanel" parent="HBoxContainer/ItemList"]
+initial_position = 1
+size = Vector2i(700, 700)
+unresizable = false
+borderless = false
+max_size = Vector2i(700, 700)
+
+[node name="Label" type="Label" parent="HBoxContainer/ItemList/PopupPanel"]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 696.0
+offset_bottom = 696.0
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/ItemList/PopupPanel"]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 696.0
+offset_bottom = 696.0
+expand_mode = 2
+stretch_mode = 3
+
+[node name="Description" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -154.0
+offset_bottom = -68.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5amls")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RecordingPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Close" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = 173.5
+offset_right = 25.0
+offset_bottom = 208.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Close"
+flat = true
+
+[connection signal="item_activated" from="HBoxContainer/ItemList" to="." method="_on_item_list_item_activated"]
+[connection signal="item_clicked" from="HBoxContainer/ItemList" to="." method="_on_item_list_item_clicked"]
+[connection signal="popup_hide" from="HBoxContainer/ItemList/PopupPanel" to="." method="_on_popup_panel_popup_hide"]
+[connection signal="pressed" from="Close" to="." method="_on_close_pressed"]

@@ -16,9 +16,8 @@ material = SubResource("StandardMaterial3D_udvii")
 radius = 0.4
 height = 1.8
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_13ga1"]
-radius = 0.4
-height = 1.8
+[sub_resource type="BoxShape3D" id="BoxShape3D_5pig5"]
+size = Vector3(2, 2, 2)
 
 [sub_resource type="SphereMesh" id="SphereMesh_k7wtq"]
 radius = 0.1
@@ -77,10 +76,10 @@ shape = SubResource("BoxShape3D_7q81o")
 mesh = SubResource("CapsuleMesh_vu8xs")
 
 [node name="Area3D" type="Area3D" parent="."]
-collision_mask = 13
+collision_mask = 29
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-shape = SubResource("CapsuleShape3D_13ga1")
+shape = SubResource("BoxShape3D_5pig5")
 
 [node name="AudioListener3D" type="AudioListener3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
