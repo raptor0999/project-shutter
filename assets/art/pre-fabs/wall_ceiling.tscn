@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://du4g6lxidg6yr"]
+
+[node name="Ceiling" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.25, 0)
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -0.25, -2)
+size = Vector3(4, 0.25, 4)

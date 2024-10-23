@@ -1,10 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://bnjbxwpk8m1p0"]
+[gd_scene load_steps=9 format=3 uid="uid://bnjbxwpk8m1p0"]
 
 [ext_resource type="PackedScene" uid="uid://bgaskejwmh6e0" path="res://assets/art/import/Wall-01.glb" id="1_q0xy7"]
 [ext_resource type="Material" uid="uid://bktywtfpewkbh" path="res://assets/art/materials/m_tile_wood_bark.tres" id="2_glypf"]
 [ext_resource type="Material" uid="uid://b6xvtcpvsjsqr" path="res://assets/art/materials/m_tile_concrete.tres" id="2_l5eom"]
 [ext_resource type="Material" uid="uid://ijihm2hk1r74" path="res://assets/art/materials/m_tile_wood.tres" id="2_nwfop"]
 [ext_resource type="Material" uid="uid://bhadhj0p4k41p" path="res://assets/art/materials/prototype/grid_light.tres" id="5_huusf"]
+[ext_resource type="PackedScene" uid="uid://dl25vttf6apok" path="res://assets/art/pre-fabs/wall_ceiling_frame.tscn" id="6_42oaf"]
+[ext_resource type="PackedScene" uid="uid://du4g6lxidg6yr" path="res://assets/art/pre-fabs/wall_ceiling.tscn" id="7_hsynh"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_71rrn"]
 points = PackedVector3Array(-0.0035876, -9.08747e-05, 0.697546, -0.267965, -9.08747e-05, 0.644739, -0.403536, -0.0888972, 0.00783873, 0.0966702, -0.0888972, 0.00783873, 0.260925, -9.08747e-05, 0.644739, 0.230347, 6, 0.570809, -0.0035876, 6, 0.617188, -0.237387, 6, 0.570809, -0.492158, -9.08747e-05, 0.495042, -0.403536, -0.0888972, -3.99173, -0.642071, -9.08747e-05, 0.270497, -0.694568, -9.08747e-05, 0.00600171, 0.0966702, -0.0888972, -3.99173, 0.687663, -9.08747e-05, 0.00600171, 0.635031, -9.08747e-05, 0.270497, 0.485118, -9.08747e-05, 0.495042, 0.428562, 6, 0.438102, -0.435602, 6, 0.438102, -0.568062, 6, 0.24019, -0.628541, -9.08747e-05, -3.99357, -0.628541, 6, 0.00600171, -0.628541, 6, -3.99357, -0.0284829, -9.08747e-05, -3.99357, 0.0966702, 1.51081, -3.99173, 0.130495, 5.99881, -3.56514, 0.60743, 6, 0.00600171, 0.561022, 6, 0.24019, -0.0284829, 6, -3.99357)
@@ -37,3 +39,7 @@ size = Vector3(0.145386, 0.5, 4)
 [node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D" index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, -2)
 size = Vector3(0.145, 1, 4)
+
+[node name="Node3D" parent="." index="2" instance=ExtResource("6_42oaf")]
+
+[node name="Ceiling" parent="Node3D" index="1" instance=ExtResource("7_hsynh")]

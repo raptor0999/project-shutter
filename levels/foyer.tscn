@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bvhdtxrxbbl62"]
+[gd_scene load_steps=25 format=3 uid="uid://bvhdtxrxbbl62"]
 
 [ext_resource type="PackedScene" uid="uid://bnjbxwpk8m1p0" path="res://assets/art/pre-fabs/wall_02.tscn" id="1_4ocef"]
 [ext_resource type="Script" path="res://levels/level.gd" id="1_k5un2"]
@@ -9,7 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://btmac6707pvyt" path="res://assets/art/pre-fabs/foyer/wall_foyer.tscn" id="6_ijq7n"]
 [ext_resource type="PackedScene" uid="uid://c73t111i0oxsa" path="res://assets/art/pre-fabs/foyer/wall_lamp.tscn" id="7_7q003"]
 [ext_resource type="PackedScene" uid="uid://dvs74sh33oynf" path="res://assets/art/pre-fabs/foyer/stairs.tscn" id="7_dvjwa"]
+[ext_resource type="PackedScene" uid="uid://bf05j7c7ytg40" path="res://assets/art/pre-fabs/wall_02_corner.tscn" id="7_h6gux"]
 [ext_resource type="PackedScene" uid="uid://cteb8xne3d6y3" path="res://assets/art/pre-fabs/foyer/grand_entrance.tscn" id="8_726ub"]
+[ext_resource type="PackedScene" uid="uid://du4g6lxidg6yr" path="res://assets/art/pre-fabs/wall_ceiling.tscn" id="8_waydg"]
 [ext_resource type="PackedScene" uid="uid://dgwaqdvjul22p" path="res://assets/art/pre-fabs/foyer/obstacle.tscn" id="9_pwljv"]
 [ext_resource type="PackedScene" uid="uid://bt1jg7mwq5mj8" path="res://assets/art/pre-fabs/foyer/rug.tscn" id="10_n0vqv"]
 [ext_resource type="PackedScene" uid="uid://bairytaoaefdv" path="res://assets/art/pre-fabs/foyer/couch.tscn" id="12_12bsy"]
@@ -18,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://dc0avaelqd536" path="res://assets/art/pre-fabs/foyer/p_coat_rack.tscn" id="15_x2ddx"]
 [ext_resource type="PackedScene" uid="uid://ngi5vx5obum0" path="res://assets/art/pre-fabs/props/floor-lamp.tscn" id="16_85h3s"]
 [ext_resource type="PackedScene" uid="uid://bmlenb35wimka" path="res://scenes/objects/clues/note.tscn" id="16_vmcoc"]
+[ext_resource type="Texture2D" uid="uid://bxuxo2ytfg81h" path="res://assets/images/icons/note_icon.png" id="17_e4nfb"]
 [ext_resource type="PackedScene" uid="uid://nq4ol04r66wm" path="res://assets/art/pre-fabs/props/painting.tscn" id="17_twp8h"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7fbk5"]
@@ -56,12 +59,6 @@ transform = Transform3D(1, -0.000673089, 0.000510629, 0.00067342, 1, -0.00064767
 [node name="Wall-08" parent="Walls" instance=ExtResource("1_4ocef")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -16)
 
-[node name="Wall-09" parent="Walls" instance=ExtResource("1_4ocef")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -24.2)
-
-[node name="Wall-15" parent="Walls" instance=ExtResource("1_4ocef")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4, 0, -24)
-
 [node name="Wall-21" parent="Walls" instance=ExtResource("1_4ocef")]
 transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 8, 0, -8)
 
@@ -94,11 +91,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
 [node name="Wall-base4" parent="Walls" instance=ExtResource("2_b0b56")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -20)
 
+[node name="Door-01" parent="Walls/Wall-base4" index="1"]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0.0999999, 0, -1.15)
+
+[node name="Cylinder_002" parent="Walls/Wall-base4/Door-01" index="0"]
+surface_material_override/0 = null
+
 [node name="Wall-base2" parent="Walls" instance=ExtResource("2_b0b56")]
 transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 8, 0, -12)
 
 [node name="Wall-Foyer" parent="Walls" instance=ExtResource("6_ijq7n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0.2, -8)
 
 [node name="Node3D" parent="Walls" instance=ExtResource("7_7q003")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7.4, 2.3, -11.6)
@@ -109,6 +111,36 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.6, 2
 [node name="Grand Entrance" parent="Walls" instance=ExtResource("8_726ub")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 4, 0, 0.2)
 
+[node name="Wall-09" parent="Walls" instance=ExtResource("7_h6gux")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -28)
+
+[node name="Ceiling" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+
+[node name="Ceiling" parent="Ceiling" instance=ExtResource("8_waydg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.25, -12)
+
+[node name="Ceiling2" parent="Ceiling" instance=ExtResource("8_waydg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.25, -16)
+
+[node name="Ceiling3" parent="Ceiling" instance=ExtResource("8_waydg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.25, -20)
+
+[node name="Ceiling4" parent="Ceiling" instance=ExtResource("8_waydg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.25, -24)
+
+[node name="Ceiling5" parent="Ceiling" instance=ExtResource("8_waydg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 7.25, -24)
+
+[node name="Ceiling6" parent="Ceiling" instance=ExtResource("8_waydg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 7.25, -20)
+
+[node name="Ceiling7" parent="Ceiling" instance=ExtResource("8_waydg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 7.25, -16)
+
+[node name="Ceiling8" parent="Ceiling" instance=ExtResource("8_waydg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 7.25, -12)
+
 [node name="GridMap" type="GridMap" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
 mesh_library = ExtResource("3_ywu2k")
@@ -118,7 +150,7 @@ cell_center_z = false
 data = {
 "cells": PackedInt32Array(0, 0, 7, 0, 65534, 7, 0, 65532, 7, 0, 65530, 7, 2, 65532, 7, 2, 65534, 7, 2, 0, 7, 0, 65528, 7, 2, 65528, 7, 4, 65528, 7, 4, 65530, 7, 4, 65532, 7, 4, 65534, 7, 4, 0, 7, 2, 65526, 7, 2, 65524, 7, 2, 65522, 7, 0, 65522, 7, 0, 65524, 7, 0, 65526, 7, 65534, 65522, 7, 65534, 65524, 7, 65534, 65526, 7, 65534, 65528, 7, 65534, 65530, 7, 65534, 65532, 7, 65534, 65534, 7, 65534, 0, 7, 2, 65530, 7, 6, 65526, 131079, 6, 65524, 131079, 6, 65522, 131079)
 }
-metadata/_editor_floor_ = Vector3(0, 0, 0)
+metadata/_editor_floor_ = Vector3(0, 6, 0)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="GridMap"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
@@ -193,8 +225,9 @@ height = 0.5
 
 [node name="Painting" parent="Props" instance=ExtResource("17_twp8h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 3, -12.4)
-size_x = 2.0
-size_y = 2.0
+size_x = 3.69
+size_y = 2.84
+texture = ExtResource("17_e4nfb")
 
 [node name="Painting2" parent="Props" instance=ExtResource("17_twp8h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 5, -12.4)
@@ -218,6 +251,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.2, 0.9, -3.7)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0.8, -8)
 
 [node name="Stairs" type="Node3D" parent="."]
+visible = false
 
 [node name="CSGCombiner3D" parent="Stairs" instance=ExtResource("7_dvjwa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.9, 1, -21)
