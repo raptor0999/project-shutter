@@ -19,8 +19,8 @@ func _process(delta: float) -> void:
 	if Engine.is_editor_hint():
 		set_tool_size(size_x, size_y, 0.15)
 		
-		#if texture:
-			#decal.texture = texture
+		if texture:
+			decal.texture_albedo = texture
 
 func set_tool_size(x: float, y: float, z: float) -> void:
 	csg_box_3d.size = Vector3(x, y, z)
