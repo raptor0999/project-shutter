@@ -8,6 +8,7 @@ size = Vector3(4.1, 1.6, 2.3)
 [node name="Node3D" type="Node3D"]
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
 material_override = ExtResource("1_0gwrv")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]

@@ -15,10 +15,10 @@ size = Vector3(17, 6.3, 1)
 operation = 2
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 8, 2.5, -4)
-radius = 3.0
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -0.55, 0, 1, -2.40413e-08, 8, 3.3, -4)
+radius = 3.1
 sides = 32
 
 [node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -4)
-size = Vector3(5.9, 6, 3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.00089, 0.177734, -4)
+size = Vector3(6.19106, 6.35547, 3)

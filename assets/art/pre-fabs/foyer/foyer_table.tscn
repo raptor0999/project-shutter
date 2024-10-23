@@ -9,14 +9,14 @@ size = Vector3(1.72946, 1.1142, 2.85547)
 material_override = ExtResource("1_ayrac")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.488842, 0.453404, -1.00004)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.488842, 0.281704, -1.00004)
 material_override = ExtResource("1_ayrac")
-size = Vector3(1.60315, 1.08124, 3)
+size = Vector3(1.60315, 0.737839, 3)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18171, -0.192361, -0.946188)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18171, -0.180722, -0.946188)
 operation = 2
-size = Vector3(2.68066, 1.44318, 2.26953)
+size = Vector3(2.68066, 1.44318, 2.48926)
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.362241, 0.550629, -3.45594)
@@ -24,9 +24,9 @@ operation = 2
 size = Vector3(1.87549, 1.44318, 2.26953)
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.455589, -0.327205, -0.639114)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.495664, -0.109055, -0.639114)
 operation = 2
-size = Vector3(1.32715, 1.44318, 4.08887)
+size = Vector3(1.47821, 1.44318, 4.08887)
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.386655, 0.550629, 1.49298)

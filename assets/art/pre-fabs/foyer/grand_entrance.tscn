@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://cteb8xne3d6y3"]
+
+[node name="Grand Entrance" type="Node3D"]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+size = Vector3(8, 6, 0.8)
+
+[node name="CSGCombiner3D2" type="CSGCombiner3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 3.104, 0, 0, -2)
+operation = 2
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner3D/CSGCombiner3D2"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -0.5, 0, 1, -2.18557e-08, 0, 3.3, 0.7)
+radius = 1.5
+height = 0.6
+sides = 16
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D/CSGCombiner3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.65, 0.55)
+size = Vector3(3, 3.3, 0.9)
+
+[node name="CSGCombiner3D2" type="CSGCombiner3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.9)
+use_collision = true
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner3D2"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -0.5, 0, 1, -2.18557e-08, 0, 3.3, 0.7)
+radius = 1.5
+height = 0.6
+sides = 16
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.65, 0.7)
+size = Vector3(3, 3.3, 0.6)
+
+[node name="CSGTorus3D" type="CSGTorus3D" parent="CSGCombiner3D2"]
+transform = Transform3D(-9.57279e-08, -1, 0, 2.19, -4.37114e-08, 0, 0, 0, 1, 0.1, 1.4, 1)
+inner_radius = 0.045
+outer_radius = 0.13
+
+[node name="CSGTorus3D2" type="CSGTorus3D" parent="CSGCombiner3D2"]
+transform = Transform3D(-9.57279e-08, -1, 0, 2.19, -4.37114e-08, 0, 0, 0, 1, -0.1, 1.4, 1)
+inner_radius = 0.045
+outer_radius = 0.13
+
+[node name="CSGTorus3D3" type="CSGTorus3D" parent="CSGCombiner3D2"]
+transform = Transform3D(-9.57279e-08, -1, 0, 2.19, -4.37114e-08, 0, 0, 0, 1, 0.1, 1.9, 1)
+inner_radius = 0.008
+outer_radius = 0.051
+
+[node name="CSGTorus3D4" type="CSGTorus3D" parent="CSGCombiner3D2"]
+transform = Transform3D(-9.57279e-08, -1, 0, 2.19, -4.37114e-08, 0, 0, 0, 1, -0.1, 1.9, 1)
+inner_radius = 0.008
+outer_radius = 0.051

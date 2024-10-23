@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://ngi5vx5obum0"]
+
+[node name="Lamp" type="CSGCylinder3D"]
+radius = 0.25

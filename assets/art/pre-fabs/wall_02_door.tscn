@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=4 uid="uid://cl5gpc4mf6qhe"]
+[gd_scene load_steps=10 format=4 uid="uid://cl5gpc4mf6qhe"]
 
 [ext_resource type="PackedScene" uid="uid://b0agrgjkuc5j3" path="res://assets/art/import/Wall-base.glb" id="1_duu3a"]
 [ext_resource type="Material" uid="uid://b6xvtcpvsjsqr" path="res://assets/art/materials/m_tile_concrete.tres" id="2_r6qbx"]
 [ext_resource type="Material" uid="uid://bktywtfpewkbh" path="res://assets/art/materials/m_tile_wood_bark.tres" id="3_2yx0k"]
+[ext_resource type="Material" uid="uid://bhadhj0p4k41p" path="res://assets/art/materials/prototype/grid_light.tres" id="4_o7q1j"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ai6bn"]
 points = PackedVector3Array(-2.01667, 0, -1.33333, -0.016668, 0, -1.33333, -2.01667, 0, 0, -2.01667, 3, -1.33333, -0.016668, 0, 0, -0.016668, 3, -1.33333, -2.01667, 3, 0, -0.016668, 3, 0)
@@ -44,9 +45,10 @@ shadow_mesh = SubResource("ArrayMesh_b6ei6")
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_asnja"]
 points = PackedVector3Array(-2.00021, -0.100183, -1.5, -2.00021, 0.100164, -1.5, 0, -0.100183, -1.5, -2.00021, -0.100183, 0, -2.65, -0.100006, -0.740016, -2.59319, -0.100006, -1.02707, -2.43055, -0.100006, -1.27036, -2.18724, -0.100006, -1.43305, -2.00021, 0.100164, 0, 0, 0.100184, -1.5, -2.18724, 0.0999879, -1.43305, -2.43055, 0.0999879, -1.27036, -2.59319, 0.0999879, -1.02707, -2.65, 0.0999879, -0.740016, -2.59319, 0.100007, -0.739722, -2.18724, 0.100125, -0.73752, 0, -0.100183, 0, -2.18724, -0.100006, -0.0471319, -2.43055, -0.100006, -0.209818, -2.59319, -0.100006, -0.453113, 0, 0.100184, 0, -2.59319, 0.0999879, -0.453113, -2.43055, 0.0999879, -0.209818, -2.18724, 0.0999879, -0.0471319)
 
-[node name="Wall-base" instance=ExtResource("1_duu3a")]
+[node name="Wall-door" instance=ExtResource("1_duu3a")]
 
 [node name="Cube_006" parent="." index="0"]
+visible = false
 surface_material_override/0 = ExtResource("2_r6qbx")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Cube_006" index="0"]
@@ -55,7 +57,7 @@ surface_material_override/0 = ExtResource("2_r6qbx")
 shape = SubResource("ConvexPolygonShape3D_ai6bn")
 
 [node name="Door-01" type="Node3D" parent="." index="1"]
-transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0, -1.15)
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0.1, 0, -1.15)
 
 [node name="Cylinder_002" type="MeshInstance3D" parent="Door-01" index="0"]
 transform = Transform3D(0, 1.99634, 0, -1, 0, 0, 0, 0, 1, 0, 0, 0)
@@ -67,3 +69,23 @@ surface_material_override/0 = ExtResource("3_2yx0k")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Door-01/Cylinder_002/StaticBody3D" index="0"]
 shape = SubResource("ConvexPolygonShape3D_asnja")
+
+[node name="CSGCombiner3D2" type="CSGCombiner3D" parent="." index="2"]
+material_override = ExtResource("4_o7q1j")
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D2" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.01422, -2)
+size = Vector3(0.4, 4, 4)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D2" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.222881, 3.76607, -2)
+size = Vector3(0.145386, 0.5, 4)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D2" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.400188, 3.76607, -0.2)
+size = Vector3(0.38, 0.5, 0.4)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSGCombiner3D2" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.400188, 3.76607, -3.8)
+size = Vector3(0.38, 0.5, 0.4)
