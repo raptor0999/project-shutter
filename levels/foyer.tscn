@@ -44,6 +44,9 @@ transform = Transform3D(-1, 0.000673089, -0.000510605, 0.00067342, 1, -0.0006476
 [node name="Wall-02" parent="Walls" instance=ExtResource("1_4ocef")]
 transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 12, 0, -28)
 
+[node name="CSGCombiner3D" parent="Walls/Wall-02/Node3D/Ceiling" index="0"]
+visible = false
+
 [node name="Wall-04" parent="Walls" instance=ExtResource("1_4ocef")]
 transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 12, 0, -20)
 
@@ -52,6 +55,9 @@ transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 12, 0,
 
 [node name="Wall-13" parent="Walls" instance=ExtResource("1_4ocef")]
 transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 12, 0, -24)
+
+[node name="Ceiling" parent="Walls/Wall-13/Node3D" index="1"]
+visible = false
 
 [node name="Wall-07" parent="Walls" instance=ExtResource("1_4ocef")]
 transform = Transform3D(1, -0.000673089, 0.000510629, 0.00067342, 1, -0.000647672, -0.000510193, 0.000648016, 1, -4, 0, -12)
@@ -112,7 +118,7 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.6, 2
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 4, 0, 0.2)
 
 [node name="Wall-09" parent="Walls" instance=ExtResource("7_h6gux")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -28)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -5.96046e-08, -28)
 
 [node name="Ceiling" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
@@ -131,9 +137,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.25, -24)
 
 [node name="Ceiling5" parent="Ceiling" instance=ExtResource("8_waydg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 7.25, -24)
+visible = false
 
 [node name="Ceiling6" parent="Ceiling" instance=ExtResource("8_waydg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 7.25, -20)
+visible = false
 
 [node name="Ceiling7" parent="Ceiling" instance=ExtResource("8_waydg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 7.25, -16)
@@ -251,7 +259,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.2, 0.9, -3.7)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0.8, -8)
 
 [node name="Stairs" type="Node3D" parent="."]
-visible = false
 
 [node name="CSGCombiner3D" parent="Stairs" instance=ExtResource("7_dvjwa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.9, 1, -21)
@@ -330,6 +337,10 @@ text = "My head’s not quite right. The migraines are getting stronger. The tim
 
 At this point, I don’t even know what’s real and what’s not. On one hand, I feel my existence is fading away, but on the other, the rifts and glitches make me feel like I’m closer to finding my voice and my true self."
 
+[editable path="Walls/Wall-02"]
+[editable path="Walls/Wall-02/Node3D"]
+[editable path="Walls/Wall-02/Node3D/Ceiling"]
+[editable path="Walls/Wall-13"]
 [editable path="Walls/Wall-base4"]
 [editable path="Props/Rug"]
 [editable path="Props/Rug2"]
