@@ -1,0 +1,116 @@
+[gd_scene load_steps=2 format=3 uid="uid://c3mc8aytoisom"]
+
+[ext_resource type="Material" uid="uid://cf7dikkc1ac3t" path="res://assets/art/materials/prototype/grid_dark.tres" id="1_bwbqq"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="CSGCombiner3D2" type="CSGCombiner3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19, 0.08, -0.75)
+material_override = ExtResource("1_bwbqq")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner3D2"]
+visible = false
+radius = 0.1
+height = 0.1
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="CSGCombiner3D2"]
+radius = 0.4
+height = 0.2
+sides = 16
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="CSGCombiner3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.031, 0)
+operation = 2
+radius = 0.38
+height = 0.15
+sides = 16
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="CSGCombiner3D2"]
+transform = Transform3D(0.797714, -0.088675, 0, 0.0697909, 1.01356, 0, 0, 0, 0.15, 0.458, 0.009, 0)
+visible = false
+radius = 0.33
+height = 0.004
+sides = 16
+
+[node name="CSGCombiner3D3" type="CSGCombiner3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.03, 0.05, -1.46)
+material_override = ExtResource("1_bwbqq")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner3D3"]
+visible = false
+radius = 0.1
+height = 0.1
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="CSGCombiner3D3"]
+radius = 0.2
+height = 0.15
+sides = 16
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="CSGCombiner3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.051, 0)
+operation = 2
+radius = 0.17
+height = 0.13
+sides = 16
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="CSGCombiner3D3"]
+transform = Transform3D(0.797714, -0.088675, 0, 0.0697909, 1.01356, 0, 0, 0, 0.15, 0.458, 0.009, 0)
+visible = false
+radius = 0.33
+height = 0.004
+sides = 16
+
+[node name="CSGCombiner3D4" type="CSGCombiner3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.03, 0.06, -2.01)
+material_override = ExtResource("1_bwbqq")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner3D4"]
+visible = false
+radius = 0.1
+height = 0.1
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="CSGCombiner3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.07, 0)
+radius = 0.2
+height = 0.3
+sides = 16
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="CSGCombiner3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.111, 0)
+operation = 2
+radius = 0.17
+height = 0.25
+sides = 16
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="CSGCombiner3D4"]
+transform = Transform3D(0.797714, -0.088675, 0, 0.0697909, 1.01356, 0, 0, 0, 0.15, 0.458, 0.009, 0)
+visible = false
+radius = 0.33
+height = 0.004
+sides = 16
+
+[node name="Pan-01" type="Node3D" parent="."]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Pan-01"]
+material_override = ExtResource("1_bwbqq")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Pan-01/CSGCombiner3D"]
+visible = false
+radius = 0.1
+height = 0.1
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Pan-01/CSGCombiner3D"]
+radius = 0.24
+height = 0.04
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="Pan-01/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.002, 0)
+operation = 2
+radius = 0.2
+height = 0.04
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="Pan-01/CSGCombiner3D"]
+transform = Transform3D(0.797714, -0.088675, 0, 0.0697909, 1.01356, 0, 0, 0, 0.15, 0.458, 0.009, 0)
+radius = 0.33
+height = 0.004
+sides = 16

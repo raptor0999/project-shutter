@@ -1,0 +1,40 @@
+[gd_scene load_steps=2 format=3 uid="uid://duvqwe3jvkemu"]
+
+[ext_resource type="Material" uid="uid://bhadhj0p4k41p" path="res://assets/art/materials/prototype/grid_light.tres" id="1_im0tj"]
+
+[node name="Coffee Machine" type="Node3D"]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+material_override = ExtResource("1_im0tj")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner3D"]
+radius = 0.15
+height = 0.3
+sides = 16
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.09, 0.02, 0)
+radius = 0.075
+height = 0.3
+sides = 16
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.35)
+visible = false
+size = Vector3(0.33, 0.305, 0.3)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.23)
+operation = 2
+size = Vector3(0.33, 0.305, 0.3)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19, -0.03, -0.06)
+operation = 2
+size = Vector3(0.33, 0.17, 0.3)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.23)
+operation = 2
+size = Vector3(0.33, 0.305, 0.3)
