@@ -1,19 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://nq4ol04r66wm"]
+[gd_scene load_steps=3 format=3 uid="uid://nq4ol04r66wm"]
 
 [ext_resource type="Script" path="res://assets/art/pre-fabs/props/tools/painting.gd" id="1_78qpu"]
-[ext_resource type="Texture2D" uid="uid://cuhioe5gixsvw" path="res://assets/art/textures/greybox/Dark/texture_09.png" id="2_4fu8k"]
-[ext_resource type="Texture2D" uid="uid://c8wvsa546eyeu" path="res://assets/art/textures/greybox/Dark/texture_13.png" id="3_5y4ii"]
+[ext_resource type="Texture2D" uid="uid://cd0kuq7niyg66" path="res://assets/art/textures/concrete/concrete_wall_03_color_2k.png" id="3_031hb"]
 
 [node name="Painting" type="Node3D"]
 script = ExtResource("1_78qpu")
 size_x = 0.675
 size_y = 1.015
-texture = ExtResource("2_4fu8k")
+texture = ExtResource("3_031hb")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 size = Vector3(0.675, 1.015, 0.15)
 
-[node name="Decal" type="Decal" parent="."]
-transform = Transform3D(0.3, 0, 0, 0, 0.45, 0, 0, 0, 1, 0, 0, -0.0629052)
-size = Vector3(1.33, 2.03, 0.2)
-texture_albedo = ExtResource("3_5y4ii")
+[node name="Sprite3D" type="Sprite3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.307439)
+visible = false
+pixel_size = 0.001
+texture = ExtResource("3_031hb")

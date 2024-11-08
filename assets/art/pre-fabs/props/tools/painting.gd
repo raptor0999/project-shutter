@@ -7,7 +7,8 @@ extends Node3D
 @export var texture: Texture2D
 
 @onready var csg_box_3d: CSGBox3D = $CSGBox3D
-@onready var decal: Decal = $Decal
+@onready var sprite_3d: Sprite3D = $CSGBox3D/Sprite3D
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -20,11 +21,12 @@ func _process(delta: float) -> void:
 		set_tool_size(size_x, size_y, 0.15)
 		
 		if texture:
-			decal.texture_albedo = texture
+			sprite_3d.texture = texture
+			sprite_3d.pixel_size = 0.00001
 
 func set_tool_size(x: float, y: float, z: float) -> void:
 	csg_box_3d.size = Vector3(x, y, z)
 	
-	if decal:
-		decal.size = Vector3(2*x-0.02,2*y, 0.2)
+	#if sprite_3d:
+		#decal.size = Vector3(2*x-0.02,2*y, 0.2)
 	

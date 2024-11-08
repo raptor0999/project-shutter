@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bvhdtxrxbbl62"]
+[gd_scene load_steps=26 format=3 uid="uid://bvhdtxrxbbl62"]
 
 [ext_resource type="PackedScene" uid="uid://bnjbxwpk8m1p0" path="res://assets/art/pre-fabs/wall_02.tscn" id="1_4ocef"]
 [ext_resource type="Script" path="res://levels/level.gd" id="1_k5un2"]
@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://bmlenb35wimka" path="res://scenes/objects/clues/note.tscn" id="16_vmcoc"]
 [ext_resource type="Texture2D" uid="uid://bxuxo2ytfg81h" path="res://assets/images/icons/note_icon.png" id="17_e4nfb"]
 [ext_resource type="PackedScene" uid="uid://nq4ol04r66wm" path="res://assets/art/pre-fabs/props/painting.tscn" id="17_twp8h"]
+[ext_resource type="Material" uid="uid://bvmoq11yic1ki" path="res://assets/art/materials/prototype/grid_orange.tres" id="20_i1ywg"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7fbk5"]
 size = Vector3(16.7, 1.4, 33.3)
@@ -107,7 +108,6 @@ surface_material_override/0 = null
 transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 8, 0, -12)
 
 [node name="Wall-Arch" parent="Walls" instance=ExtResource("6_ijq7n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0.2, -8)
 
 [node name="Node3D" parent="Walls" instance=ExtResource("7_7q003")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7.4, 2.3, -11.6)
@@ -253,8 +253,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 5, -12.4)
 size_x = 2.0
 size_y = 1.0
 
+[node name="CSGBox3D" type="CSGBox3D" parent="Props"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6, 2.3, -31)
+material_override = ExtResource("20_i1ywg")
+size = Vector3(2, 3, 1)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Props"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6, 2.3, -31)
+material_override = ExtResource("20_i1ywg")
+size = Vector3(2, 3, 1)
+
+[node name="CSGBox3D3" type="CSGCylinder3D" parent="Props"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 3.6, -29.8)
+material_override = ExtResource("20_i1ywg")
+radius = 0.8
+height = 6.0
+
 [node name="Table-entrance" parent="." instance=ExtResource("5_5s5e2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.2, 0.9, -3.7)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.1, 0.9, -3.7)
 
 [node name="Prop-Column-01" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0.8, -8)
