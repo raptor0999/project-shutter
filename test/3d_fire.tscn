@@ -1,0 +1,64 @@
+[gd_scene load_steps=9 format=3 uid="uid://c1x4qc7snapea"]
+
+[ext_resource type="Texture2D" uid="uid://bbt5e8pvq4yaj" path="res://assets/images/particles/flame_01.png" id="1_h2s10"]
+
+[sub_resource type="Gradient" id="Gradient_lxv3k"]
+offsets = PackedFloat32Array(0, 0.176755, 0.215496, 0.251816, 0.995157)
+colors = PackedColorArray(0, 0, 0, 1, 0.996078, 0.34902, 0, 1, 0.968627, 0.831373, 0, 0.545098, 0.941176, 0.133333, 0, 0.843137, 0.000113828, 0.000113828, 0.000113828, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_7y7tt"]
+gradient = SubResource("Gradient_lxv3k")
+
+[sub_resource type="Curve" id="Curve_bnhvr"]
+_data = [Vector2(0.0136054, 0.0269461), 0.0, 0.0, 0, 0, Vector2(0.176871, 1), 0.0, 0.0, 0, 0, Vector2(0.986395, 0.149273), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_oyh00"]
+curve = SubResource("Curve_bnhvr")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8eqnk"]
+emission_shape = 1
+emission_sphere_radius = 0.4
+angle_min = 1.07288e-05
+angle_max = 360.0
+direction = Vector3(0, 1, 0)
+spread = 0.0
+initial_velocity_min = 4.9
+initial_velocity_max = 5.0
+angular_velocity_min = 40.0
+angular_velocity_max = 40.0
+gravity = Vector3(0, 0, 0)
+linear_accel_min = 3.0
+linear_accel_max = 5.0
+scale_min = 0.8
+scale_curve = SubResource("CurveTexture_oyh00")
+color_ramp = SubResource("GradientTexture1D_7y7tt")
+hue_variation_min = -2.23517e-08
+hue_variation_max = 0.05
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eu6pi"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_h2s10")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_4jhnw"]
+material = SubResource("StandardMaterial3D_eu6pi")
+
+[node name="3DFire" type="Node3D"]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+amount = 200
+lifetime = 0.5
+randomness = 1.0
+draw_order = 3
+trail_enabled = true
+trail_lifetime = 6.0
+process_material = SubResource("ParticleProcessMaterial_8eqnk")
+draw_pass_1 = SubResource("QuadMesh_4jhnw")
