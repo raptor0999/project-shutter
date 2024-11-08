@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bxuxo2ytfg81h"
-path.s3tc="res://.godot/imported/note_icon.png-e5b684c907202e127c29eb87dc21e768.s3tc.ctex"
-path.etc2="res://.godot/imported/note_icon.png-e5b684c907202e127c29eb87dc21e768.etc2.ctex"
+uid="uid://bqq2kc7iwe80e"
+path.s3tc="res://.godot/imported/sophia.png-e418e4518271e6832136dcbf4efedb45.s3tc.ctex"
+path.etc2="res://.godot/imported/sophia.png-e418e4518271e6832136dcbf4efedb45.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/images/icons/note_icon.png"
-dest_files=["res://.godot/imported/note_icon.png-e5b684c907202e127c29eb87dc21e768.s3tc.ctex", "res://.godot/imported/note_icon.png-e5b684c907202e127c29eb87dc21e768.etc2.ctex"]
+source_file="res://assets/images/sophia.png"
+dest_files=["res://.godot/imported/sophia.png-e418e4518271e6832136dcbf4efedb45.s3tc.ctex", "res://.godot/imported/sophia.png-e418e4518271e6832136dcbf4efedb45.etc2.ctex"]
 
 [params]
 
