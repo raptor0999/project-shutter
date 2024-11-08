@@ -2,7 +2,7 @@
 
 [ext_resource type="Material" uid="uid://bhadhj0p4k41p" path="res://assets/art/materials/prototype/grid_light.tres" id="1_66wg7"]
 
-[node name="Wall-Foyer" type="CSGCombiner3D"]
+[node name="Wall-with Arch" type="CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0.2, -8)
 material_override = ExtResource("1_66wg7")
 use_collision = true

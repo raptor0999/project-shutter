@@ -106,7 +106,8 @@ surface_material_override/0 = null
 [node name="Wall-base2" parent="Walls" instance=ExtResource("2_b0b56")]
 transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 8, 0, -12)
 
-[node name="Wall-Foyer" parent="Walls" instance=ExtResource("6_ijq7n")]
+[node name="Wall-Arch" parent="Walls" instance=ExtResource("6_ijq7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0.2, -8)
 
 [node name="Node3D" parent="Walls" instance=ExtResource("7_7q003")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7.4, 2.3, -11.6)
