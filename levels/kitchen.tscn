@@ -31,7 +31,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
 
 [node name="Wall-02" parent="Walls" instance=ExtResource("3_ne855")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -8)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -8)
 
 [node name="Wall-07" parent="Walls" instance=ExtResource("3_ne855")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 16, 0, -4)
@@ -43,7 +43,7 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 16, 0,
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.99382e-07, 0, -12)
 
 [node name="Wall-06" parent="Walls" instance=ExtResource("3_ne855")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4, 0, -12)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.8, 0, -8.45686)
 
 [node name="Wall-20" parent="Walls" instance=ExtResource("3_ne855")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8, 0, -12)
@@ -125,7 +125,7 @@ environment = SubResource("Environment_u2td3")
 [node name="Props" type="Node3D" parent="."]
 
 [node name="MopBox" parent="Props" instance=ExtResource("10_r5heb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3, 1.4, -11)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.547, 1.4, -11)
 
 [node name="Cabinets" parent="Props" instance=ExtResource("7_3r5la")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 15, 1.5, -9.7)
@@ -137,7 +137,7 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 15, 1.
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 13.2, 1.5, -1)
 
 [node name="Benches" parent="Props" instance=ExtResource("9_jftop")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 1.5, -6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.3, 1.5, -6)
 
 [node name="Sink" parent="Props" instance=ExtResource("10_7k8yc")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 11.6, 1.5, -0.5)
@@ -146,13 +146,13 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 11.6, 
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 9.5, 1.5, -0.5)
 
 [node name="Oven" parent="Props" instance=ExtResource("10_vo5cw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 1.5, -10.9)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.79187, 1.5, -10.9)
 
 [node name="Cabinets02" parent="Props" instance=ExtResource("12_vfpn7")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.9309, 1.5, -2.16761)
 
 [node name="Coffee Machine" parent="Props" instance=ExtResource("13_ode43")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8.3, 2.33, -5.2)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 9.6, 2.33, -5.2)
 
 [node name="Lights" type="Node3D" parent="."]
 
@@ -186,4 +186,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -2)
 [node name="Items" type="Node3D" parent="."]
 
 [node name="Cookie" parent="Items" instance=ExtResource("8_ri8an")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.2, 2.1, -6.8)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.42616, 2.1, -6.96923)
