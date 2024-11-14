@@ -5,15 +5,14 @@
 
 [node name="Painting" type="Node3D"]
 script = ExtResource("1_78qpu")
-size_x = 0.675
-size_y = 1.015
+size_x = 1.0
+size_y = 1.0
 texture = ExtResource("3_031hb")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
-size = Vector3(0.675, 1.015, 0.15)
+size = Vector3(1, 1, 0.15)
 
 [node name="Sprite3D" type="Sprite3D" parent="CSGBox3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.307439)
-visible = false
-pixel_size = 0.001
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, -0.0125, 0, 0, -0.085)
+pixel_size = 0.002
 texture = ExtResource("3_031hb")

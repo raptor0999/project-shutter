@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://c2hs32uw1fb0w"]
+
+[ext_resource type="PackedScene" uid="uid://bgaskejwmh6e0" path="res://assets/art/import/Wall-01.glb" id="1_i6fcu"]
+[ext_resource type="Material" uid="uid://bktywtfpewkbh" path="res://assets/art/materials/m_tile_wood_bark.tres" id="2_dmqvt"]
+[ext_resource type="Material" uid="uid://b6xvtcpvsjsqr" path="res://assets/art/materials/m_tile_concrete.tres" id="3_rdgwq"]
+[ext_resource type="Material" uid="uid://ijihm2hk1r74" path="res://assets/art/materials/m_tile_wood.tres" id="4_w5sjl"]
+[ext_resource type="Material" uid="uid://bhadhj0p4k41p" path="res://assets/art/materials/prototype/grid_light.tres" id="5_uiiwc"]
+[ext_resource type="PackedScene" uid="uid://c520fwvl2g7ig" path="res://assets/art/pre-fabs/wall_ceiling_frame-02.tscn" id="6_5dnf5"]
+
+[node name="Wall-01" instance=ExtResource("1_i6fcu")]
+
+[node name="Wall-02" parent="." index="0"]
+visible = false
+surface_material_override/0 = ExtResource("2_dmqvt")
+surface_material_override/1 = ExtResource("3_rdgwq")
+surface_material_override/3 = ExtResource("4_w5sjl")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="." index="1"]
+material_override = ExtResource("5_uiiwc")
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.01422, -2)
+size = Vector3(1, 4, 4)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D" index="1"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.25, 2.01422, -4.5)
+size = Vector3(1, 4, 4.5)
+
+[node name="Wall_Ceiling_Frame_02" parent="." index="2" instance=ExtResource("6_5dnf5")]
+
+[node name="Wall_Ceiling_Frame_03" parent="." index="3" instance=ExtResource("6_5dnf5")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.5, 0, -4.5)

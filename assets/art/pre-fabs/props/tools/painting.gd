@@ -22,10 +22,11 @@ func _process(delta: float) -> void:
 		
 		if texture:
 			sprite_3d.texture = texture
-			sprite_3d.pixel_size = 0.00001
-
+			sprite_3d.pixel_size = 0.002
+			
 func set_tool_size(x: float, y: float, z: float) -> void:
 	csg_box_3d.size = Vector3(x, y, z)
+	sprite_3d.scale = Vector3(x, y, z) * 0.25 - 0.05*(x+y)/2*Vector3.ONE
 	
 	#if sprite_3d:
 		#decal.size = Vector3(2*x-0.02,2*y, 0.2)
