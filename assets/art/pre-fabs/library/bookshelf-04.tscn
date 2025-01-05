@@ -1,0 +1,50 @@
+[gd_scene load_steps=4 format=3 uid="uid://7mynl7f4kuha"]
+
+[ext_resource type="Texture2D" uid="uid://b8e3k2dgtd5yh" path="res://assets/art/textures/greybox/texture_02.png" id="1_6d43k"]
+[ext_resource type="Material" uid="uid://bhadhj0p4k41p" path="res://assets/art/materials/prototype/grid_light.tres" id="4_ec728"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vycsu"]
+albedo_color = Color(0.4, 0.4, 0.560784, 1)
+albedo_texture = ExtResource("1_6d43k")
+uv1_triplanar = true
+
+[node name="Shelf-04" type="Node3D"]
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.122881, 0.23607, -0.4)
+material_overlay = SubResource("StandardMaterial3D_vycsu")
+size = Vector3(0.2, 0.3, 0.76)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.122881, 0.55607, -0.4)
+material_overlay = SubResource("StandardMaterial3D_vycsu")
+size = Vector3(0.2, 0.3, 0.76)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.122881, 0.87607, -0.4)
+material_overlay = SubResource("StandardMaterial3D_vycsu")
+size = Vector3(0.2, 0.3, 0.76)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.122881, 1.19607, -0.4)
+material_overlay = SubResource("StandardMaterial3D_vycsu")
+size = Vector3(0.2, 0.3, 0.76)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.122881, 1.51607, -0.4)
+material_overlay = SubResource("StandardMaterial3D_vycsu")
+size = Vector3(0.2, 0.3, 0.76)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.122881, 1.83607, -0.4)
+material_overlay = SubResource("StandardMaterial3D_vycsu")
+size = Vector3(0.2, 0.3, 0.76)
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+material_override = ExtResource("4_ec728")
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.01422, -0.4)
+material_override = ExtResource("4_ec728")
+size = Vector3(0.29, 2, 0.8)

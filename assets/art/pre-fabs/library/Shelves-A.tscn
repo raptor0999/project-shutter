@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://c7epc7xl1tv2f"]
+
+[ext_resource type="PackedScene" uid="uid://ff1va30m7175" path="res://assets/art/pre-fabs/library/bookshelf.tscn" id="1_bg73o"]
+[ext_resource type="PackedScene" uid="uid://rs2wdn7kue80" path="res://assets/art/pre-fabs/library/bookshelf-02.tscn" id="2_iuwia"]
+[ext_resource type="PackedScene" uid="uid://y5u6ckhupp5k" path="res://assets/art/pre-fabs/library/bookshelf-03.tscn" id="3_fs5nr"]
+[ext_resource type="PackedScene" uid="uid://7mynl7f4kuha" path="res://assets/art/pre-fabs/library/bookshelf-04.tscn" id="4_ohcha"]
+
+[node name="Shelves-A" type="Node3D"]
+
+[node name="Shelf-01" parent="." instance=ExtResource("1_bg73o")]
+
+[node name="Shelf-02" parent="." instance=ExtResource("2_iuwia")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.83)
+
+[node name="Shelf-03" parent="." instance=ExtResource("3_fs5nr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.65)
+
+[node name="Shelf-04" parent="." instance=ExtResource("4_ohcha")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.5)

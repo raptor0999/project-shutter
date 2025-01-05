@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=3 uid="uid://ff1va30m7175"]
+
+[ext_resource type="Material" uid="uid://bvmoq11yic1ki" path="res://assets/art/materials/prototype/grid_orange.tres" id="1_6mjbm"]
+[ext_resource type="Material" uid="uid://bhadhj0p4k41p" path="res://assets/art/materials/prototype/grid_light.tres" id="1_f5ryy"]
+[ext_resource type="Texture2D" uid="uid://b8e3k2dgtd5yh" path="res://assets/art/textures/greybox/texture_02.png" id="2_186e6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6p70b"]
+albedo_color = Color(0.208052, 0.572919, 0.328366, 1)
+albedo_texture = ExtResource("2_186e6")
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tn8k5"]
+albedo_color = Color(0.799006, 0.28304, 0.383073, 1)
+albedo_texture = ExtResource("2_186e6")
+uv1_triplanar = true
+
+[node name="Shelf-01" type="Node3D"]
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.122881, 1.76607, -0.4)
+material_overlay = ExtResource("1_6mjbm")
+size = Vector3(0.2, 0.4, 0.76)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.122881, 1.08607, -0.4)
+material_overlay = ExtResource("1_6mjbm")
+size = Vector3(0.2, 0.4, 0.76)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.122881, 0.66607, -0.4)
+material_overlay = ExtResource("1_6mjbm")
+size = Vector3(0.2, 0.4, 0.76)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.122881, 1.42607, -0.4)
+material_overlay = SubResource("StandardMaterial3D_6p70b")
+size = Vector3(0.2, 0.25, 0.76)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.122881, 0.32607, -0.4)
+material_overlay = SubResource("StandardMaterial3D_tn8k5")
+size = Vector3(0.2, 0.25, 0.76)
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+material_override = ExtResource("1_f5ryy")
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.01422, -0.4)
+material_override = ExtResource("1_f5ryy")
+size = Vector3(0.29, 2, 0.8)

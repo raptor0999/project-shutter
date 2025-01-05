@@ -59,7 +59,6 @@ y_rot = -90.0
 
 [node name="LibraryLivingRoom" parent="Doors" instance=ExtResource("7_ot14h")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 11, 1, -22)
-locked = true
 to_level = "library"
 to_door = "LivingRoomLibrary"
 y_rot = 90.0

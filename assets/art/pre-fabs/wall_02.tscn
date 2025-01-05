@@ -20,8 +20,10 @@ surface_material_override/1 = ExtResource("2_l5eom")
 surface_material_override/3 = ExtResource("2_nwfop")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Wall-02" index="0"]
+visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Wall-02/StaticBody3D" index="0"]
+visible = false
 shape = SubResource("ConvexPolygonShape3D_71rrn")
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="." index="1"]

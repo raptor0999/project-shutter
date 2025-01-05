@@ -1,0 +1,67 @@
+[gd_scene load_steps=8 format=3 uid="uid://rs2wdn7kue80"]
+
+[ext_resource type="Material" uid="uid://bvmoq11yic1ki" path="res://assets/art/materials/prototype/grid_orange.tres" id="1_4lqye"]
+[ext_resource type="Texture2D" uid="uid://b5wg5mc7suxcv" path="res://assets/art/textures/greybox/Orange/texture_01.png" id="2_67o1k"]
+[ext_resource type="Texture2D" uid="uid://b8e3k2dgtd5yh" path="res://assets/art/textures/greybox/texture_02.png" id="2_gp7u2"]
+[ext_resource type="Material" uid="uid://bhadhj0p4k41p" path="res://assets/art/materials/prototype/grid_light.tres" id="3_togab"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hyrvq"]
+albedo_color = Color(0.866708, 0.218103, 0.283526, 1)
+albedo_texture = ExtResource("2_67o1k")
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6p70b"]
+albedo_color = Color(0.208052, 0.572919, 0.328366, 1)
+albedo_texture = ExtResource("2_gp7u2")
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dcu0g"]
+albedo_color = Color(0.189186, 0.49703, 0.822133, 1)
+albedo_texture = ExtResource("2_gp7u2")
+uv1_triplanar = true
+
+[node name="Shelf-02" type="Node3D"]
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.122881, 1.51607, -0.4)
+material_overlay = ExtResource("1_4lqye")
+size = Vector3(0.2, 0.4, 0.76)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.122881, 0.24607, -0.4)
+material_overlay = ExtResource("1_4lqye")
+size = Vector3(0.2, 0.4, 0.76)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.122881, 0.76607, -0.4)
+material_overlay = SubResource("StandardMaterial3D_hyrvq")
+size = Vector3(0.2, 0.2, 0.76)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.122881, 0.55607, -0.4)
+material_overlay = SubResource("StandardMaterial3D_hyrvq")
+size = Vector3(0.2, 0.2, 0.76)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.122881, 1.85607, -0.4)
+material_overlay = SubResource("StandardMaterial3D_6p70b")
+size = Vector3(0.2, 0.25, 0.76)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.122881, 1.01607, -0.4)
+material_overlay = SubResource("StandardMaterial3D_6p70b")
+size = Vector3(0.2, 0.25, 0.76)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.122881, 1.23107, -0.4)
+material_overlay = SubResource("StandardMaterial3D_dcu0g")
+size = Vector3(0.2, 0.15, 0.76)
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+material_override = ExtResource("3_togab")
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.01422, -0.4)
+material_override = ExtResource("3_togab")
+size = Vector3(0.29, 2, 0.8)
