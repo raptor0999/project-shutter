@@ -1,0 +1,118 @@
+[gd_scene load_steps=7 format=3 uid="uid://0kl6k6g4q2uy"]
+
+[ext_resource type="Script" path="res://levels/level.gd" id="1_xvicp"]
+[ext_resource type="PackedScene" uid="uid://bnjbxwpk8m1p0" path="res://assets/art/pre-fabs/wall_02.tscn" id="3_i7f7i"]
+[ext_resource type="PackedScene" uid="uid://8mkykc5lipa7" path="res://assets/art/pre-fabs/Wall-04.tscn" id="4_bx237"]
+[ext_resource type="MeshLibrary" uid="uid://b2kemvli5urdh" path="res://assets/Mesh-library-v1.tres" id="6_emk8g"]
+[ext_resource type="PackedScene" uid="uid://dct634ct8ch0r" path="res://scenes/objects/doors/door_standard.tscn" id="7_gh65k"]
+
+[sub_resource type="Environment" id="Environment_u2td3"]
+background_mode = 1
+ambient_light_color = Color(1, 1, 1, 1)
+adjustment_enabled = true
+
+[node name="Room Template" type="Node3D"]
+script = ExtResource("1_xvicp")
+display_name = "Hallway"
+
+[node name="Walls" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+
+[node name="Wall-01" parent="Walls" instance=ExtResource("3_i7f7i")]
+
+[node name="Wall-02" parent="Walls" instance=ExtResource("3_i7f7i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
+
+[node name="Wall-07" parent="Walls" instance=ExtResource("3_i7f7i")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 12, 0, -4)
+
+[node name="Wall-09" parent="Walls" instance=ExtResource("3_i7f7i")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 12, 0, -12)
+
+[node name="Wall-06" parent="Walls" instance=ExtResource("3_i7f7i")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4, 0, -12)
+
+[node name="Wall-12" parent="Walls" instance=ExtResource("3_i7f7i")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 8, 0, 5.24537e-07)
+
+[node name="Wall-19" parent="Walls" instance=ExtResource("3_i7f7i")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 12, 0, 1.04907e-06)
+
+[node name="Prop-Column-01" type="Node3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
+
+[node name="Wall-04" parent="Walls" instance=ExtResource("4_bx237")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+
+[node name="Wall-05" parent="Walls" instance=ExtResource("4_bx237")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -12)
+
+[node name="Wall-08" parent="Walls" instance=ExtResource("4_bx237")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8, 0, -12)
+
+[node name="Wall-10" parent="Walls" instance=ExtResource("4_bx237")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 12, 0, -8)
+
+[node name="Wall-11" parent="Walls" instance=ExtResource("4_bx237")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 4, 0, 0)
+
+[node name="GridMap" type="GridMap" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+mesh_library = ExtResource("6_emk8g")
+cell_size = Vector3(2, 1, 2)
+cell_center_x = false
+cell_center_z = false
+data = {
+"cells": PackedInt32Array(0, 0, 7, 0, 65534, 7, 0, 65532, 7, 2, 65532, 7, 2, 65534, 7, 2, 0, 7, 4, 65532, 7, 4, 65534, 7, 4, 0, 7)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_u2td3")
+
+[node name="Lights" type="Node3D" parent="."]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 5, -5)
+omni_range = 9.86
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 5, -6)
+omni_range = 9.86
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -1.56603, 22.8494, 24.4055)
+light_energy = 0.01
+shadow_enabled = true
+
+[node name="Doors" type="Node3D" parent="."]
+
+[node name="UnknownHallway" parent="Doors" instance=ExtResource("7_gh65k")]
+transform = Transform3D(0.000101719, 3.13652e-05, 1, 0.000200352, 1, -3.13651e-05, -1, 0.000200352, 0.000101719, 1, 1, -5.5)
+locked = true
+to_level = "unknown"
+to_door = "HallwayUnknown"
+y_rot = -90.0
+
+[node name="FoyerHallway" parent="Doors" instance=ExtResource("7_gh65k")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 11, 1, -6)
+to_level = "foyer"
+to_door = "HallwayFoyer"
+y_rot = 90.0
+
+[node name="DiningRoomHallway" parent="Doors" instance=ExtResource("7_gh65k")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2, 1, -1)
+to_level = "dining_room"
+to_door = "HallwayDiningRoom"
+
+[node name="PantryHallway" parent="Doors" instance=ExtResource("7_gh65k")]
+transform = Transform3D(0.999991, 0.00310655, -0.00297315, -0.00310334, 0.999995, 0.00108271, 0.0029765, -0.00107347, 0.999995, 2, 1, -11)
+to_level = "pantry"
+to_door = "HallwayPantry"
+y_rot = 180.0
+
+[node name="BathroomHallway" parent="Doors" instance=ExtResource("7_gh65k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 1, -11)
+to_level = "bathroom"
+to_door = "HallwayBathroom"
+y_rot = 180.0
