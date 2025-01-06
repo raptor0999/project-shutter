@@ -1,0 +1,401 @@
+[gd_scene load_steps=18 format=3 uid="uid://cmjja0crxacto"]
+
+[ext_resource type="Script" path="res://levels/level.gd" id="1_247ak"]
+[ext_resource type="PackedScene" uid="uid://bc1g5vm7wyo3m" path="res://scenes/characters/player/player_overhead.tscn" id="2_ij3y7"]
+[ext_resource type="PackedScene" uid="uid://dct634ct8ch0r" path="res://scenes/objects/doors/door_standard.tscn" id="3_5ahme"]
+[ext_resource type="PackedScene" uid="uid://bnjbxwpk8m1p0" path="res://assets/art/pre-fabs/wall_02.tscn" id="4_irtw2"]
+[ext_resource type="PackedScene" uid="uid://cl5gpc4mf6qhe" path="res://assets/art/pre-fabs/wall_02_door.tscn" id="5_m70y3"]
+[ext_resource type="PackedScene" uid="uid://btmac6707pvyt" path="res://assets/art/pre-fabs/foyer/wall_foyer.tscn" id="6_bjj4d"]
+[ext_resource type="PackedScene" uid="uid://c4dt8huqmrroj" path="res://assets/art/pre-fabs/foyer/foyer_table.tscn" id="7_h6tuc"]
+[ext_resource type="PackedScene" uid="uid://nq4ol04r66wm" path="res://assets/art/pre-fabs/props/painting.tscn" id="8_bm7ga"]
+[ext_resource type="PackedScene" uid="uid://bairytaoaefdv" path="res://assets/art/pre-fabs/foyer/couch.tscn" id="9_yoc4v"]
+[ext_resource type="PackedScene" uid="uid://ngi5vx5obum0" path="res://assets/art/pre-fabs/props/floor-lamp.tscn" id="10_5tfk4"]
+[ext_resource type="PackedScene" uid="uid://c0rirgib0myn7" path="res://assets/art/pre-fabs/foyer/couch_square.tscn" id="11_3khlf"]
+[ext_resource type="Material" uid="uid://bvmoq11yic1ki" path="res://assets/art/materials/prototype/grid_orange.tres" id="12_xn64d"]
+[ext_resource type="Material" uid="uid://cf7dikkc1ac3t" path="res://assets/art/materials/prototype/grid_dark.tres" id="13_nw8hh"]
+[ext_resource type="Material" uid="uid://bhadhj0p4k41p" path="res://assets/art/materials/prototype/grid_light.tres" id="14_al1y4"]
+[ext_resource type="MeshLibrary" uid="uid://b2kemvli5urdh" path="res://assets/Mesh-library-v1.tres" id="15_vrhxu"]
+
+[sub_resource type="Environment" id="Environment_u2td3"]
+background_mode = 1
+ambient_light_color = Color(1, 1, 1, 1)
+adjustment_enabled = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xxvhf"]
+size = Vector3(7.21928, 1, 17.0908)
+
+[node name="L01-LivingRoom" type="Node3D"]
+script = ExtResource("1_247ak")
+display_name = "Living Room"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_u2td3")
+
+[node name="Player" parent="." instance=ExtResource("2_ij3y7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.29496, 2.17007, -3.33612)
+
+[node name="Lights" type="Node3D" parent="."]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 5, -5)
+omni_range = 9.86
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 5, -15)
+omni_range = 9.86
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 5, -24)
+omni_range = 9.86
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -1.56603, 22.8494, 24.4055)
+light_energy = 0.01
+shadow_enabled = true
+
+[node name="Doors" type="Node3D" parent="."]
+
+[node name="FoyerLivingRoom" parent="Doors" instance=ExtResource("3_5ahme")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 1, -10)
+to_level = "foyer"
+to_door = "LivingRoomFoyer"
+y_rot = -90.0
+
+[node name="LibraryLivingRoom" parent="Doors" instance=ExtResource("3_5ahme")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 11, 1, -22)
+locked = true
+to_level = "library"
+to_door = "LivingRoomLibrary"
+y_rot = 90.0
+
+[node name="KitchenLivingRoom" parent="Doors" instance=ExtResource("3_5ahme")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 11, 1, -6)
+to_level = "kitchen"
+to_door = "LivingRoomKitchen"
+y_rot = 90.0
+
+[node name="Walls" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+visible = false
+metadata/_edit_lock_ = true
+
+[node name="Wall-01" parent="Walls" instance=ExtResource("4_irtw2")]
+metadata/_edit_lock_ = true
+
+[node name="Wall-02" parent="Walls" instance=ExtResource("4_irtw2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+metadata/_edit_lock_ = true
+
+[node name="Wall-04" parent="Walls" instance=ExtResource("4_irtw2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12)
+metadata/_edit_lock_ = true
+
+[node name="Wall-03" parent="Walls" instance=ExtResource("4_irtw2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -16)
+metadata/_edit_lock_ = true
+
+[node name="Wall-13" parent="Walls" instance=ExtResource("4_irtw2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -20)
+metadata/_edit_lock_ = true
+
+[node name="Wall-21" parent="Walls" instance=ExtResource("4_irtw2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -24)
+metadata/_edit_lock_ = true
+
+[node name="Wall-14" parent="Walls" instance=ExtResource("4_irtw2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -28)
+metadata/_edit_lock_ = true
+
+[node name="Wall-07" parent="Walls" instance=ExtResource("4_irtw2")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 12, 0, -4)
+metadata/_edit_lock_ = true
+
+[node name="Wall-09" parent="Walls" instance=ExtResource("4_irtw2")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 12, 0, -12)
+metadata/_edit_lock_ = true
+
+[node name="Wall-10" parent="Walls" instance=ExtResource("4_irtw2")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 12, 0, -16)
+metadata/_edit_lock_ = true
+
+[node name="Wall-15" parent="Walls" instance=ExtResource("4_irtw2")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 12, 0, -20)
+metadata/_edit_lock_ = true
+
+[node name="Wall-17" parent="Walls" instance=ExtResource("4_irtw2")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 12, 0, -28)
+metadata/_edit_lock_ = true
+
+[node name="Wall-18" parent="Walls" instance=ExtResource("4_irtw2")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 12, 0, -32)
+metadata/_edit_lock_ = true
+
+[node name="Wall-05" parent="Walls" instance=ExtResource("4_irtw2")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.99382e-07, 0, -32)
+metadata/_edit_lock_ = true
+
+[node name="Wall-06" parent="Walls" instance=ExtResource("4_irtw2")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4, 0, -32)
+metadata/_edit_lock_ = true
+
+[node name="Wall-20" parent="Walls" instance=ExtResource("4_irtw2")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8, 0, -32)
+metadata/_edit_lock_ = true
+
+[node name="Wall-11" parent="Walls" instance=ExtResource("4_irtw2")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 4, 0, 5.24537e-07)
+metadata/_edit_lock_ = true
+
+[node name="Wall-12" parent="Walls" instance=ExtResource("4_irtw2")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 8, 0, 5.24537e-07)
+metadata/_edit_lock_ = true
+
+[node name="Wall-19" parent="Walls" instance=ExtResource("4_irtw2")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 12, 0, 1.04907e-06)
+metadata/_edit_lock_ = true
+
+[node name="Wall-base" parent="Walls" instance=ExtResource("5_m70y3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.025, 0, -8)
+metadata/_edit_lock_ = true
+
+[node name="Prop-Column-01" type="Node3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
+metadata/_edit_lock_ = true
+
+[node name="Wall-base2" parent="Walls" instance=ExtResource("5_m70y3")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 12.003, 0, -24)
+metadata/_edit_lock_ = true
+
+[node name="Prop-Column-02" type="Node3D" parent="Walls"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 12.003, 0, -24)
+metadata/_edit_lock_ = true
+
+[node name="Wall-base3" parent="Walls" instance=ExtResource("5_m70y3")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 12.003, 0, -8)
+metadata/_edit_lock_ = true
+
+[node name="Prop-Column-03" type="Node3D" parent="Walls"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 12.003, 0, -8)
+metadata/_edit_lock_ = true
+
+[node name="Wall-with Arch" parent="." instance=ExtResource("6_bjj4d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.62508, 1, -8.61305)
+
+[node name="Wall-with Arch2" parent="." instance=ExtResource("6_bjj4d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.62508, 1, -20.213)
+
+[node name="Props" type="Node3D" parent="."]
+
+[node name="Table" parent="Props" instance=ExtResource("7_h6tuc")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5, 1, -31.1)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Props/Table"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.400002, 1.1, -1)
+
+[node name="Painting" parent="Props" instance=ExtResource("8_bm7ga")]
+transform = Transform3D(-1, 0, 8.19564e-08, 0, 1, 0, -8.19564e-08, 0, -1, 6, 4, -31.1)
+size_x = 1.5
+size_y = 2.0
+
+[node name="Column02" type="Node3D" parent="Props"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4, 1.5, -31.4)
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Props/Column02"]
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Props/Column02/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+size = Vector3(0.8, 0.5, 0.8)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="Props/Column02/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.01, 0)
+size = Vector3(0.6, 0.2, 0.6)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Props/Column02/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2, 0)
+size = Vector3(0.5, 6, 0.5)
+
+[node name="Column02-1" type="Node3D" parent="Props"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8, 1.5, -31.4)
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Props/Column02-1"]
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Props/Column02-1/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+size = Vector3(0.8, 0.5, 0.8)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="Props/Column02-1/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.01, 0)
+size = Vector3(0.6, 0.2, 0.6)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Props/Column02-1/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2, 0)
+size = Vector3(0.5, 6, 0.5)
+
+[node name="Carpet02" type="CSGBox3D" parent="Props"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6, 0.83, -27.73)
+size = Vector3(3, 0.1, 4)
+
+[node name="Couches" parent="Props" instance=ExtResource("9_yoc4v")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 10.3, 1.5, -17.43)
+
+[node name="Lamp" parent="Props/Couches" instance=ExtResource("10_5tfk4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 1.2)
+
+[node name="Couch02" parent="Props/Couches" instance=ExtResource("9_yoc4v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4, 0, 0)
+
+[node name="Painting" parent="Props/Couches" instance=ExtResource("8_bm7ga")]
+transform = Transform3D(-1, 3.8097e-09, -8.72564e-08, -3.8097e-09, 0.996195, 0.0871557, 8.72564e-08, 0.0871557, -0.996195, 1, 2.5, -1)
+size_x = 3.0
+size_y = 2.0
+
+[node name="Couch03" parent="Props/Couches" instance=ExtResource("11_3khlf")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2, 0, 3.1)
+
+[node name="Couch04" parent="Props/Couches" instance=ExtResource("11_3khlf")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 4, 0, 4.1)
+
+[node name="Carpet" type="CSGBox3D" parent="Props/Couches"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, -0.67, 3.6)
+size = Vector3(3, 0.1, 4)
+
+[node name="CoffeeTable" type="CSGCombiner3D" parent="Props/Couches"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, -0.17, 3.6)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Props/Couches/CoffeeTable"]
+size = Vector3(2, 0.1, 2)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Props/Couches/CoffeeTable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4, 0)
+size = Vector3(1.5, 0.1, 1.5)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Props/Couches/CoffeeTable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7, -0.2, -0.6)
+size = Vector3(0.1, 0.5, 0.1)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Props/Couches/CoffeeTable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7, -0.2, 0.599999)
+size = Vector3(0.1, 0.5, 0.1)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Props/Couches/CoffeeTable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, -0.2, -0.6)
+size = Vector3(0.1, 0.5, 0.1)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Props/Couches/CoffeeTable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, -0.2, 0.599999)
+size = Vector3(0.1, 0.5, 0.1)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Props/Couches/CoffeeTable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4, 0)
+operation = 2
+size = Vector3(1, 0.1, 1)
+
+[node name="Fireplace" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.1, 1.3, -17.93)
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Fireplace"]
+material_override = ExtResource("12_xn64d")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Fireplace/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0.25)
+size = Vector3(2.5, 2, 0.16)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Fireplace/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, -2.38419e-07)
+operation = 2
+size = Vector3(1.5, 1.5, 1)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Fireplace"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.111, 2.72719, 0.247721)
+size = Vector3(0.2, 2.5, 0.5)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Fireplace"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.089, 2.72719, 0.247721)
+size = Vector3(0.2, 2.5, 0.5)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Fireplace"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.111, 4.4703, 0.281693)
+size = Vector3(0.2, 2, 0.4)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Fireplace"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.111, 5.4303, 0.281692)
+size = Vector3(0.6, 0.2, 0.6)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Fireplace"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.089, 5.4303, 0.281692)
+size = Vector3(0.6, 0.2, 0.6)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Fireplace"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.089, 4.4703, 0.281693)
+size = Vector3(0.2, 2, 0.4)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Fireplace"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0.4)
+size = Vector3(2, 2, 0.2)
+
+[node name="Painting" parent="Fireplace/CSGBox3D2" instance=ExtResource("8_bm7ga")]
+transform = Transform3D(1, -3.8097e-09, -1.66335e-10, 3.8097e-09, 0.996195, 0.0871557, -1.66335e-10, -0.0871557, 0.996195, 0, 0, -0.2)
+size_y = 1.2
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Fireplace"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5, 0.4)
+size = Vector3(2, 2, 0.2)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Fireplace"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+material_override = ExtResource("13_nw8hh")
+size = Vector3(2.5, 0.15, 1)
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="Fireplace"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.72, 0.18)
+material_override = ExtResource("13_nw8hh")
+size = Vector3(2.2, 0.5, 0.1)
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="Fireplace"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.12, 0.2)
+material_override = ExtResource("13_nw8hh")
+size = Vector3(2.2, 0.5, 0.1)
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="Fireplace"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.42, 0.32)
+material_override = ExtResource("13_nw8hh")
+size = Vector3(2.2, 1, 0.1)
+
+[node name="CSGBox3D10" type="CSGCylinder3D" parent="Fireplace"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.47, -0.200001)
+material_override = ExtResource("14_al1y4")
+use_collision = true
+radius = 0.1
+
+[node name="CSGBox3D11" type="CSGCylinder3D" parent="Fireplace"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.47, -0.200001)
+material_override = ExtResource("14_al1y4")
+use_collision = true
+radius = 0.1
+
+[node name="Bench" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.42553, 1.15, -15.03)
+size = Vector3(1, 0.5, 1)
+
+[node name="Bench2" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.42553, 1.15, -21.03)
+size = Vector3(1, 0.5, 1)
+
+[node name="GridMap" type="GridMap" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+mesh_library = ExtResource("15_vrhxu")
+cell_size = Vector3(2, 1, 2)
+cell_center_x = false
+cell_center_z = false
+data = {
+"cells": PackedInt32Array(0, 0, 7, 0, 65534, 7, 0, 65532, 7, 0, 65530, 7, 2, 65530, 7, 2, 65532, 7, 2, 65534, 7, 2, 0, 7, 0, 65528, 7, 2, 65528, 7, 4, 65528, 7, 4, 65530, 7, 4, 65532, 7, 4, 65534, 7, 4, 0, 7, 4, 65522, 7, 4, 65524, 7, 4, 65526, 7, 2, 65526, 7, 2, 65524, 7, 2, 65522, 7, 0, 65522, 7, 0, 65524, 7, 0, 65526, 7)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="GridMap"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -0.1, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GridMap/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.10964, 0, -8.04541)
+shape = SubResource("BoxShape3D_xxvhf")
+disabled = true
