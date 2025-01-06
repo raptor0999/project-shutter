@@ -5,7 +5,7 @@ extends CharacterBody3D
 @onready var steps:Node = $Footsteps
 
 @onready var camera_holder:Node3D = $Camera
-@onready var standardCam:Camera3D = $Camera/Camera3D
+@onready var standardCam:Camera3D = $Camera3D
 @onready var chaseCam:Camera3D = $Camera/ChaseCamera
 
 var scale_factor = 1
@@ -94,7 +94,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("free_look_toggle"):
 		mouse_look = true
 	else:
-		mouse_look = false
+		mouse_look = true
 			
 	if mouse_look:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -164,11 +164,11 @@ func _update_mouselook():
 	_mouse_position = Vector2(0, 0)
 	
 	# Prevents looking left/right too far
-	yaw = clamp(yaw, -20 - _total_yaw, 20 - _total_yaw)
+	yaw = clamp(yaw, -75 - _total_yaw, 75 - _total_yaw)
 	_total_yaw += yaw
 	
 	# Prevents looking up/down too far
-	pitch = clamp(pitch, -20 - _total_pitch, 20 - _total_pitch)
+	pitch = clamp(pitch, -45 - _total_pitch, 45 - _total_pitch)
 	_total_pitch += pitch
 
 	standardCam.rotate_y(deg_to_rad(-yaw))
