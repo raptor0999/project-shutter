@@ -6,7 +6,6 @@ extends CharacterBody3D
 
 @onready var camera_holder:Node3D = $Camera
 @onready var standardCam:Camera3D = $Camera3D
-@onready var chaseCam:Camera3D = $Camera/ChaseCamera
 
 var scale_factor = 1
 var filter_mode = Viewport.SCALING_3D_MODE_BILINEAR
@@ -42,7 +41,7 @@ func _input(event):
 	if Input.is_action_just_pressed("forward_track"):
 		Globals.forward_track.emit()
 		
-	if event is InputEventMouseMotion:
+	if event is InputEventMouseMotion and mouse_look:
 		_mouse_position = event.relative
 		
 	if Input.is_action_just_pressed("toggle_viewport_scale"):
@@ -59,15 +58,15 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("interact") and is_on_floor():
 		interact()
 		
-	if Input.is_action_just_pressed("chase_cam"):
-		if chaseCam.current:
-			Globals.load_level.emit("test-level", 0, "standard_cam")
-		else:
-			Globals.load_level.emit("test-chase-level", 0, "chase_cam")
+	#if Input.is_action_just_pressed("chase_cam"):
+		#if chaseCam.current:
+		#	Globals.load_level.emit("test-level", 0, "standard_cam")
+		#else:
+		#	Globals.load_level.emit("test-chase-level", 0, "chase_cam")
 
 	# Handle jump.
-	if Input.is_action_just_pressed("jump") and is_on_floor() and chaseCam.current:
-		velocity.y = JUMP_VELOCITY
+	#if Input.is_action_just_pressed("jump") and is_on_floor() and chaseCam.current:
+		#velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -94,16 +93,22 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("free_look_toggle"):
 		mouse_look = true
 	else:
-		mouse_look = true
+		mouse_look = false
+		
+	if Input.is_action_just_pressed("cam_zoom_in"):
+		standardCam.size -= 1.0
+		
+	if Input.is_action_just_pressed("cam_zoom_out"):
+		standardCam.size += 1.0
 			
 	if mouse_look:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		_update_mouselook()
 	else:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-		_total_pitch = 0.0
-		_total_yaw = 0.0
-		standardCam.rotation = Vector3.ZERO
+		#_total_pitch = 0.0
+		#_total_yaw = 0.0
+		#standardCam.rotation = Vector3.ZERO
 		#standardCam.rotate_object_local(Vector3(1,0,0), deg_to_rad(0))
 		
 	
@@ -112,9 +117,9 @@ func _physics_process(delta: float) -> void:
 	#else:
 		#input_dir = Input.get_axis("move_down", "move_up")
 	
-	var direction = (standardCam.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	#var relativeDir = direction.rotated(Vector3.UP, camera_holder.rotation.y)
-	#direction = relativeDir
+	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	var relativeDir = direction.rotated(Vector3.UP, camera_holder.rotation.y)
+	direction = relativeDir
 	if direction:
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
@@ -164,11 +169,11 @@ func _update_mouselook():
 	_mouse_position = Vector2(0, 0)
 	
 	# Prevents looking left/right too far
-	#yaw = clamp(yaw, -75 - _total_yaw, 75 - _total_yaw)
-	#_total_yaw += yaw
+	yaw = clamp(yaw, -20 - _total_yaw, 20 - _total_yaw)
+	_total_yaw += yaw
 	
 	# Prevents looking up/down too far
-	pitch = clamp(pitch, -45 - _total_pitch, 45 - _total_pitch)
+	pitch = clamp(pitch, -20 - _total_pitch, 20 - _total_pitch)
 	_total_pitch += pitch
 
 	standardCam.rotate_y(deg_to_rad(-yaw))
