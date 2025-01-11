@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://ct2ibwolp1m2t"]
+
+[ext_resource type="Material" uid="uid://bvmoq11yic1ki" path="res://assets/art/materials/prototype/grid_orange.tres" id="1_agvan"]
+[ext_resource type="PackedScene" uid="uid://vkmk1eb6a3b1" path="res://assets/art/pre-fabs/library/book.tscn" id="2_tbnvs"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_s8i1t"]
+size = Vector3(1.72946, 1.1142, 2.85547)
+
+[node name="CSGCombiner3D" type="CSGCombiner3D"]
+material_override = ExtResource("1_agvan")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.4, -0.5)
+material_override = ExtResource("1_agvan")
+size = Vector3(1, 0.8, 1)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.2, -0.5)
+operation = 2
+size = Vector3(1.2, 0.8, 0.8)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.51171, 0.239278, -0.546188)
+operation = 2
+size = Vector3(1.2, 0.8, 0.8)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.486771, 0.510017, -0.927734)
+shape = SubResource("BoxShape3D_s8i1t")
+
+[node name="Node3D" parent="." instance=ExtResource("2_tbnvs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.33, 0.85, -0.25)
+
+[node name="Node3D2" parent="." instance=ExtResource("2_tbnvs")]
+transform = Transform3D(0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 0.33, 0.95, -0.25)
+
+[node name="Node3D3" parent="." instance=ExtResource("2_tbnvs")]
+transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, 0.76, 0.82, -0.8)
+
+[node name="Node3D4" parent="." instance=ExtResource("2_tbnvs")]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0.76, 0.92, -0.8)

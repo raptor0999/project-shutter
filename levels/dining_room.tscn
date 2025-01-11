@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dtto2yfy7q7fs"]
+[gd_scene load_steps=21 format=3 uid="uid://dtto2yfy7q7fs"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_x4cni"]
 [ext_resource type="PackedScene" uid="uid://cl5gpc4mf6qhe" path="res://assets/art/pre-fabs/wall_02_door.tscn" id="3_f1tyx"]
@@ -15,6 +15,9 @@
 [ext_resource type="PackedScene" uid="uid://nq4ol04r66wm" path="res://assets/art/pre-fabs/props/painting.tscn" id="8_c723x"]
 [ext_resource type="PackedScene" uid="uid://6aguv3kql2yp" path="res://assets/art/pre-fabs/dining_room/chair.tscn" id="8_uixf8"]
 [ext_resource type="PackedScene" uid="uid://dug8ai683jkgg" path="res://scenes/characters/player/player.tscn" id="8_yq2bb"]
+[ext_resource type="PackedScene" uid="uid://du4g6lxidg6yr" path="res://assets/art/pre-fabs/wall_ceiling.tscn" id="16_jbe76"]
+[ext_resource type="PackedScene" uid="uid://dpea1xnfqlhdv" path="res://assets/art/pre-fabs/library/trim-beam.tscn" id="17_28ns8"]
+[ext_resource type="PackedScene" uid="uid://or4eameimh5a" path="res://assets/art/pre-fabs/library/trim-roof.tscn" id="18_moqcp"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7fbk5"]
 size = Vector3(16.7, 1.4, 33.3)
@@ -267,6 +270,71 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2, 1,
 to_level = "hallway"
 to_door = "DiningRoomHallway"
 y_rot = 180.0
+
+[node name="Ceilings" type="Node3D" parent="."]
+
+[node name="Ceiling" parent="Ceilings" instance=ExtResource("16_jbe76")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.85, -8)
+
+[node name="Ceiling6" parent="Ceilings" instance=ExtResource("16_jbe76")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 7.05, -8)
+
+[node name="Ceiling2" parent="Ceilings" instance=ExtResource("16_jbe76")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.85, -12)
+
+[node name="Ceiling3" parent="Ceilings" instance=ExtResource("16_jbe76")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 6.85, -8)
+
+[node name="Ceiling4" parent="Ceilings" instance=ExtResource("16_jbe76")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 6.85, -12)
+
+[node name="Ceiling5" parent="Ceilings" instance=ExtResource("16_jbe76")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 6.85, -12)
+
+[node name="Ceiling7" parent="Ceilings" instance=ExtResource("16_jbe76")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 6.85, -8)
+
+[node name="Node3D2" parent="Ceilings" instance=ExtResource("17_28ns8")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.7, 3.5, -12)
+
+[node name="Node3D4" parent="Ceilings" instance=ExtResource("17_28ns8")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.7, 3.5, -12)
+
+[node name="Node3D6" parent="Ceilings" instance=ExtResource("17_28ns8")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.7, 3.5, -12)
+
+[node name="Node3D5" parent="Ceilings" instance=ExtResource("17_28ns8")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 8, 3.5, -12)
+
+[node name="Node3D3" parent="Ceilings" instance=ExtResource("18_moqcp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 3.5, -12)
+
+[node name="Node3D7" parent="Ceilings" instance=ExtResource("18_moqcp")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8, 3.5, -8.2)
+
+[node name="Node3D8" parent="Ceilings" instance=ExtResource("17_28ns8")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.1, 3.5, -12)
+
+[node name="Node3D9" parent="Ceilings" instance=ExtResource("17_28ns8")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.4, 3.5, -12)
+
+[node name="Node3D10" parent="Ceilings" instance=ExtResource("18_moqcp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4, 3.5, -12)
+
+[node name="Node3D11" parent="Ceilings" instance=ExtResource("18_moqcp")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.4, 3.5, -8.2)
+
+[node name="Node3D12" parent="Ceilings" instance=ExtResource("17_28ns8")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.5, 3.5, -12)
+
+[node name="Node3D13" parent="Ceilings" instance=ExtResource("17_28ns8")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.8, 3.5, -12)
+
+[node name="Node3D14" parent="Ceilings" instance=ExtResource("18_moqcp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, 3.5, -12)
+
+[node name="Node3D15" parent="Ceilings" instance=ExtResource("18_moqcp")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.8, 3.5, -8.2)
 
 [editable path="Walls/Wall-09"]
 [editable path="Walls/Wall-11"]

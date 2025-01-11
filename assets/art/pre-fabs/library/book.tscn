@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://vkmk1eb6a3b1"]
+
+[ext_resource type="Material" uid="uid://bhadhj0p4k41p" path="res://assets/art/materials/prototype/grid_light.tres" id="1_7twa2"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+material_override = ExtResource("1_7twa2")
+size = Vector3(0.3, 0.1, 0.2)
