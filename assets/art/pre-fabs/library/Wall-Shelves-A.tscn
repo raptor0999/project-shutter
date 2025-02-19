@@ -1,11 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://x0y8q5brhy3f"]
+[gd_scene load_steps=6 format=3 uid="uid://x0y8q5brhy3f"]
 
 [ext_resource type="PackedScene" uid="uid://ff1va30m7175" path="res://assets/art/pre-fabs/library/bookshelf.tscn" id="1_dhfp3"]
 [ext_resource type="PackedScene" uid="uid://rs2wdn7kue80" path="res://assets/art/pre-fabs/library/bookshelf-02.tscn" id="2_uh016"]
 [ext_resource type="PackedScene" uid="uid://y5u6ckhupp5k" path="res://assets/art/pre-fabs/library/bookshelf-03.tscn" id="3_jnvus"]
 [ext_resource type="PackedScene" uid="uid://7mynl7f4kuha" path="res://assets/art/pre-fabs/library/bookshelf-04.tscn" id="4_rbrfl"]
 [ext_resource type="PackedScene" uid="uid://dw8mj8sytbqo5" path="res://assets/art/pre-fabs/library/Cabinet.tscn" id="5_j36we"]
-[ext_resource type="PackedScene" uid="uid://or4eameimh5a" path="res://assets/art/pre-fabs/library/trim-roof.tscn" id="6_7o6mr"]
 
 [node name="Wall-Shelves-A" type="Node3D"]
 
@@ -32,6 +31,3 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 
 
 [node name="Node3D4" parent="." instance=ExtResource("5_j36we")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, -2.8)
-
-[node name="Node3D5" parent="." instance=ExtResource("6_7o6mr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9, -1.28)

@@ -1,10 +1,17 @@
-[gd_scene format=3 uid="uid://du4g6lxidg6yr"]
+[gd_scene load_steps=2 format=3 uid="uid://du4g6lxidg6yr"]
+
+[ext_resource type="PackedScene" uid="uid://cxa876tv7re16" path="res://assets/art/Meshes/ceiling_01.tscn" id="1_11eh5"]
 
 [node name="Ceiling" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.25, 0)
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+visible = false
 
 [node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -0.25, -2)
+visible = false
 size = Vector3(4, 0.25, 4)
+
+[node name="Ceiling01" parent="." instance=ExtResource("1_11eh5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.56, -6.29, 0)

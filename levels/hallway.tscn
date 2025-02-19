@@ -1,115 +1,37 @@
-[gd_scene load_steps=12 format=4 uid="uid://cyy8qeve4f58m"]
+[gd_scene load_steps=13 format=3 uid="uid://cyy8qeve4f58m"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_hb1yj"]
-[ext_resource type="PackedScene" uid="uid://bniqk4limmnq0" path="res://assets/art/import/Level-01-LR.glb" id="2_kcgmy"]
 [ext_resource type="PackedScene" uid="uid://bnjbxwpk8m1p0" path="res://assets/art/pre-fabs/wall_02.tscn" id="3_mrl8b"]
 [ext_resource type="PackedScene" uid="uid://cl5gpc4mf6qhe" path="res://assets/art/pre-fabs/wall_02_door.tscn" id="4_c1v6s"]
-[ext_resource type="Material" uid="uid://bktywtfpewkbh" path="res://assets/art/materials/m_tile_wood_bark.tres" id="5_s34df"]
 [ext_resource type="MeshLibrary" uid="uid://b2kemvli5urdh" path="res://assets/Mesh-library-v1.tres" id="6_gj7n5"]
 [ext_resource type="PackedScene" uid="uid://dct634ct8ch0r" path="res://scenes/objects/doors/door_standard.tscn" id="7_5yqud"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yj84b"]
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_rsav6"]
-_surfaces = [{
-"aabb": AABB(-0.685418, -2.38419e-07, -0.675534, 1.36393, 6, 1.36393),
-"format": 34896613377,
-"index_count": 768,
-"index_data": PackedByteArray("LgBRAG4ALgAvAFEAIABUAFIAIAAhAFQAIQBWAFQAIQAiAFYAIgBYAFYAIgAjAFgAIwBaAFgAIwAkAFoAJABcAFoAJAAlAFwAJQBeAFwAJQAmAF4AJgBgAF4AJgAnAGAAJwBiAGAAJwAoAGIAKABkAGIAKAApAGQAKQBmAGQAKQAqAGYAKgBoAGYAKgArAGgAKwBqAGgAKwAsAGoALABsAGoALAAtAGwALQBuAGwALQAuAG4ALwBSAFEALwAgAFIAjwAvAC4AjwBwAC8AjQAuAC0AjQCPAC4AiwAtACwAiwCNAC0AiQAsACsAiQCLACwAhwArACoAhwCJACsAhQAqACkAhQCHACoAgwApACgAgwCFACkAgQAoACcAgQCDACgAfwAnACYAfwCBACcAfQAmACUAfQB/ACYAewAlACQAewB9ACUAeQAkACMAeQB7ACQAdwAjACIAdwB5ACMAdQAiACEAdQB3ACIAcAAgAC8AcABzACAAUwAFAAMAUwBVAAUAbQAfAB0AbQBvAB8AawAdABsAawBtAB0AaQAbABkAaQBrABsAZwAZABcAZwBpABkAZQAXABUAZQBnABcAYwAVABMAYwBlABUAYQATABEAYQBjABMAXwARAA8AXwBhABEAXQAPAA0AXQBfAA8AWwANAAsAWwBdAA0AWQALAAkAWQBbAAsAVwAJAAcAVwBZAAkAVQAHAAUAVQBXAAcAUAADAAEAUABTAAMAPgBxAI4APgA/AHEAMAB0AHIAMAAxAHQAMQB2AHQAMQAyAHYAMgB4AHYAMgAzAHgAMwB6AHgAMwA0AHoANAB8AHoANAA1AHwANQB+AHwANQA2AH4ANgCAAH4ANgA3AIAANwCCAIAANwA4AIIAOACEAIIAOAA5AIQAOQCGAIQAOQA6AIYAOgCIAIYAOgA7AIgAOwCKAIgAOwA8AIoAPACMAIoAPAA9AIwAPQCOAIwAPQA+AI4AcwAhACAAcwB1ACEATwAwAD8ATwBAADAAQAAxADAAQABBADEAQQAyADEAQQBCADIAQgAzADIAQgBDADMAQwA0ADMAQwBEADQARAA1ADQARABFADUARQA2ADUARQBGADYARgA3ADYARgBHADcARwA4ADcARwBIADgASAA5ADgASABJADkASQA6ADkASQBKADoASgA7ADoASgBLADsASwA8ADsASwBMADwATAA9ADwATABNAD0ATQA+AD0ATQBOAD4ATgA/AD4ATgBPAD8AHgBPAE4AHgAAAE8AHABOAE0AHAAeAE4AGgBNAEwAGgAcAE0AGABMAEsAGAAaAEwAFgBLAEoAFgAYAEsAFABKAEkAFAAWAEoAEgBJAEgAEgAUAEkAEABIAEcAEAASAEgADgBHAEYADgAQAEcADABGAEUADAAOAEYACgBFAEQACgAMAEUACABEAEMACAAKAEQABgBDAEIABgAIAEMABABCAEEABAAGAEIAAgBBAEAAAgAEAEEAAABAAE8AAAACAEAAbwBRAFAAbwBuAFEAbQBuAG8AbQBsAG4AawBsAG0AawBqAGwAaQBqAGsAaQBoAGoAZwBoAGkAZwBmAGgAZQBmAGcAZQBkAGYAYwBkAGUAYwBiAGQAYQBiAGMAYQBgAGIAXwBgAGEAXwBeAGAAXQBeAF8AXQBcAF4AWwBcAF0AWwBaAFwAWQBaAFsAWQBYAFoAVwBYAFkAVwBWAFgAVQBWAFcAVQBUAFYAUwBUAFUAUwBSAFQAUABSAFMAUABRAFIAbwABAB8AbwBQAAEAjwBxAHAAjwCOAHEAjQCOAI8AjQCMAI4AiwCMAI0AiwCKAIwAiQCKAIsAiQCIAIoAhwCIAIkAhwCGAIgAhQCGAIcAhQCEAIYAgwCEAIUAgwCCAIQAgQCCAIMAgQCAAIIAfwCAAIEAfwB+AIAAfQB+AH8AfQB8AH4AewB8AH0AewB6AHwAeQB6AHsAeQB4AHoAdwB4AHkAdwB2AHgAdQB2AHcAdQB0AHYAcwB0AHUAcwByAHQAcAByAHMAcABxAHIAPwByAHEAPwAwAHIA"),
-"lods": [0.18252, PackedByteArray("LQAvAG4AcAAvAC0ALQBuAGoALAAtAGoAiwAtACwAiwBwAC0AbwBqAG4AawBqAG8AawAdABsAawBvAB0AbwAfAB0AbwABAB8AbwBTAAEAbwBuAFMAUwADAAEAUwAFAAMAUwBXAAUAVwAHAAUAUwBuAFIAUwBSAFcALwBSAG4AVwAJAAcALwAhAFIAVwBbAAkAWwALAAkAVwBSAFYAVwBWAFsAIQBWAFIAWwANAAsAcAAhAC8AWwBfAA0AXwAPAA0AXwARAA8AWwBaAF8AWwBWAFoAXwBjABEAYwATABEAYwAVABMAXwBeAGMAXwBaAF4AYwBnABUAZwAXABUAZwAZABcAZwBrABkAawAbABkAYwBiAGcAYwBeAGIAZwBmAGsAZwBiAGYAawBmAGoALABqAGYAKQBmAGIAKQAsAGYAJwBiAF4AJwApAGIAJQAnAF4AJQBeAFoAgwApACcAhwAsACkAgwCHACkAhwCLACwAfwCDACcAfwAnACUAgwCCAIcAhwCGAIsAhwCCAIYAiwCGAIoAPACKAIYAOgA8AIYAOgCGAIIAFgAYADwAGAAaADwAFgA8ADoAFAAWADoAEgAUADoAEgA6ADgAOAA6AIIAEAASADgAEAA4ADcANwA4AIIADgAQADcANwCCAH4AgwB+AIIADgA3ADYANgA3AH4ADAAOADYAfwB+AIMADAA2ADUANQA2AH4ACgAMADUAfwB6AH4ANQB+AHoACgA1ADQANAA1AHoACAAKADQACAA0ADMAMwA0AHoABgAIADMAewB6AH8AewB/ACUAMwB6AHYAewB2AHoABgAzADIAMgAzAHYABAAGADIABAAyADEAMQAyAHYAAgAEADEAewAlACMAIwAlAFoAIwBaAFYAIQAjAFYAdwB7ACMAdwAjACEAdwB2AHsAcAB3ACEAdwByAHYAcAByAHcAMQB2AHIAAgAxADAAMAAxAHIAAAACADAAAAAwAD8AHgAAAD8APwAwAHIAHAAeAD8AcACOAHIAPwByAI4AiwCOAHAAiwCKAI4APQA/AI4AHAA/AD0APQCOAIoAGgAcAD0APAA9AIoAGgA9ADwA"), 0.194714, PackedByteArray("cgBSAGoAUwBqAFIAiwByAGoAPAByAIsAawBqAFMAawBTAAEAawABAB8AawAfAB0AawAdABsAPAA/AHIAHAA/ADwAGgAcADwAHAAeAD8AHgAAAD8AAAACAD8APwAyAHIAAgAyAD8AAgAEADIABAAGADIABgAIADQACAAKADQACgAMADQABgA0ADIADAAOADQADgA4ADQADgAQADgANAA4AH4AEAASADgAEgAUADgAMgA0AHYANAB+AHYAMgB2AHIAcgB2AFIAewB2AH4AewB+AIMAewCDAGIAdgBaAFIAewBiAFoAdgB7AFoAUwBSAFoAWgBiABEAWgARAA8AWgAPAA0AWgANAAsAWgALAAkAUwBaAAkAUwAJAAcAUwAHAAUAUwAFAAMAUwADAAEAYgATABEAYgAVABMAYgAXABUAYgAZABcAYgBrABkAawAbABkAawBiAGoAgwBqAGIAgwCLAGoAgwCGAIsAgwB+AIYAPACLAIYAOACGAH4AOAA8AIYAFgA8ADgAFAAWADgAGAAaADwAFgAYADwA"), 0.906872, PackedByteArray("agAfAB0AagAdABsAagABAB8AagAFAAEABQADAAEABQAJAAcABQBqAAkAagALAAkAagANAAsABgAMAGoABgAIAAwACAAKAAwAagAPAA0AagARAA8AagATABEAagAVABMAagAXABUAagAZABcAagAbABkADAAUAGoADgAUAAwADgAQABQAEAASABQAagBqABkAFABqAGoAFgBqABQAFgAYAGoAGAAaAGoAGgAcAGoAHAAAAGoAHAAeAAAAAAAGAGoAAgAGAAAAAgAEAAYA")],
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 144,
-"vertex_data": PackedByteArray("sQEAAIudAABVEP//HpoAAAAAAAD1agAA1g7//2ZtAADLEQAAlDsAAJIe//+CQwAAXTQAAJ0WAAAiPf//1CIAAHNiAACxAQAA4GX//1UQAAAJlQAAAAAAAJiS///WDgAAasQAAMsRAAB8vP//kh4AAGHpAABdNAAAKt3//yI9AABN/gAAc2IAAKnv///gZQAA//8AAAmVAAAo8f//mJIAADPuAABqxAAAbOH//3y8AAChywAAYekAANzC//8q3QAAi50AAE3+AAAemv//qe8AAPVqAAD//wAAZm3//yjxAACUOwAAM+4AAIJD//9s4QAAnRYAAKHLAADUIv//3MIAAO4V/9+QbgAArST/301HAABTQf/fqygAAINn/99VFwAAbpH/3+4VAACxuP/frSQAAFPX/99TQQAAqej/34NnAAAQ6v/fbpEAAFHb/9+xuAAAq77/31PXAAB7mP/fqegAAJBu/98Q6gAATUf/31HbAACrKP/fq74AAFUX/997mAAA6jWQKtJzAAA3QJAqZlgAADlUkCoBQwAA5W6QKuU2AAAsjJAq6jUAAJinkCo3QAAA/byQKjlUAAAZyZAq5W4AABTKkCosjAAAx7+QKpinAADFq5Aq/bwAABmRkCoZyQAA0nOQKhTKAABmWJAqyL8AAAFDkCrFqwAA5TaQKhmRAADqNUgV0nMAADdASBVmWAAAOVRIFQFDAADlbkgV5TYAACyMSBXqNQAAmKdIFTdAAAD9vEgVOVQAABnJSBXlbgAAFMpIFSyMAADHv0gVmKcAAMWrSBX9vAAAGZFIFRnJAADSc0gVFMoAAGZYSBXIvwAAAUNIFcWrAADlNkgVGZEAACkyR+00kgAA9C9R6LiSAADhLlHoqnIAAB4xR+0IcwAAKDpR6KNUAAAVPEft1VUAABFQUeg2PQAAY1FH7Q4/AABGbVHo9C8AAMptR+0pMgAAVI1R6OEuAAD2jEftHjEAAFurUegoOgAAKapH7RU8AADIwlHoEVAAAPDAR+1jUQAACtBR6EZtAADVzUftym0AAB3RUehUjQAA4M5H7faMAADWxVHoW6sAAOnDR+0pqgAA7a9R6MjCAACbrkft8MAAALiSUegK0AAANJJH7dXNAACqclHoHdEAAAhzR+3gzgAAo1RR6NbFAADVVUft6cMAADY9UejtrwAADj9H7ZuuAABFMTvXapIAAOU2CNMZkQAA6jUI09JzAAA3MDvX4nIAADdACNNmWAAATjs711pVAAA5VAjTAUMAANtQO9dPPgAA5W4I0+U2AACUbTvXRTEAACyMCNPqNQAAHI071zcwAACYpwjTN0AAAKSqO9dOOwAA/bwI0zlUAACvwTvX21AAABnJCNPlbgAAuc4715RtAAAUygjTLIwAAMfPO9ccjQAAx78I05inAACwxDvXpKoAAMWrCNP9vAAAI68716/BAAAZkQjTGckAAGqSO9e5zgAA0nMI0xTKAADicjvXx88AAGZYCNPIvwAAWlU717DEAAABQwjTxasAAE8+O9cjrwAA")
-}]
-blend_shape_mode = 0
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_80wuv"]
-resource_name = "Prop-Column-01_Cylinder_007"
-_surfaces = [{
-"aabb": AABB(-0.685418, -2.38419e-07, -0.675534, 1.36393, 6, 1.36393),
-"attribute_data": PackedByteArray("ipEL/4qRgAHkigv/5IqAAT6EC/8+hIABmH0L/5h9gAHydgv/8naAAUxwC/9McIABpmkL/6ZpgAEAYwv/AGOAAVpcC/9aXIABtFUL/7RVgAEOTwv/Dk+AAWhIC/9oSIABwkEL/8JBgAEcOwv/fKUL/xw7gAF8pYAB1p4L/9aegAEwmAv/MJiAAeSKZyM+hGcjmH1nI/J2ZyNMcGcjpmlnIwBjZyNaXGcjtFVnIw5PZyNoSGcjwkFnIxw7ZyN8pWcj1p5nIzCYZyOKkWcj5IoV0z6EFdOYfRXT8nYV00xwFdOmaRXTAGMV01pcFdO0VRXTDk8V02hIFdPCQRXTHDsV03ylFdPWnhXTMJgV04qRFdPkinXnPoR155h9defydnXnTHB156ZpdecAY3XnWlx157RVdecOT3XnaEh158JBdeccO3XnfKV159aedecwmHXnipF154qR8hSKkbkZ5Iq5GeSK8hQ+hLkZPoTyFJh9uRmYffIU8na5GfJ28hRMcLkZTHDyFKZpuRmmafIUAGO5GQBj8hRaXLkZWlzyFLRVuRm0VfIUDk+5GQ5P8hRoSLkZaEjyFMJBuRnCQfIUHDu5GXyluRkcO/IUfKXyFNaeuRnWnvIUMJi5GTCY8hSKkZotipHPMeSKzzHkipotPoTPMT6Emi2Yfc8xmH2aLfJ2zzHydpotTHDPMUxwmi2mac8xpmmaLQBjzzEAY5otWlzPMVpcmi20Vc8xtFWaLQ5PzzEOT5otaEjPMWhImi3CQc8xwkGaLRw7zzF8pc8xHDuaLXylmi3Wns8x1p6aLTCYzzEwmJotipEL/z6EgAGYfQv/mH0L/6ZpC/+maQv/WlyAAbRVgAEOTwv/HDu5GXyluRl8pbkZfKW5GXyluRl8pbkZmH0V00xwFdNMcBXTtFUV07RVFdMcOxXTfKUV04qRFdPkirkZ5Iq5GeSK8hTkivIUTHC5GUxwuRm0VbkZtFW5GRw7uRl8pbkZHDvyFHyl8hTkis8x5IrPMZh9zzFMcJotTHCaLQBjzzEAY88xtFWaLbRVmi1oSM8xHDuaLXylmi0+hGcjDk9nIxw7ZyNoSBXTHDsV04qRFdOYfbkZaEi5GYqRmi18pZot"),
-"format": 34896613399,
-"index_count": 768,
-"index_data": PackedByteArray("MQBWAHUAMQAyAFYAIgBZAFcAIgAjAFkAIwBbAFkAIwAkAFsAJABdAFsAJAAlAF0AJQBfAF0AJQAmAF8AJgBhAF8AJgAnAGEAJwBjAGEAJwAoAGMAKABlAGMAKAApAGUAKQBnAGUAKQAqAGcAKgBpAGcAKgArAGkAKwBrAGkAKwAsAGsALABtAGsALAAtAG0ALQBvAG0ALQAuAG8ALwBzAHAALwAwAHMAMAB1AHMAMAAxAHUAMgBXAFYAMgAiAFcAmAAyADEAmAB3ADIAlgAxADAAlgCYADEAlAAwAC8AlACWADAAkAAuAC0AkACTAC4AjgAtACwAjgCQAC0AjAAsACsAjACOACwAigArACoAigCMACsAiAAqACkAiACKACoAhgApACgAhgCIACkAhAAoACcAhACGACgAggAnACYAggCEACcAgAAmACUAgACCACYAfgAlACQAfgCAACUAfAAkACMAfAB+ACQAdwAiADIAdwB6ACIAWAAFAAMAWABaAAUAdAAhAB8AdAB2ACEAcgAfAB0AcgB0AB8AbgAcABkAbgBxABwAbAAZABcAbABuABkAagAXABUAagBsABcAaAAVABMAaABqABUAZgATABEAZgBoABMAZAARAA8AZABmABEAYgAPAA0AYgBkAA8AYAANAAsAYABiAA0AXgALAAkAXgBgAAsAXAAJAAcAXABeAAkAWgAHAAUAWgBcAAcAVQADAAEAVQBYAAMAQgB4AJcAQgBDAHgAMwB7AHkAMwA0AHsANAB9AHsANAA1AH0ANQB/AH0ANQA2AH8ANgCBAH8ANgA3AIEANwCDAIEANwA4AIMAOACFAIMAOAA5AIUAOQCHAIUAOQA6AIcAOgCJAIcAOgA7AIkAOwCLAIkAOwA8AIsAPACNAIsAPAA9AI0APQCPAI0APQA+AI8APgCRAI8APgA/AJEAQACVAJIAQABBAJUAQQCXAJUAQQBCAJcAegAjACIAegB8ACMAVAAzAEMAVABEADMARAA0ADMARABFADQARQA1ADQARQBGADUARgA2ADUARgBHADYARwA3ADYARwBIADcASAA4ADcASABJADgASQA5ADgASQBKADkASgA6ADkASgBLADoASwA7ADoASwBMADsATAA8ADsATABNADwATQA9ADwATQBOAD0ATgA+AD0ATgBPAD4ATwA/AD4ATwBQAD8AUQBBAEAAUQBSAEEAUgBCAEEAUgBTAEIAUwBDAEIAUwBUAEMAIABUAFMAIAAAAFQAHgBTAFIAHgAgAFMAGwBSAFEAGwAeAFIAGABQAE8AGAAaAFAAFgBPAE4AFgAYAE8AFABOAE0AFAAWAE4AEgBNAEwAEgAUAE0AEABMAEsAEAASAEwADgBLAEoADgAQAEsADABKAEkADAAOAEoACgBJAEgACgAMAEkACABIAEcACAAKAEgABgBHAEYABgAIAEcABABGAEUABAAGAEYAAgBFAEQAAgAEAEUAAABEAFQAAAACAEQAdgBWAFUAdgB1AFYAdAB1AHYAdABzAHUAcgBzAHQAcgBwAHMAbgBvAHEAbgBtAG8AbABtAG4AbABrAG0AagBrAGwAagBpAGsAaABpAGoAaABnAGkAZgBnAGgAZgBlAGcAZABlAGYAZABjAGUAYgBjAGQAYgBhAGMAYABhAGIAYABfAGEAXgBfAGAAXgBdAF8AXABdAF4AXABbAF0AWgBbAFwAWgBZAFsAWABZAFoAWABXAFkAVQBXAFgAVQBWAFcAdgABACEAdgBVAAEAmAB4AHcAmACXAHgAlgCXAJgAlgCVAJcAlACVAJYAlACSAJUAkACRAJMAkACPAJEAjgCPAJAAjgCNAI8AjACNAI4AjACLAI0AigCLAIwAigCJAIsAiACJAIoAiACHAIkAhgCHAIgAhgCFAIcAhACFAIYAhACDAIUAggCDAIQAggCBAIMAgACBAIIAgAB/AIEAfgB/AIAAfgB9AH8AfAB9AH4AfAB7AH0AegB7AHwAegB5AHsAdwB5AHoAdwB4AHkAQwB5AHgAQwAzAHkA"),
-"lods": [0.18252, PackedByteArray("MAAyAHUA0AAyADAAMAB1AHAALwAwAHAA0QAwAC8A0QDQADAAdgBwAHUAcgBwAHYAcgAfAB0AcgB2AB8AdgAhAB8AdgABACEAdgBYAAEAdgB1AFgAWAADAAEAWAAFAAMAWABcAAUAXAAHAAUAWAB1AFcAWABXAFwAMgBXAHUAXAAJAAcAMgDIAFcAXABgAAkAYAALAAkAXABXAM4AXADOAGAAyADOAFcAYAANAAsA0ADIADIAYABkAA0AZAAPAA0AZAARAA8AYABfAGQAYADOAF8AZABoABEAaAATABEAaAAVABMAZABjAGgAZABfAGMAaABsABUAbAAXABUAbAAZABcAbABxABkAcQAcABkAaABnAGwAaABjAGcAbADPAHEAbABnAM8AcQDPAG8AygBvAM8AyQDPAGcAyQDKAM8AKQBnAGMAKQDJAGcAJwApAGMAJwBjAF8AigDJACkAjgDKAMkAigCOAMkAjgCTAMoAhgCKACkAhgApACcAigCJAI4AjgCNAJMAjgCJAI0AkwCNAJEAzACRAI0AywDMAI0AywCNAIkAFgAYAMwAGAAaAD8AFgA/AD0AFAAWAD0AEgAUAMsAEgDLADsAOwDLAIkAEAASADsAEAA7ADoAOgA7AIkADgAQADoAOgCJAIUAigCFAIkADgA6ADkAOQA6AIUADAAOADkAhgCFAIoADAA5ADgAOAA5AIUACgAMADgAhgCBAIUAOACFAIEACgA4ADcANwA4AIEACAAKADcACAA3ADYANgA3AIEABgAIADYAggCBAIYAggCGACcANgCBAH0AggB9AIEABgA2ADUANQA2AH0ABAAGADUABAA1ADQANAA1AH0AAgAEADQAggAnACUAJQAnAF8AJQBfAM4AyAAlAM4AfgCCACUAfgAlAMgAfgB9AIIA0AB+AMgAfgB5AH0A0AB5AH4ANAB9AHkAAgA0ADMAMwA0AHkAAAACADMAAAAzAEMAIAAAAEMAzQAzAHkAHgAgAM0A0ACXAHkAzQB5AJcA0QCXANAA0QCSAJcAQQDNAJcAHgDNAEEAQQCXAJIAGwAeAEEAQABBAJIAGwBBAEAA"), 0.194714, PackedByteArray("vACwALkAswC5ALAAxwC8ALkArgC8AMcAuwC5ALMAuwCzAAEAuwABACEAuwAhAB8AuwAfAB0ArgCvALwAHgCvAK4AGwAeAEAAHgAgAK8AIAAAAEMAAAACAK8ArwCoALwAAgCoAK8AAgAEADUABAAGADUABgAIAKoACAAKADcACgAMADcABgCpAKgADAAOAKkADgCrAKkADgAQAKsAqQCrAMEAEAASADsAEgAUADsAqACpAL4AqQDBAL4AqAC+AL0AvQC+ALEAvwC+AMEAvwDBAMQAvwDEALcAvgC1ALEAvwC3ALQAvgDAALQAsgCxALUAtAC3ABEAtAARAA8AtAAPAA0AtAANAAsAtAALAAkAsgC1AAkAsgAJAAcAsgAHAAUAsgAFAAMAsgADAAEAtgATABEAtgAVABMAtgAXABUAtgAZABcAtgC6ABkAugAcABkAugC2ALgAwwC4ALYAwwDGALgAwwDFAMYAwwDCAMUArQDGAMUArADFAMIArACtAMUAFgCtAKwAFAAWAKwAGAAaAK0AFgAYAD8A"), 0.906872, PackedByteArray("owAhAB8AowAfAB0ApwABACEApwCaAAEAmgADAAEAmgAJAAcAmgCmAAkApQALAAkApQANAAsAnACdAKUAnAAIAJ0ACAAKAJ0ApAAPAA0ApACfAA8ApACgAJ8AowAVAKAAowAXABUAowAZABcAogAcABkAngChAKQADgChAJ4ADgAQAKEAEAASAKEAcABvABkAFABvAHAAFgBvABQAFgAYAG8AGAAaAG8AGwAeAHAAHgAAAHAAHgAgAJkAmQCbAKcAAgCbAJkAAgAEAJsA")],
-"material": SubResource("StandardMaterial3D_yj84b"),
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 210,
-"vertex_data": PackedByteArray("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tratufNCftCHpTTHKlBi4P9/////f////3////9/////fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/////f////3////9/////f////3////9/////f////3////9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/3////9/////f////3////9////mixLmDYh06ciEVOzBgf3ujZA/ATOTQgQFlngHSpkvC3id8A+Ho9UWKq7uIgHJdEEu1V6z7MI/qhOmD89hmBnb6ZCq4SBtePUFlUza9I5r3yNwtvg1im3jYXIh+xyG4+Y+dCL9QoIj6u919P5OlZsBQn/HCYuYcgV0fXUL85t6CX57Rw3VnxQOK3lwD7Sk2hMcdkcSmKsEHH9xkBY2t8Yp12ibHgXSikk3T2k2Cd4uq5bIOKNzRKa9EDtOyjut3cUvX3bm0J3g0nFobfCKUzTn7mxc9fhvovgvWSzuPHIT+69du/MddBr9oWGa+NN18f5iZT79QH/jCQl++BltfZQLZ3m5HXJ7bA2ZdJwhGHmZDzJv/CUCdncSimhfK1txyRZXX9IyoWjiHmRQ6z7jTsY2STDoWBtERL20OgbKwyQxm20eaLPlXjzmHT67zDVoRvCQS1jdVJW/2RhlcfYGgo3sAoTK6q+hvgKqcsAAgnYGFoNv6R6lq2cbORpos44nAJVwPio6rysGsxA96MPCWLbTK4A8/4ODJwAXSlrqGZj3C7WLGAbwyT1QRH5n/iuIVfEghmDxwYA3/slpNPbef/L/oYCsBT96t/wheCUPWIYpA6bLGzEfhhzquRste1JLUdWsbtr4C2hx9btwifxTg9IIsITeL4R6VhIxfQIMm3MQGG5xSB3taUAdoEelWL9GW9lGfKv+e3x4BXY4+UFHkEQM0OTAkhGGBfXKgzHwdaoaIAla0+oSNu7I")
-}]
-blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_rsav6")
+[ext_resource type="Material" uid="uid://ijihm2hk1r74" path="res://assets/art/materials/m_tile_wood.tres" id="8_7ibdt"]
+[ext_resource type="Material" uid="uid://bhadhj0p4k41p" path="res://assets/art/materials/prototype/grid_light.tres" id="8_161w2"]
 
 [sub_resource type="Environment" id="Environment_u2td3"]
 background_mode = 1
 ambient_light_color = Color(1, 1, 1, 1)
 adjustment_enabled = true
 
+[sub_resource type="PlaneMesh" id="PlaneMesh_4q2q1"]
+size = Vector2(25, 4)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_eea8u"]
+points = PackedVector3Array(12.5817, -0.0816993, 2.00287, -12.5817, -0.0816993, -2.0813, 12.5817, -0.0816993, -2.0813, -12.5817, -0.0816993, 2.00287)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_dtd7t"]
+size = Vector2(4, 10)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_6wgog"]
+points = PackedVector3Array(-2.07937, -0.079334, -5.07738, 2.04762, 0.079334, 5.07738, 2.04762, -0.079334, 5.07738, 2.04762, 0.079334, -5.07738, -2.07937, 0.079334, 5.07738, -2.07937, -0.079334, 5.07738, 2.04762, -0.079334, -5.07738, -2.07937, 0.079334, -5.07738)
+
 [node name="Hallway" type="Node3D"]
 script = ExtResource("1_hb1yj")
 display_name = "Hallway"
 
-[node name="Level-01-LR" parent="." instance=ExtResource("2_kcgmy")]
-visible = false
-
-[node name="Walls" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
-
-[node name="Wall-01" parent="Walls" instance=ExtResource("3_mrl8b")]
-
-[node name="Wall-02" parent="Walls" instance=ExtResource("3_mrl8b")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
-
-[node name="Wall-07" parent="Walls" instance=ExtResource("3_mrl8b")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 12, 0, -4)
-
-[node name="Wall-09" parent="Walls" instance=ExtResource("3_mrl8b")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 12, 0, -12)
-
-[node name="Wall-06" parent="Walls" instance=ExtResource("3_mrl8b")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4, 0, -12)
-
-[node name="Wall-12" parent="Walls" instance=ExtResource("3_mrl8b")]
-transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 8, 0, 5.24537e-07)
-
-[node name="Wall-19" parent="Walls" instance=ExtResource("3_mrl8b")]
-transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 12, 0, 1.04907e-06)
-
-[node name="Wall-base" parent="Walls" instance=ExtResource("4_c1v6s")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
-
-[node name="Wall-base2" parent="Walls" instance=ExtResource("4_c1v6s")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4, 0, 0)
-
-[node name="Wall-base4" parent="Walls" instance=ExtResource("4_c1v6s")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -12)
-
-[node name="Wall-base5" parent="Walls" instance=ExtResource("4_c1v6s")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8, 0, -12)
-
-[node name="Prop-Column-01" type="Node3D" parent="Walls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
-
-[node name="Column-01" type="MeshInstance3D" parent="Walls/Prop-Column-01"]
-mesh = SubResource("ArrayMesh_80wuv")
-skeleton = NodePath("")
-surface_material_override/0 = ExtResource("5_s34df")
-
-[node name="Wall-base3" parent="Walls" instance=ExtResource("4_c1v6s")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 12.003, 0, -8)
-
-[node name="Prop-Column-03" type="Node3D" parent="Walls"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 12.003, 0, -8)
-
-[node name="Column-01" type="MeshInstance3D" parent="Walls/Prop-Column-03"]
-mesh = SubResource("ArrayMesh_80wuv")
-skeleton = NodePath("")
-surface_material_override/0 = ExtResource("5_s34df")
-
 [node name="GridMap" type="GridMap" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+visible = false
 mesh_library = ExtResource("6_gj7n5")
 cell_size = Vector3(2, 1, 2)
 cell_center_x = false
@@ -128,6 +50,14 @@ environment = SubResource("Environment_u2td3")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 5, -5)
 omni_range = 9.86
 
+[node name="OmniLight3D3" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 5, -5)
+omni_range = 9.86
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 5, -2)
+omni_range = 9.86
+
 [node name="OmniLight3D2" type="OmniLight3D" parent="Lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 5, -6)
 omni_range = 9.86
@@ -140,20 +70,20 @@ shadow_enabled = true
 [node name="Doors" type="Node3D" parent="."]
 
 [node name="UnknownHallway" parent="Doors" instance=ExtResource("7_5yqud")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 1, -5.5)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -13.2, 0, -6.2)
 locked = true
 to_level = "unknown"
 to_door = "HallwayUnknown"
 y_rot = -90.0
 
 [node name="FoyerHallway" parent="Doors" instance=ExtResource("7_5yqud")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 11, 1, -6)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 10, 0.1, -6)
 to_level = "foyer"
 to_door = "HallwayFoyer"
 y_rot = 90.0
 
 [node name="DiningRoomHallway" parent="Doors" instance=ExtResource("7_5yqud")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2, 1, -1)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, -1)
 to_level = "dining_room"
 to_door = "HallwayDiningRoom"
 
@@ -168,3 +98,107 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 1, -11)
 to_level = "bathroom"
 to_door = "HallwayBathroom"
 y_rot = 180.0
+
+[node name="Walls-2ndPass" type="Node3D" parent="."]
+
+[node name="Wall-01" parent="Walls-2ndPass" instance=ExtResource("3_mrl8b")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 11, 0, -4)
+
+[node name="Wall-14" parent="Walls-2ndPass" instance=ExtResource("3_mrl8b")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 11, 0, -4)
+
+[node name="Wall-02" parent="Walls-2ndPass" instance=ExtResource("3_mrl8b")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7, 0, -4)
+
+[node name="Wall-03" parent="Walls-2ndPass" instance=ExtResource("3_mrl8b")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7, 0, -4)
+
+[node name="Wall-04" parent="Walls-2ndPass" instance=ExtResource("3_mrl8b")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3, 0, -4)
+
+[node name="Wall-05" parent="Walls-2ndPass" instance=ExtResource("3_mrl8b")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3, 0, -4)
+
+[node name="Wall-06" parent="Walls-2ndPass" instance=ExtResource("3_mrl8b")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7, 0, -4)
+
+[node name="Wall-07" parent="Walls-2ndPass" instance=ExtResource("3_mrl8b")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11, 0, -4)
+
+[node name="Wall-08" parent="Walls-2ndPass" instance=ExtResource("3_mrl8b")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -15, 0, -8.5)
+
+[node name="Wall-09" parent="Walls-2ndPass" instance=ExtResource("3_mrl8b")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -11, 0, -8.5)
+
+[node name="Wall-10" parent="Walls-2ndPass" instance=ExtResource("3_mrl8b")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7, 0, -8.5)
+
+[node name="Wall-11" parent="Walls-2ndPass" instance=ExtResource("3_mrl8b")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1, 0, -8.5)
+
+[node name="Wall-12" parent="Walls-2ndPass" instance=ExtResource("3_mrl8b")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3, 0, -8.5)
+
+[node name="Wall-13" parent="Walls-2ndPass" instance=ExtResource("3_mrl8b")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7, 0, -8.5)
+
+[node name="Wall-door" parent="Walls-2ndPass" instance=ExtResource("4_c1v6s")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 11.4, 0, -8.3)
+
+[node name="Wall_Panel_Wood_1m" parent="Walls-2ndPass/Wall-door/Node3D" index="0"]
+visible = true
+
+[node name="Wall_Panel_Wood_1m2" parent="Walls-2ndPass/Wall-door/Node3D" index="1"]
+visible = true
+
+[node name="Wall-door3" parent="Walls-2ndPass" instance=ExtResource("4_c1v6s")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.9, 0, -4.5)
+
+[node name="Wall-door2" parent="Walls-2ndPass" instance=ExtResource("4_c1v6s")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -14.6, 3.72529e-08, -4.1)
+
+[node name="Ceiling" parent="Walls-2ndPass/Wall-door2" index="3"]
+visible = false
+
+[node name="Wall_Panel_Wood_1m" parent="Walls-2ndPass/Wall-door2/Node3D" index="0"]
+visible = true
+
+[node name="Wall_Panel_Wood_1m2" parent="Walls-2ndPass/Wall-door2/Node3D" index="1"]
+visible = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.05, 3, -8.3)
+size = Vector3(2.1, 7, 1)
+material = ExtResource("8_161w2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6, 0, -6.3)
+mesh = SubResource("PlaneMesh_4q2q1")
+surface_material_override/0 = ExtResource("8_7ibdt")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_eea8u")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6, 0, 0.7)
+mesh = SubResource("PlaneMesh_dtd7t")
+surface_material_override/0 = ExtResource("8_7ibdt")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D2/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_6wgog")
+
+[editable path="Walls-2ndPass/Wall-08"]
+[editable path="Walls-2ndPass/Wall-09"]
+[editable path="Walls-2ndPass/Wall-10"]
+[editable path="Walls-2ndPass/Wall-11"]
+[editable path="Walls-2ndPass/Wall-12"]
+[editable path="Walls-2ndPass/Wall-13"]
+[editable path="Walls-2ndPass/Wall-door"]
+[editable path="Walls-2ndPass/Wall-door/Wall-02-4m"]
+[editable path="Walls-2ndPass/Wall-door2"]
+[editable path="Walls-2ndPass/Wall-door2/Wall-02-4m"]

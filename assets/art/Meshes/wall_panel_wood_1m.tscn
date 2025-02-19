@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://c20cxkii43rp5"]
+
+[ext_resource type="PackedScene" uid="uid://dd4spvr7oajr3" path="res://assets/art/import/Wall_Panel_Wood_1m.glb" id="1_fe0sg"]
+[ext_resource type="Material" uid="uid://7me28x02yqcd" path="res://assets/art/materials/m_trim_wood.tres" id="2_c0e43"]
+
+[node name="Wall_Panel_Wood_1m" instance=ExtResource("1_fe0sg")]
+
+[node name="Wood Panels - 1m" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_c0e43")

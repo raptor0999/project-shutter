@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bvhdtxrxbbl62"]
+[gd_scene load_steps=33 format=3 uid="uid://bvhdtxrxbbl62"]
 
 [ext_resource type="PackedScene" uid="uid://bnjbxwpk8m1p0" path="res://assets/art/pre-fabs/wall_02.tscn" id="1_4ocef"]
 [ext_resource type="Script" path="res://levels/level.gd" id="1_k5un2"]
@@ -23,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://bxuxo2ytfg81h" path="res://assets/images/icons/note_icon.png" id="17_e4nfb"]
 [ext_resource type="PackedScene" uid="uid://nq4ol04r66wm" path="res://assets/art/pre-fabs/props/painting.tscn" id="17_twp8h"]
 [ext_resource type="Material" uid="uid://bvmoq11yic1ki" path="res://assets/art/materials/prototype/grid_orange.tres" id="20_i1ywg"]
+[ext_resource type="Material" uid="uid://ijihm2hk1r74" path="res://assets/art/materials/m_tile_wood.tres" id="24_ejwer"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7fbk5"]
 size = Vector3(16.7, 1.4, 33.3)
@@ -32,7 +33,29 @@ background_mode = 1
 ambient_light_color = Color(1, 1, 1, 1)
 adjustment_enabled = true
 
+[sub_resource type="PlaneMesh" id="PlaneMesh_tch7o"]
+material = ExtResource("24_ejwer")
+size = Vector2(8, 12)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_pgqfq"]
+points = PackedVector3Array(4, 0, 6, -4, 0, 6, 4, 0, -6, -4, 0, -6)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_jeoq3"]
+material = ExtResource("24_ejwer")
+size = Vector2(16, 12)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_deoes"]
+points = PackedVector3Array(-8, 0, -6, -8, 0, 6, 8, 0, -6, 8, 0, 6)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_cxip7"]
+material = ExtResource("24_ejwer")
+size = Vector2(10, 10)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_5c8c1"]
+points = PackedVector3Array(-5, 0, -5, -5, 0, 5, 5, 0, -5, 5, 0, 5)
+
 [node name="L01-Foyer" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000459909, -0.000665426, -0.00162315)
 script = ExtResource("1_k5un2")
 display_name = "Foyer"
 
@@ -45,9 +68,6 @@ transform = Transform3D(-1, 0.000673089, -0.000510605, 0.00067342, 1, -0.0006476
 [node name="Wall-02" parent="Walls" instance=ExtResource("1_4ocef")]
 transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 12, 0, -28)
 
-[node name="CSGCombiner3D" parent="Walls/Wall-02/Node3D/Ceiling" index="0"]
-visible = false
-
 [node name="Wall-04" parent="Walls" instance=ExtResource("1_4ocef")]
 transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 12, 0, -20)
 
@@ -56,9 +76,6 @@ transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 12, 0,
 
 [node name="Wall-13" parent="Walls" instance=ExtResource("1_4ocef")]
 transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 12, 0, -24)
-
-[node name="Ceiling" parent="Walls/Wall-13/Node3D" index="1"]
-visible = false
 
 [node name="Wall-07" parent="Walls" instance=ExtResource("1_4ocef")]
 transform = Transform3D(1, -0.000673089, 0.000510629, 0.00067342, 1, -0.000647672, -0.000510193, 0.000648016, 1, -4, 0, -12)
@@ -98,22 +115,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
 [node name="Wall-base4" parent="Walls" instance=ExtResource("2_b0b56")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -20)
 
-[node name="Door-01" parent="Walls/Wall-base4" index="1"]
-transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0.0999999, 0, -1.15)
+[node name="Cube_006" parent="Walls/Wall-base4" index="0"]
+visible = true
 
-[node name="Cylinder_002" parent="Walls/Wall-base4/Door-01" index="0"]
-surface_material_override/0 = null
+[node name="Door-01" parent="Walls/Wall-base4" index="1"]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0.5, 0, -0.949999)
 
 [node name="Wall-base2" parent="Walls" instance=ExtResource("2_b0b56")]
 transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 8, 0, -12)
 
 [node name="Wall-Arch" parent="Walls" instance=ExtResource("6_ijq7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0.2, -8.35636)
 
 [node name="Node3D" parent="Walls" instance=ExtResource("7_7q003")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7.4, 2.3, -11.6)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7.4, 2.3, -11.9)
 
 [node name="Node3D2" parent="Walls" instance=ExtResource("7_7q003")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.6, 2.3, -11.6)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.9, 2.3, -11.9)
 
 [node name="Grand Entrance" parent="Walls" instance=ExtResource("8_726ub")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 4, 0, 0.2)
@@ -125,16 +143,16 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -5.
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
 
 [node name="Ceiling" parent="Ceiling" instance=ExtResource("8_waydg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.25, -12)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.239903, 6.9144, -12)
 
 [node name="Ceiling2" parent="Ceiling" instance=ExtResource("8_waydg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.25, -16)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.239903, 6.9144, -16)
 
 [node name="Ceiling3" parent="Ceiling" instance=ExtResource("8_waydg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.25, -20)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.239903, 6.9144, -20)
 
 [node name="Ceiling4" parent="Ceiling" instance=ExtResource("8_waydg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.25, -24)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.239903, 6.9144, -24)
 
 [node name="Ceiling5" parent="Ceiling" instance=ExtResource("8_waydg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 7.25, -24)
@@ -145,13 +163,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 7.25, -20)
 visible = false
 
 [node name="Ceiling7" parent="Ceiling" instance=ExtResource("8_waydg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 7.25, -16)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7601, 6.9144, -16)
 
 [node name="Ceiling8" parent="Ceiling" instance=ExtResource("8_waydg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 7.25, -12)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7601, 6.9144, -12)
 
 [node name="GridMap" type="GridMap" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+visible = false
 mesh_library = ExtResource("3_ywu2k")
 cell_size = Vector3(2, 1, 2)
 cell_center_x = false
@@ -233,22 +252,22 @@ radius = 0.2
 height = 0.5
 
 [node name="Painting" parent="Props" instance=ExtResource("17_twp8h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 3, -12.4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 3, -12.1778)
 size_x = 3.69
 size_y = 2.84
 texture = ExtResource("17_e4nfb")
 
 [node name="Painting2" parent="Props" instance=ExtResource("17_twp8h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 5, -12.4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 5, -12.1778)
 size_x = 2.0
 
 [node name="Painting3" parent="Props" instance=ExtResource("17_twp8h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 3, -12.4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 3, -12.2091)
 size_x = 2.0
 size_y = 2.0
 
 [node name="Painting4" parent="Props" instance=ExtResource("17_twp8h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 5, -12.4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 5, -12.2091)
 size_x = 2.0
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Props"]
@@ -333,7 +352,7 @@ to_door = "FoyerDiningRoom"
 y_rot = -90.0
 
 [node name="HallwayFoyer" parent="Doors" instance=ExtResource("6_igekv")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3, 1, -22)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.7, 1, -22)
 to_level = "hallway"
 to_door = "FoyerHallway"
 y_rot = -90.0
@@ -352,10 +371,43 @@ text = "My head’s not quite right. The migraines are getting stronger. The tim
 
 At this point, I don’t even know what’s real and what’s not. On one hand, I feel my existence is fading away, but on the other, the rifts and glitches make me feel like I’m closer to finding my voice and my true self."
 
+[node name="Floor" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.8, -6.2)
+mesh = SubResource("PlaneMesh_tch7o")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Floor/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_pgqfq")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.8, -18.2)
+mesh = SubResource("PlaneMesh_jeoq3")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Floor/MeshInstance3D2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/MeshInstance3D2/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_deoes")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.8, -29.2)
+mesh = SubResource("PlaneMesh_cxip7")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Floor/MeshInstance3D3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/MeshInstance3D3/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_5c8c1")
+
 [editable path="Walls/Wall-02"]
-[editable path="Walls/Wall-02/Node3D"]
-[editable path="Walls/Wall-02/Node3D/Ceiling"]
 [editable path="Walls/Wall-13"]
+[editable path="Walls/Wall-base"]
+[editable path="Walls/Wall-base/Wall-02-4m"]
 [editable path="Walls/Wall-base4"]
+[editable path="Walls/Wall-base4/Wall-02-4m"]
 [editable path="Props/Rug"]
 [editable path="Props/Rug2"]

@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://cxa876tv7re16"]
+
+[ext_resource type="PackedScene" uid="uid://c00yiq43gxguj" path="res://assets/art/import/Ceiling01.glb" id="1_hiykv"]
+[ext_resource type="Material" uid="uid://7me28x02yqcd" path="res://assets/art/materials/m_trim_wood.tres" id="2_ufxx1"]
+[ext_resource type="Material" uid="uid://b8kbw3r7d4h44" path="res://assets/art/materials/m_tile_plaster.tres" id="3_ixo2b"]
+
+[node name="Ceiling01" instance=ExtResource("1_hiykv")]
+
+[node name="CSGCombiner3D6_001" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_ufxx1")
+surface_material_override/1 = ExtResource("3_ixo2b")

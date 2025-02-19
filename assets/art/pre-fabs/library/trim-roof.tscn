@@ -1,15 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://or4eameimh5a"]
+[gd_scene load_steps=3 format=3 uid="uid://or4eameimh5a"]
 
 [ext_resource type="Material" uid="uid://bktywtfpewkbh" path="res://assets/art/materials/m_tile_wood_bark.tres" id="1_uq4yc"]
+[ext_resource type="PackedScene" uid="uid://bw88ycf40vf74" path="res://assets/art/Meshes/trim_roof.tscn" id="2_nsx1c"]
 
 [node name="Node3D" type="Node3D"]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9, 1.895)
+visible = false
 material_override = ExtResource("1_uq4yc")
 size = Vector3(0.2, 0.2, 3.3)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.49012e-08, 2.9, 0)
+visible = false
 material_override = ExtResource("1_uq4yc")
 size = Vector3(0.5, 0.2, 0.5)
+
+[node name="trim-roof" parent="." instance=ExtResource("2_nsx1c")]

@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bw88ycf40vf74"]
+
+[ext_resource type="PackedScene" uid="uid://fi3qlsbe4gbg" path="res://assets/art/import/trim-roof.glb" id="1_wv1j8"]
+[ext_resource type="Material" uid="uid://7me28x02yqcd" path="res://assets/art/materials/m_trim_wood.tres" id="2_h14pr"]
+
+[node name="trim-roof" instance=ExtResource("1_wv1j8")]
+
+[node name="Cube" parent="." index="0"]
+material_override = ExtResource("2_h14pr")
+
+[node name="Cube_001" parent="." index="1"]
+material_override = ExtResource("2_h14pr")

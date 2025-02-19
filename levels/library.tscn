@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dstea04dni4fm"]
+[gd_scene load_steps=18 format=3 uid="uid://dstea04dni4fm"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_s5fty"]
 [ext_resource type="PackedScene" uid="uid://bnjbxwpk8m1p0" path="res://assets/art/pre-fabs/wall_02.tscn" id="2_pu10l"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://ct2ibwolp1m2t" path="res://assets/art/pre-fabs/library/table.tscn" id="11_lkw68"]
 [ext_resource type="PackedScene" uid="uid://bmlenb35wimka" path="res://scenes/objects/clues/note.tscn" id="12_7vrmb"]
 [ext_resource type="PackedScene" uid="uid://ctxj8ge6l6yyg" path="res://assets/art/pre-fabs/library/book-stack-b.tscn" id="12_f6s0p"]
+[ext_resource type="PackedScene" uid="uid://x0y8q5brhy3f" path="res://assets/art/pre-fabs/library/Wall-Shelves-A.tscn" id="16_bahfy"]
 
 [sub_resource type="Environment" id="Environment_u2td3"]
 background_mode = 1
@@ -30,86 +31,65 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
 
 [node name="Wall-20" parent="Walls" instance=ExtResource("7_uaqfs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, 0, -4)
-metadata/_edit_lock_ = true
 
 [node name="Wall-21" parent="Walls" instance=ExtResource("7_uaqfs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, 0, -4)
-metadata/_edit_lock_ = true
 
 [node name="Wall-01" parent="Walls" instance=ExtResource("2_pu10l")]
-metadata/_edit_lock_ = true
 
 [node name="Wall-02" parent="Walls" instance=ExtResource("2_pu10l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -20)
-metadata/_edit_lock_ = true
 
 [node name="Wall-07" parent="Walls" instance=ExtResource("2_pu10l")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 12, 0, -4)
-metadata/_edit_lock_ = true
 
 [node name="Wall-09" parent="Walls" instance=ExtResource("2_pu10l")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 12, 0, -24)
-metadata/_edit_lock_ = true
 
 [node name="Wall-06" parent="Walls" instance=ExtResource("2_pu10l")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4, 0, -24)
-metadata/_edit_lock_ = true
 
 [node name="Wall-12" parent="Walls" instance=ExtResource("2_pu10l")]
 transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 8, 0, 5.24537e-07)
-metadata/_edit_lock_ = true
 
 [node name="Wall-19" parent="Walls" instance=ExtResource("2_pu10l")]
 transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 12, 0, 1.04907e-06)
-metadata/_edit_lock_ = true
 
 [node name="Prop-Column-01" type="Node3D" parent="Walls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
-metadata/_edit_lock_ = true
 
 [node name="Wall-04" parent="Walls" instance=ExtResource("3_upixe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
-metadata/_edit_lock_ = true
 
 [node name="Wall-05" parent="Walls" instance=ExtResource("3_upixe")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -24)
-metadata/_edit_lock_ = true
 
 [node name="Wall-08" parent="Walls" instance=ExtResource("3_upixe")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8, 0, -24)
-metadata/_edit_lock_ = true
 
 [node name="Wall-10" parent="Walls" instance=ExtResource("3_upixe")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 12, 0, -8)
-metadata/_edit_lock_ = true
 
 [node name="Wall-11" parent="Walls" instance=ExtResource("3_upixe")]
 transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 4, 0, 0)
-metadata/_edit_lock_ = true
 
 [node name="Wall-13" parent="Walls" instance=ExtResource("3_upixe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
-metadata/_edit_lock_ = true
 
 [node name="Wall-14" parent="Walls" instance=ExtResource("3_upixe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12)
-metadata/_edit_lock_ = true
 
 [node name="Wall-15" parent="Walls" instance=ExtResource("3_upixe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -16)
-metadata/_edit_lock_ = true
 
 [node name="Wall-16" parent="Walls" instance=ExtResource("3_upixe")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 12, 0, -20)
-metadata/_edit_lock_ = true
 
 [node name="Wall-17" parent="Walls" instance=ExtResource("3_upixe")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 12, 0, -16)
-metadata/_edit_lock_ = true
 
 [node name="Wall-18" parent="Walls" instance=ExtResource("3_upixe")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 12, 0, -12)
-metadata/_edit_lock_ = true
 
 [node name="Ceilings" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
@@ -338,3 +318,21 @@ text = "Placeholder text"
 
 [node name="Node3D" parent="." instance=ExtResource("12_f6s0p")]
 transform = Transform3D(-0.642788, 0, 0.766044, 0, 1, 0, -0.766044, 0, -0.642788, 10.3, 1.6, -12.6)
+
+[node name="Wall-Shelves-A" parent="." instance=ExtResource("16_bahfy")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.7, 0.7, -0.7)
+
+[node name="Wall-Shelves-A3" parent="." instance=ExtResource("16_bahfy")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.9, 0.7, -0.7)
+
+[node name="Wall-Shelves-A2" parent="." instance=ExtResource("16_bahfy")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 11.4, 0.7, -0.7)
+
+[node name="Wall-Shelves-A4" parent="." instance=ExtResource("16_bahfy")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 4.33333, 0.7, -23.3)
+
+[node name="Wall-Shelves-A5" parent="." instance=ExtResource("16_bahfy")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 8.13333, 0.7, -23.3)
+
+[node name="Wall-Shelves-A6" parent="." instance=ExtResource("16_bahfy")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 0.533333, 0.7, -23.3)
