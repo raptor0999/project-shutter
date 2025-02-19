@@ -1,0 +1,15 @@
+[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://7me28x02yqcd"]
+
+[ext_resource type="Texture2D" uid="uid://dwetwo7cqjtqd" path="res://assets/art/textures/trim/wood/Wood_Trim_basecolor.png" id="1_y5h52"]
+[ext_resource type="Texture2D" uid="uid://d76y10o74n0a" path="res://assets/art/textures/trim/wood/Wood_Trim_ambientocclusion.png" id="2_trmq8"]
+[ext_resource type="Texture2D" uid="uid://bq3m71mjstjfb" path="res://assets/art/textures/trim/wood/Wood_Trim_normal.png" id="3_2uhjb"]
+[ext_resource type="Texture2D" uid="uid://dttpfwayd1qf4" path="res://assets/art/textures/trim/wood/Wood_Trim_roughness.png" id="4_f2vjy"]
+
+[resource]
+albedo_texture = ExtResource("1_y5h52")
+metallic_specular = 0.0
+roughness_texture = ExtResource("4_f2vjy")
+normal_enabled = true
+normal_texture = ExtResource("3_2uhjb")
+ao_enabled = true
+ao_texture = ExtResource("2_trmq8")
