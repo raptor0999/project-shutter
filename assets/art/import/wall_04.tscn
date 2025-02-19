@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dknlqol7xaems"]
+
+[ext_resource type="PackedScene" uid="uid://b74b583dkg3tu" path="res://assets/art/import/Wall-04.glb" id="1_vudtw"]
+[ext_resource type="Material" uid="uid://7me28x02yqcd" path="res://assets/art/materials/m_trim_wood.tres" id="2_mc8o3"]
+
+[node name="Wall-04" instance=ExtResource("1_vudtw")]
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, 0, 0)
+
+[node name="Plane" parent="." index="0"]
+material_override = ExtResource("2_mc8o3")
