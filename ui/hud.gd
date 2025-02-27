@@ -6,6 +6,10 @@ extends Control
 
 @onready var hud_texts:Control = $hud_texts
 
+@export var clear_hud_default_time:float = 2.0
+
+var clear_hud_time = 0.0
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Globals.connect("clear_hud", clear_hud)
@@ -15,7 +19,11 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	clear_hud_time += delta
+	
+	if clear_hud_time >= clear_hud_default_time:
+		clear_hud()
+		clear_hud_time = 0.0
 	
 func clear_hud():
 	level.text = ""
@@ -28,17 +36,18 @@ func hud_level(text):
 	level.text = text
 
 func hud_hint(text):
-	hint.text = text
-	var tween:Tween = create_tween()
-	tween.tween_property(hint, "modulate:a", 1.0, 1.5).from(0.0)
-	tween.play()
-	await tween.finished
-	await get_tree().create_timer(2.0).timeout
-	tween = create_tween()
-	tween.tween_property(hint, "modulate:a", 0.0, 1.5).from(1.0)
-	tween.play()
-	await tween.finished
-	hint.text = ""
+	if hint.text == "":
+		hint.text = text
+		var tween:Tween = create_tween()
+		tween.tween_property(hint, "modulate:a", 1.0, 1.0).from(0.0)
+		tween.play()
+		await tween.finished
+		await get_tree().create_timer(2.0).timeout
+		tween = create_tween()
+		tween.tween_property(hint, "modulate:a", 0.0, 1.0).from(1.0)
+		tween.play()
+		await tween.finished
+		hint.text = ""
 	
 func hud_text(text):
 	for h in hud_texts.get_children():

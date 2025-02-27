@@ -5,6 +5,7 @@ signal load_scene(scene_name)
 signal load_level(level_name, player_x)
 
 signal freeze_pause_menu_toggle()
+signal set_freeze_pause_menu(freeze)
 signal pause_menu_toggle()
 signal main_menu_toggle()
 signal pause_main_toggle()
@@ -44,9 +45,16 @@ signal hud_hint(hint)
 var game_started = false
 var paused = false
 
+var fullscreen = false
+var resolution:Vector2 = Vector2(1280, 720)
+
 var brightness = 1
 var contrast = 1
 var saturation = 1
+
+var first_time_in_foyer = true
+var first_time_picking_up = true
+var first_time_clue_menu = true
 
 @export var music_volume = 0
 @export var sound_volume = 0

@@ -18,6 +18,7 @@ func _ready() -> void:
 	Globals.connect("clue_menu_toggle", clue_menu_toggle)
 	Globals.connect("add_clue", add_clue)
 	Globals.connect("remove_clue", remove_clue)
+	DialogueManager.connect("dialogue_ended", focus_list)
 	
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("clue_menu_toggle") and Globals.game_started:
@@ -25,6 +26,7 @@ func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_cancel") and visible:
 		Globals.play_sound_2d.emit("ui_close")
 		clue_menu_toggle()
+		get_viewport().set_input_as_handled()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -62,6 +64,11 @@ func clue_menu_toggle():
 		item_list.grab_focus()
 		Globals.music_volume_adjust.emit(-18)
 		Globals.switch_track.emit(2)
+		if Globals.first_time_clue_menu:
+			DialogueManager.show_dialogue_balloon(load("res://dialogue/main.dialogue"), "first_time_clue_menu")
+
+func focus_list(resource):
+	item_list.grab_focus()
 
 func _on_close_pressed() -> void:
 	Globals.play_sound_2d.emit("ui_close")

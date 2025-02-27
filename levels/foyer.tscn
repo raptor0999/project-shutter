@@ -196,18 +196,6 @@ script = ExtResource("15_ms7ce")
 interactable_name = "Coffee Table"
 interactable_text = "Pretty coffee table."
 
-[node name="Note" parent="Props/Table" instance=ExtResource("16_vmcoc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.842485, 0.598261, -0.958043)
-clue_name = "Letter to Tony"
-description = "A letter written to Tony"
-text = "Dear Tony, 
-
-I hope this letter finds you well after your trip here. Unfortunately, I could not be here for your arrival, but I should be back soon enough. Please make yourself comfortable. We will discuss what we need to when I make it back.
-
-Love, Aunt Monica
-
-P.S. Whenever you make it to the kitchen you will find your favorite snack!"
-
 [node name="Obstacle" parent="Props" instance=ExtResource("9_pwljv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.78716, 1.3735, -20.5569)
 
@@ -289,6 +277,19 @@ height = 6.0
 [node name="Table-entrance" parent="." instance=ExtResource("5_5s5e2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.1, 0.9, -3.7)
 
+[node name="Note" parent="Table-entrance" groups=["interactable"] instance=ExtResource("16_vmcoc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.038548, 0.659757, -0.753254)
+clue_name = "Letter to Tony"
+description = "A letter written to Tony"
+text = "Dear Tony, 
+
+I hope this letter finds you well after your trip here. Unfortunately, I could not be here for your arrival, but I should be back soon enough. Please make yourself comfortable. We will discuss what we need to when I make it back.
+
+Love, Aunt Monica
+
+P.S. Whenever you make it to the kitchen you will find your favorite snack!"
+interactable_hint = "A letter"
+
 [node name="Prop-Column-01" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0.8, -8)
 
@@ -304,26 +305,32 @@ environment = SubResource("Environment_c5okn")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 5, -5)
+shadow_enabled = true
 omni_range = 9.86
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="Lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 5, -15)
+shadow_enabled = true
 omni_range = 9.86
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="Lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 5, -24)
+shadow_enabled = true
 omni_range = 9.86
 
 [node name="OmniLight3D4" type="OmniLight3D" parent="Lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 5, -5)
+shadow_enabled = true
 omni_range = 9.86
 
 [node name="OmniLight3D5" type="OmniLight3D" parent="Lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 5, -15)
+shadow_enabled = true
 omni_range = 9.86
 
 [node name="OmniLight3D6" type="OmniLight3D" parent="Lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 5, -24)
+shadow_enabled = true
 omni_range = 9.86
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lights"]
@@ -363,13 +370,14 @@ script = ExtResource("15_ms7ce")
 interactable_name = "Orange Couch"
 interactable_text = "This couch seems kind of hard. Not sure I will sit on it."
 
-[node name="Note" parent="Node3D" instance=ExtResource("16_vmcoc")]
+[node name="Note" parent="Node3D" groups=["interactable"] instance=ExtResource("16_vmcoc")]
 transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0.899372, -0.089507, 0.317459)
 clue_name = "Monica's Note"
 description = "A note written by Monica, your aunt"
 text = "My head’s not quite right. The migraines are getting stronger. The time between migraines is also decreasing, and each migraine lasts longer than the previous one. That’s not even the worst part. Whenever I feel symptoms of my condition, it also feels like the world is breaking, everything becomes purple and I can see my surroundings affected by this time-space rift.
 
 At this point, I don’t even know what’s real and what’s not. On one hand, I feel my existence is fading away, but on the other, the rifts and glitches make me feel like I’m closer to finding my voice and my true self."
+interactable_hint = "A small note"
 
 [node name="Floor" type="Node3D" parent="."]
 

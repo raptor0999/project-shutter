@@ -40,7 +40,7 @@ func play_sound_3d(track:int):
 	var audio = AudioStreamPlayer3D.new()
 	
 	audio.process_mode = Node.PROCESS_MODE_ALWAYS
-	audio.volume_db = Globals.sound_volume
+	audio.volume_db = Globals.sound_volume - 20
 	audio.stream = footstep_sounds[track]
 	audio.autoplay = true
 	audio.position = global_position + Vector3(0, -1.8, 0)

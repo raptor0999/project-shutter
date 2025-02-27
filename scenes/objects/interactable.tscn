@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" path="res://scenes/objects/interactable.gd" id="1_bmhkg"]
 
-[node name="Interactable" type="Node"]
+[node name="Interactable" type="Node" groups=["interactable"]]
 script = ExtResource("1_bmhkg")

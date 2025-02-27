@@ -1,0 +1,29 @@
+~ start
+Anthony: Well then, I've finally arrived at Aunt Monica's estate.
+Anthony: I do terribly wish that it were on better terms than this though.
+Anthony: I think it's been five years now since I have been here or even seen Aunt Monica.
+Anthony: I suppose I better let myself in and see what I can figure out.
+=> END
+
+~ first_time_in_foyer
+Anthony: God, it's been so long since I've been in here!
+Anthony: This place hasn't changed a bit since last time.
+Anthony: I better have a look around first before I get to it.
+[i]Use WASD or Left Stick to walk around.[/i]
+[i]Use E or the West gamepad button to interact with objects when hint text appears.[/i]
+set Globals.first_time_in_foyer = false
+=> END
+
+~ first_time_picking_up
+[i]You've picked up your first clue![/i]
+[i]There are various types of clues, including notes, pictures, audio, and even video.[/i]
+[i]Use Tab or the North gamepad button to open your clue menu after this dialogue.[/i]
+set Globals.first_time_picking_up = false
+=> END
+
+~ first_time_clue_menu
+[i]You can move up and down to select different clues, and press Enter or the South gamepad button to interact with them.[/i]
+[i]Close clues by pressing Esc or the East gamepad button.[/i]
+[i]Close the clue menu by pressing Tab or the North gamepad button, or use Esc or the East gamepad button.[/i]
+set Globals.first_time_clue_menu = false
+=> END

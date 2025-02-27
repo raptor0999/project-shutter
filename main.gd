@@ -15,6 +15,7 @@ func _ready() -> void:
 	Globals.connect("load_level", load_level)
 	Globals.connect("pause_main_toggle", pause_toggle)
 	Globals.connect("freeze_pause_menu_toggle", freeze_pause_menu_toggle)
+	Globals.connect("set_freeze_pause_menu", set_freeze_pause_menu)
 	Globals.connect("brightness_set", brightness_set)
 	Globals.connect("contrast_set", contrast_set)
 	Globals.connect("saturation_set", saturation_set)
@@ -27,12 +28,22 @@ func pause_toggle():
 	if Globals.paused:
 		Globals.music_volume_adjust.emit(-Globals.pause_volume_adjustment)
 		process_mode = PROCESS_MODE_DISABLED
+		print("Paused")
 	else:
 		Globals.music_volume_adjust.emit(Globals.pause_volume_adjustment)
 		process_mode = PROCESS_MODE_INHERIT
+		print("Not paused")
 		
 func freeze_pause_menu_toggle():
 	if pause_menu.process_mode == Node.PROCESS_MODE_ALWAYS:
+		pause_menu.process_mode = Node.PROCESS_MODE_DISABLED
+		print("Pause menu frozen")
+	else:
+		pause_menu.process_mode = Node.PROCESS_MODE_ALWAYS
+		print("Pause menu active")
+		
+func set_freeze_pause_menu(freeze:bool):
+	if freeze:
 		pause_menu.process_mode = Node.PROCESS_MODE_DISABLED
 		print("Pause menu frozen")
 	else:
@@ -84,9 +95,12 @@ func load_level(level_name: String, cam:String, named_element:String):
 	else:
 		p.chaseCam.make_current()
 	
-	do_level_transition()
-	
 	Globals.hud_hint.emit(level_instance.display_description)
+	
+	await do_level_transition()
+	
+	if level_instance.display_name == "Foyer" and Globals.first_time_in_foyer:
+		DialogueManager.show_dialogue_balloon(load("res://dialogue/main.dialogue"), "first_time_in_foyer")
 	
 func clear_current_level():
 	for l in level_node.get_children():

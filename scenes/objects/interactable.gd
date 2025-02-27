@@ -2,6 +2,7 @@ class_name Interactable
 extends Node
 
 @export var interactable_name:String
+@export var interactable_hint:String
 @export var interactable_text:String
 
 # Called when the node enters the scene tree for the first time.

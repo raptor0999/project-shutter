@@ -25,9 +25,12 @@ color = Color(0.317647, 0.560784, 0.682353, 1)
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
-anchors_preset = 10
+anchors_preset = -1
 anchor_right = 1.0
-offset_bottom = 184.0
+offset_left = 1.0
+offset_top = -53.0
+offset_right = -1.0
+offset_bottom = 142.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 46
 theme_override_styles/normal = SubResource("StyleBoxEmpty_d0x7x")
@@ -37,17 +40,52 @@ uppercase = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 14
+anchors_preset = 8
+anchor_left = 0.5
 anchor_top = 0.5
-anchor_right = 1.0
+anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 398.0
-offset_top = -181.0
-offset_right = -399.0
-offset_bottom = 276.0
+offset_left = -202.0
+offset_top = -294.0
+offset_right = 202.0
+offset_bottom = 313.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 20
+
+[node name="FullOrWindow" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Full Screen or Windowed
+"
+
+[node name="FullOrWindowOptions" type="OptionButton" parent="VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../../Close")
+focus_neighbor_bottom = NodePath("../ResolutionOptions")
+focus_next = NodePath("../ResolutionOptions")
+focus_previous = NodePath("../../Close")
+item_count = 2
+popup/item_0/text = "Full Screen"
+popup/item_1/text = "Windowed"
+popup/item_1/id = 1
+
+[node name="Resolution" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Resolution
+"
+
+[node name="ResolutionOptions" type="OptionButton" parent="VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../FullOrWindowOptions")
+focus_neighbor_bottom = NodePath("../MusicVolume")
+focus_next = NodePath("../MusicVolume")
+focus_previous = NodePath("../FullOrWindowOptions")
+item_count = 3
+popup/item_0/text = "1152x648"
+popup/item_1/text = "1280x720"
+popup/item_1/id = 1
+popup/item_2/text = "1920x1080"
+popup/item_2/id = 2
 
 [node name="Music" type="Label" parent="VBoxContainer"]
 layout_mode = 2
@@ -55,9 +93,10 @@ text = "Music Volume"
 
 [node name="MusicVolume" type="HSlider" parent="VBoxContainer"]
 layout_mode = 2
-focus_neighbor_top = NodePath("../../Close")
+focus_neighbor_top = NodePath("../ResolutionOptions")
+focus_neighbor_bottom = NodePath("../SoundVolume")
 focus_next = NodePath("../SoundVolume")
-focus_previous = NodePath("../SaturationSlider")
+focus_previous = NodePath("../ResolutionOptions")
 min_value = -30.0
 max_value = 8.0
 step = 2.0
@@ -68,6 +107,7 @@ text = "Sound Volume"
 
 [node name="SoundVolume" type="HSlider" parent="VBoxContainer"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../MusicVolume")
 focus_neighbor_bottom = NodePath("../BrightnessSlider")
 focus_next = NodePath("../BrightnessSlider")
 focus_previous = NodePath("../MusicVolume")
@@ -86,6 +126,7 @@ text = "Brightness"
 [node name="BrightnessSlider" type="HSlider" parent="VBoxContainer"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../SoundVolume")
+focus_neighbor_bottom = NodePath("../ContrastSlider")
 focus_next = NodePath("../ContrastSlider")
 focus_previous = NodePath("../SoundVolume")
 min_value = 0.5
@@ -99,6 +140,7 @@ text = "Contrast"
 
 [node name="ContrastSlider" type="HSlider" parent="VBoxContainer"]
 layout_mode = 2
+focus_neighbor_bottom = NodePath("../SaturationSlider")
 focus_next = NodePath("../SaturationSlider")
 focus_previous = NodePath("../BrightnessSlider")
 min_value = 0.5
@@ -112,7 +154,9 @@ text = "Saturation"
 
 [node name="SaturationSlider" type="HSlider" parent="VBoxContainer"]
 layout_mode = 2
-focus_next = NodePath("../MusicVolume")
+focus_neighbor_top = NodePath("../ContrastSlider")
+focus_neighbor_bottom = NodePath("../../Close")
+focus_next = NodePath("../../Close")
 focus_previous = NodePath("../ContrastSlider")
 min_value = 0.5
 max_value = 1.5
@@ -132,10 +176,17 @@ offset_right = 25.0
 offset_bottom = 342.0
 grow_horizontal = 2
 grow_vertical = 2
-focus_neighbor_bottom = NodePath("../VBoxContainer/MusicVolume")
+focus_neighbor_top = NodePath("../VBoxContainer/SaturationSlider")
+focus_neighbor_bottom = NodePath("../VBoxContainer/FullOrWindowOptions")
+focus_next = NodePath("../VBoxContainer/FullOrWindowOptions")
+focus_previous = NodePath("../VBoxContainer/SaturationSlider")
 text = "Close"
 flat = true
 
+[connection signal="item_selected" from="VBoxContainer/FullOrWindowOptions" to="." method="_on_full_or_window_options_item_selected"]
+[connection signal="pressed" from="VBoxContainer/FullOrWindowOptions" to="." method="_on_full_or_window_options_pressed"]
+[connection signal="item_selected" from="VBoxContainer/ResolutionOptions" to="." method="_on_resolution_options_item_selected"]
+[connection signal="pressed" from="VBoxContainer/ResolutionOptions" to="." method="_on_resolution_options_pressed"]
 [connection signal="value_changed" from="VBoxContainer/MusicVolume" to="." method="_on_music_volume_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/SoundVolume" to="." method="_on_sound_volume_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/BrightnessSlider" to="." method="_on_brightness_slider_value_changed"]
