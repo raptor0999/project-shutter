@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cl5gpc4mf6qhe" path="res://assets/art/pre-fabs/wall_02_door.tscn" id="3_7jnka"]
 [ext_resource type="MeshLibrary" uid="uid://b2kemvli5urdh" path="res://assets/Mesh-library-v1.tres" id="3_a5uis"]
 [ext_resource type="PackedScene" uid="uid://c4dt8huqmrroj" path="res://assets/art/pre-fabs/foyer/foyer_table.tscn" id="4_pjf0q"]
-[ext_resource type="PackedScene" uid="uid://dug8ai683jkgg" path="res://scenes/characters/player/player.tscn" id="5_f0jwj"]
+[ext_resource type="PackedScene" uid="uid://dug8ai683jkgg" path="res://scenes/characters/player/player_old.tscn" id="5_f0jwj"]
 [ext_resource type="PackedScene" uid="uid://ngi5vx5obum0" path="res://assets/art/pre-fabs/props/floor-lamp.tscn" id="6_mt0ka"]
 [ext_resource type="PackedScene" uid="uid://nq4ol04r66wm" path="res://assets/art/pre-fabs/props/painting.tscn" id="7_ti056"]
 [ext_resource type="PackedScene" uid="uid://bairytaoaefdv" path="res://assets/art/pre-fabs/foyer/couch.tscn" id="7_wwvy6"]

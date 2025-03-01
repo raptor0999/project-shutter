@@ -1,11 +1,12 @@
 extends CharacterBody3D
 
 @onready var area:Area3D = $Area3D
-@onready var anim:AnimationPlayer = $AnimationPlayer
+@onready var body:Node3D = $Body
+@onready var anim:AnimationPlayer = $Body/Mesh/AnimationPlayer
 @onready var steps:Node = $Footsteps
 
 @onready var camera_holder:Node3D = $Camera
-@onready var standardCam:Camera3D = $Camera3D
+@onready var standardCam:Camera3D = $Camera/Camera3D
 @onready var chaseCam:Camera3D = $Camera/ChaseCamera
 
 var scale_factor = 1
@@ -16,7 +17,9 @@ var filter_mode = Viewport.SCALING_3D_MODE_BILINEAR
 const door_type = preload("res://scenes/objects/doors/door_standard.gd")
 const clue_type = preload("res://scenes/objects/clues/clue.gd")
 const player_turn_type = preload("res://levels/turn.gd")
-const SPEED = 5.0
+const SPEED:float = 1.5
+const ROTATE_SPEED:float = 3.0
+const RUN_MULTIPLIER = 3.5
 const JUMP_VELOCITY = 4.5
 
 @export_range(0.0, 1.0) var sensitivity: float = 0.25
@@ -42,7 +45,7 @@ func _input(event):
 	if Input.is_action_just_pressed("forward_track"):
 		Globals.forward_track.emit()
 		
-	if event is InputEventMouseMotion:
+	if event is InputEventMouseMotion and mouse_look:
 		_mouse_position = event.relative
 		
 	if Input.is_action_just_pressed("toggle_viewport_scale"):
@@ -57,6 +60,7 @@ func _physics_process(delta: float) -> void:
 		
 	# Handle doors and picking up clues, etc
 	if Input.is_action_just_pressed("interact") and is_on_floor():
+		anim.play("interact")
 		interact()
 		
 	if Input.is_action_just_pressed("chase_cam"):
@@ -77,7 +81,9 @@ func _physics_process(delta: float) -> void:
 		#camera_holder.rotate_y(deg_to_rad(90))
 		var tween:Tween = create_tween()
 		var curr_y = camera_holder.rotation.y
+		var mesh_curr_y = body.rotation.y
 		tween.tween_property(camera_holder, "rotation:y", curr_y + deg_to_rad(90), 0.8).from(curr_y)
+		#tween.parallel().tween_property(body, "rotation:y", mesh_curr_y + deg_to_rad(90), 0.8).from(mesh_curr_y)
 		turning = true
 		tween.play()
 		tween.finished.connect(func(): turning = false)
@@ -86,7 +92,9 @@ func _physics_process(delta: float) -> void:
 		#camera_holder.rotate_y(deg_to_rad(-90))
 		var tween:Tween = create_tween()
 		var curr_y = camera_holder.rotation.y
+		var mesh_curr_y = body.rotation.y
 		tween.tween_property(camera_holder, "rotation:y", curr_y - deg_to_rad(90), 0.8).from(curr_y)
+		#tween.parallel().tween_property(body, "rotation:y", mesh_curr_y - deg_to_rad(90), 0.8).from(mesh_curr_y)
 		turning = true
 		tween.play()
 		tween.finished.connect(func(): turning = false)
@@ -94,7 +102,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("free_look_toggle"):
 		mouse_look = true
 	else:
-		mouse_look = true
+		mouse_look = false
 			
 	if mouse_look:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -112,22 +120,46 @@ func _physics_process(delta: float) -> void:
 	#else:
 		#input_dir = Input.get_axis("move_down", "move_up")
 	
-	var direction = (standardCam.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	#var relativeDir = direction.rotated(Vector3.UP, camera_holder.rotation.y)
-	#direction = relativeDir
+	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	var relativeDir = direction.rotated(Vector3.UP, camera_holder.rotation.y)
+	direction = relativeDir
 	if direction:
-		velocity.x = direction.x * SPEED
-		velocity.z = direction.z * SPEED
+		if(Input.is_action_pressed("run")):
+			velocity.x = direction.x * SPEED * RUN_MULTIPLIER
+			velocity.z = direction.z * SPEED * RUN_MULTIPLIER
+		else:
+			velocity.x = direction.x * SPEED
+			velocity.z = direction.z * SPEED
+			
+		var target_rotation_y = Input.get_vector("move_right", "move_left", "move_up", "move_down").angle() + PI/2 + camera_holder.rotation.y
+		body.rotation.y = lerp_angle(body.rotation.y, target_rotation_y, ROTATE_SPEED*delta)
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 		
-	if abs(velocity.x) > 0.0 and is_on_floor():
-		footstep_timer -= delta
-	
-		if footstep_timer < 0.0:
-			steps.play_footstep()
-			footstep_timer = 0.5
+	#if abs(velocity.x) > 0.0 and is_on_floor():
+	#	footstep_timer -= delta
+	#
+	#	if footstep_timer < 0.0:
+	#		steps.play_footstep()
+	#		footstep_timer = 0.5
+			
+	if abs(velocity.x) > 0.0 or abs(velocity.z) > 0.0:
+		if(Input.is_action_pressed("run")):
+			anim.play("run")
+		else:
+			anim.play("walk1", -1, SPEED)
+	else:
+		#if (anim.is_playing() and anim.current_animation == "interact"):
+		#	pass
+		#else:
+		anim.play("idle")
+		
+	for i in get_tree().get_nodes_in_group("interactable"):
+		var distance_to = global_position.distance_to(i.global_position)
+
+		if  distance_to < 1.5 and distance_to > 0.1:
+			Globals.hud_hint.emit(i.interactable_hint)
 
 	move_and_slide()
 	
@@ -145,6 +177,9 @@ func interact():
 				print("Door")
 		if parent_node is Clue:
 			Globals.pick_up_clue.emit(parent_node)
+			if Globals.first_time_picking_up:
+				DialogueManager.show_dialogue_balloon(load("res://dialogue/main.dialogue"), "first_time_picking_up")
+
 			print("Clue")
 		if a is PlayerTurn:
 			global_position.x = a.global_position.x
@@ -164,11 +199,11 @@ func _update_mouselook():
 	_mouse_position = Vector2(0, 0)
 	
 	# Prevents looking left/right too far
-	#yaw = clamp(yaw, -75 - _total_yaw, 75 - _total_yaw)
-	#_total_yaw += yaw
+	yaw = clamp(yaw, -20 - _total_yaw, 20 - _total_yaw)
+	_total_yaw += yaw
 	
 	# Prevents looking up/down too far
-	pitch = clamp(pitch, -45 - _total_pitch, 45 - _total_pitch)
+	pitch = clamp(pitch, -20 - _total_pitch, 20 - _total_pitch)
 	_total_pitch += pitch
 
 	standardCam.rotate_y(deg_to_rad(-yaw))

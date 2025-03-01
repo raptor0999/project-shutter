@@ -42,5 +42,3 @@ func pause_menu_toggle():
 		$HBoxContainer/Resume.grab_focus()
 		Globals.paused = true
 		show()
-	
-	Globals.pause_main_toggle.emit()

@@ -1,7 +1,7 @@
 [gd_scene load_steps=18 format=3 uid="uid://c4vfrhgf7b68n"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_3ogxv"]
-[ext_resource type="PackedScene" uid="uid://bb62p1vawi8k" path="res://scenes/characters/player/player_fps.tscn" id="2_c8vo3"]
+[ext_resource type="PackedScene" uid="uid://bb62p1vawi8k" path="res://scenes/characters/player/player.tscn" id="2_c8vo3"]
 [ext_resource type="PackedScene" uid="uid://dct634ct8ch0r" path="res://scenes/objects/doors/door_standard.tscn" id="3_pudkc"]
 [ext_resource type="PackedScene" uid="uid://bnjbxwpk8m1p0" path="res://assets/art/pre-fabs/wall_02.tscn" id="4_lvn22"]
 [ext_resource type="PackedScene" uid="uid://cl5gpc4mf6qhe" path="res://assets/art/pre-fabs/wall_02_door.tscn" id="5_j5nus"]

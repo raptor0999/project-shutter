@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://cdkmwjv7wbmbu" path="res://assets/art/pre-fabs/dining_room/Heater.tscn" id="8_800di"]
 [ext_resource type="PackedScene" uid="uid://nq4ol04r66wm" path="res://assets/art/pre-fabs/props/painting.tscn" id="8_c723x"]
 [ext_resource type="PackedScene" uid="uid://6aguv3kql2yp" path="res://assets/art/pre-fabs/dining_room/chair.tscn" id="8_uixf8"]
-[ext_resource type="PackedScene" uid="uid://dug8ai683jkgg" path="res://scenes/characters/player/player.tscn" id="8_yq2bb"]
+[ext_resource type="PackedScene" uid="uid://dug8ai683jkgg" path="res://scenes/characters/player/player_old.tscn" id="8_yq2bb"]
 [ext_resource type="PackedScene" uid="uid://du4g6lxidg6yr" path="res://assets/art/pre-fabs/wall_ceiling.tscn" id="16_jbe76"]
 [ext_resource type="PackedScene" uid="uid://dpea1xnfqlhdv" path="res://assets/art/pre-fabs/library/trim-beam.tscn" id="17_28ns8"]
 [ext_resource type="PackedScene" uid="uid://or4eameimh5a" path="res://assets/art/pre-fabs/library/trim-roof.tscn" id="18_moqcp"]
