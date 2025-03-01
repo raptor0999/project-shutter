@@ -105,7 +105,7 @@ libraries = {
 script = ExtResource("3_pxsve")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.822098, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
 attributes = SubResource("CameraAttributesPractical_8ixpf")
 current = true
 
