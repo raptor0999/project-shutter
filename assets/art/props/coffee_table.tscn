@@ -1,0 +1,71 @@
+[gd_scene load_steps=4 format=3 uid="uid://smrv7h0qik20"]
+
+[ext_resource type="PackedScene" uid="uid://bjpxiqassyxt2" path="res://assets/art/import/Props-Table.glb" id="1_stowu"]
+[ext_resource type="Material" uid="uid://7me28x02yqcd" path="res://assets/art/materials/m_trim_wood.tres" id="2_hcqp0"]
+[ext_resource type="PackedScene" uid="uid://ikrm0eyjo275" path="res://assets/art/import/Props-Coffee-Table.glb" id="3_vyauc"]
+
+[node name="Coffee Table" type="Node3D"]
+
+[node name="CoffeeTable" type="CSGCombiner3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, -0.17, 3.6)
+visible = false
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CoffeeTable"]
+size = Vector3(2, 0.1, 2)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CoffeeTable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4, 0)
+size = Vector3(1.5, 0.1, 1.5)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="CoffeeTable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7, -0.2, -0.6)
+size = Vector3(0.1, 0.5, 0.1)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="CoffeeTable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7, -0.2, 0.599999)
+size = Vector3(0.1, 0.5, 0.1)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="CoffeeTable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, -0.2, -0.6)
+size = Vector3(0.1, 0.5, 0.1)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="CoffeeTable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, -0.2, 0.599999)
+size = Vector3(0.1, 0.5, 0.1)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="CoffeeTable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4, 0)
+operation = 2
+size = Vector3(1, 0.1, 1)
+
+[node name="Props-Table" parent="." instance=ExtResource("1_stowu")]
+visible = false
+
+[node name="Cylinder" parent="Props-Table" index="0"]
+material_override = ExtResource("2_hcqp0")
+
+[node name="Plane_001" parent="Props-Table" index="1"]
+material_override = ExtResource("2_hcqp0")
+
+[node name="Cube" parent="Props-Table" index="2"]
+material_override = ExtResource("2_hcqp0")
+
+[node name="Cylinder_001" parent="Props-Table" index="3"]
+material_override = ExtResource("2_hcqp0")
+
+[node name="Cylinder_002" parent="Props-Table" index="4"]
+material_override = ExtResource("2_hcqp0")
+
+[node name="Props-Coffee-Table" parent="." instance=ExtResource("3_vyauc")]
+
+[node name="Plane_002" parent="Props-Coffee-Table" index="0"]
+material_override = ExtResource("2_hcqp0")
+
+[node name="Cylinder_003" parent="Props-Coffee-Table" index="1"]
+material_override = ExtResource("2_hcqp0")
+
+[node name="Cube_001" parent="Props-Coffee-Table" index="2"]
+material_override = ExtResource("2_hcqp0")
+
+[editable path="Props-Table"]
+[editable path="Props-Coffee-Table"]

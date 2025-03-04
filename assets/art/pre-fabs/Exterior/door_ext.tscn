@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://bf5ycq0kwo5i"]
+
+[node name="Door-Ext" type="Node3D"]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+operation = 2
+
+[node name="CSGCombiner3D2" type="CSGCombiner3D" parent="CSGCombiner3D"]
+transform = Transform3D(2.5, 0, 0, 0, 2, 0, 0, 0, 2, 2, 1, -0.9)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D/CSGCombiner3D2"]
+metadata/_edit_lock_ = true
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner3D/CSGCombiner3D2"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.49, 0.00999999)
+height = 1.0
+sides = 16
+metadata/_edit_lock_ = true
+
+[node name="CSGCombiner3D3" type="CSGCombiner3D" parent="CSGCombiner3D/CSGCombiner3D2"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.5, 0.05)
+visible = false
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D/CSGCombiner3D2/CSGCombiner3D3"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.75, -1, 0.96)
+size = Vector3(0.25, 1, 0.05)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D/CSGCombiner3D2/CSGCombiner3D3"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.72, -1, 0.97)
+size = Vector3(0.25, 1, 0.05)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner3D/CSGCombiner3D2/CSGCombiner3D3"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+radius = 1.0
+sides = 16
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="CSGCombiner3D/CSGCombiner3D2/CSGCombiner3D3"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+operation = 2
+sides = 16
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D/CSGCombiner3D2/CSGCombiner3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0.15)
+visible = false
+operation = 2
+size = Vector3(1, 1, 2.3)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1.5, -0.5)
+size = Vector3(4, 3, 1)

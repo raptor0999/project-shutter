@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dgddg5kqunh8h"]
+
+[node name="Wall-Ext-Corner" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, -0.5)
+size = Vector3(1, 2, 1)

@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b0agrgjkuc5j3" path="res://assets/art/import/Wall-base.glb" id="1_duu3a"]
 [ext_resource type="Material" uid="uid://b6xvtcpvsjsqr" path="res://assets/art/materials/m_tile_concrete.tres" id="2_r6qbx"]
-[ext_resource type="PackedScene" uid="uid://c6o7ey367yfxg" path="res://assets/art/pre-fabs/door.tscn" id="3_vvp3g"]
+[ext_resource type="PackedScene" uid="uid://c6o7ey367yfxg" path="res://assets/art/pre-fabs/props/door.tscn" id="3_vvp3g"]
 [ext_resource type="PackedScene" uid="uid://dl25vttf6apok" path="res://assets/art/pre-fabs/wall_ceiling_frame.tscn" id="5_hejaw"]
 [ext_resource type="PackedScene" uid="uid://du4g6lxidg6yr" path="res://assets/art/pre-fabs/wall_ceiling.tscn" id="6_mweg0"]
 [ext_resource type="PackedScene" uid="uid://bnjbxwpk8m1p0" path="res://assets/art/pre-fabs/wall_02.tscn" id="7_h8cdr"]
