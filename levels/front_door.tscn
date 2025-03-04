@@ -1,12 +1,17 @@
-[gd_scene load_steps=35 format=4 uid="uid://crwg1bxqcmqxe"]
+[gd_scene load_steps=42 format=4 uid="uid://crwg1bxqcmqxe"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_hdl3p"]
-[ext_resource type="PackedScene" uid="uid://bniqk4limmnq0" path="res://assets/art/import/Level-01-LR.glb" id="2_i74n4"]
+[ext_resource type="PackedScene" uid="uid://b8pip6abm8k45" path="res://assets/art/pre-fabs/Exterior/wall_ext.tscn" id="2_brra1"]
 [ext_resource type="PackedScene" uid="uid://bnjbxwpk8m1p0" path="res://assets/art/pre-fabs/wall_02.tscn" id="3_7chb6"]
+[ext_resource type="PackedScene" uid="uid://dgddg5kqunh8h" path="res://assets/art/pre-fabs/Exterior/wall_ext_corner.tscn" id="3_xfmfa"]
 [ext_resource type="PackedScene" uid="uid://cl5gpc4mf6qhe" path="res://assets/art/pre-fabs/wall_02_door.tscn" id="4_6hy3f"]
+[ext_resource type="PackedScene" uid="uid://tk4gnjwu2app" path="res://assets/art/pre-fabs/Exterior/Wall_ext_gate.tscn" id="5_s7ip3"]
 [ext_resource type="Material" uid="uid://bktywtfpewkbh" path="res://assets/art/materials/m_tile_wood_bark.tres" id="5_uwloe"]
 [ext_resource type="MeshLibrary" uid="uid://b2kemvli5urdh" path="res://assets/Mesh-library-v1.tres" id="6_7500b"]
+[ext_resource type="PackedScene" uid="uid://c1tahygril3pc" path="res://assets/art/pre-fabs/Exterior/hedges_ext.tscn" id="6_xepn2"]
+[ext_resource type="PackedScene" uid="uid://ideas25cpkpq" path="res://assets/art/pre-fabs/Exterior/tree.tscn" id="7_7424o"]
 [ext_resource type="PackedScene" uid="uid://dct634ct8ch0r" path="res://scenes/objects/doors/door_standard.tscn" id="7_bkrl1"]
+[ext_resource type="PackedScene" uid="uid://cdexoaodndt1k" path="res://assets/art/pre-fabs/Exterior/house.tscn" id="8_g1wwk"]
 [ext_resource type="AudioStream" uid="uid://cn8n7k427ktik" path="res://assets/audio/music/dark_strings_1.mp3" id="8_gv67m"]
 [ext_resource type="Script" path="res://levels/intro_cut.gd" id="8_scbup"]
 [ext_resource type="Texture2D" uid="uid://djp56ryx76gl5" path="res://assets/characters/player/idle_251087.fbm/Character_Diffuse.jpg" id="10_qjd6o"]
@@ -14,6 +19,10 @@
 [ext_resource type="Animation" uid="uid://8i87vcdhhekq" path="res://assets/characters/animations/walk1.res" id="12_cqsmt"]
 [ext_resource type="AudioStream" uid="uid://c41iwsv2pi0gp" path="res://assets/audio/sounds/ghost_scream.mp3" id="13_hejmy"]
 [ext_resource type="Script" path="res://scenes/characters/player/footsteps.gd" id="14_lf6pc"]
+[ext_resource type="PackedScene" uid="uid://b015oepp1sln2" path="res://assets/art/pre-fabs/Exterior/Wall_ext_pillar.tscn" id="16_ec5io"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ndhnf"]
+size = Vector2(12, 12)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yj84b"]
 
@@ -51,6 +60,7 @@ shadow_mesh = SubResource("ArrayMesh_rsav6")
 
 [sub_resource type="Environment" id="Environment_u2td3"]
 background_mode = 1
+background_color = Color(0.493545, 0.493546, 0.493546, 1)
 ambient_light_color = Color(1, 1, 1, 1)
 adjustment_enabled = true
 
@@ -474,11 +484,115 @@ _data = {
 script = ExtResource("1_hdl3p")
 display_name = "Front Door"
 
-[node name="Level-01-LR" parent="." instance=ExtResource("2_i74n4")]
-visible = false
+[node name="Blockout" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Blockout"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -8)
+mesh = SubResource("PlaneMesh_ndhnf")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Blockout"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7, 0, -9.7)
+polygon = PackedVector2Array(0, 0, 0, 0.25, 0.25, 0.25, 0.25, 0.5, 0.5, 0.5, 0.5, 0.75, 0.75, 0.75, 0.75, 1, 1, 1, 1, 0)
+depth = 2.0
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Blockout"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0.5, -12.7)
+size = Vector3(8, 1, 4)
+
+[node name="Ext-Walls" type="Node3D" parent="Blockout"]
+
+[node name="Wall-Ext" parent="Blockout/Ext-Walls" instance=ExtResource("2_brra1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+
+[node name="Wall-Ext7" parent="Blockout/Ext-Walls" instance=ExtResource("2_brra1")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, -2)
+
+[node name="Wall-Ext8" parent="Blockout/Ext-Walls" instance=ExtResource("2_brra1")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, -4)
+
+[node name="Wall-Ext9" parent="Blockout/Ext-Walls" instance=ExtResource("2_brra1")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, -6)
+
+[node name="Wall-Ext10" parent="Blockout/Ext-Walls" instance=ExtResource("2_brra1")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, -8)
+
+[node name="Wall-Ext11" parent="Blockout/Ext-Walls" instance=ExtResource("2_brra1")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, -10)
+
+[node name="Wall-Ext12" parent="Blockout/Ext-Walls" instance=ExtResource("2_brra1")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, -12)
+
+[node name="Wall-Ext13" parent="Blockout/Ext-Walls" instance=ExtResource("2_brra1")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 12, 0, -14)
+
+[node name="Wall-Ext14" parent="Blockout/Ext-Walls" instance=ExtResource("2_brra1")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 12, 0, -12)
+
+[node name="Wall-Ext15" parent="Blockout/Ext-Walls" instance=ExtResource("2_brra1")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 12, 0, -10)
+
+[node name="Wall-Ext16" parent="Blockout/Ext-Walls" instance=ExtResource("2_brra1")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 12, 0, -8)
+
+[node name="Wall-Ext17" parent="Blockout/Ext-Walls" instance=ExtResource("2_brra1")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 12, 0, -6)
+
+[node name="Wall-Ext18" parent="Blockout/Ext-Walls" instance=ExtResource("2_brra1")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 12, 0, -4)
+
+[node name="Wall-Ext2" parent="Blockout/Ext-Walls" instance=ExtResource("2_brra1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -1)
+
+[node name="Wall-Ext5" parent="Blockout/Ext-Walls" instance=ExtResource("2_brra1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -1)
+
+[node name="Wall-Ext6" parent="Blockout/Ext-Walls" instance=ExtResource("2_brra1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -1)
+
+[node name="Wall-Ext-Corner" parent="Blockout/Ext-Walls" instance=ExtResource("3_xfmfa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+
+[node name="Wall-Ext-Corner2" parent="Blockout/Ext-Walls" instance=ExtResource("3_xfmfa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, -1)
+
+[node name="Ext-Pillar" parent="Blockout/Ext-Walls" instance=ExtResource("16_ec5io")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -1)
+
+[node name="Ext-Pillar2" parent="Blockout/Ext-Walls" instance=ExtResource("16_ec5io")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -1)
+
+[node name="Node3D" parent="Blockout/Ext-Walls" instance=ExtResource("5_s7ip3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -1)
+
+[node name="Foliage" type="Node3D" parent="Blockout"]
+
+[node name="Hedges-ext" parent="Blockout/Foliage" instance=ExtResource("6_xepn2")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5, 0, -2)
+
+[node name="Hedges-ext2" parent="Blockout/Foliage" instance=ExtResource("6_xepn2")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8, 0, -2)
+
+[node name="Hedges-ext3" parent="Blockout/Foliage" instance=ExtResource("6_xepn2")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8, 0, -6)
+
+[node name="Hedges-ext4" parent="Blockout/Foliage" instance=ExtResource("6_xepn2")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5, 0, -6)
+
+[node name="Tree" parent="Blockout/Foliage" instance=ExtResource("7_7424o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, -5)
+
+[node name="Tree2" parent="Blockout/Foliage" instance=ExtResource("7_7424o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -6)
+
+[node name="HouseFacade" type="Node3D" parent="Blockout"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -14)
+
+[node name="House" parent="Blockout/HouseFacade" instance=ExtResource("8_g1wwk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1, 0)
 
 [node name="Walls" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+visible = false
 
 [node name="Wall-01" parent="Walls" instance=ExtResource("3_7chb6")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8, 0, -12)
@@ -525,6 +639,7 @@ surface_material_override/0 = ExtResource("5_uwloe")
 
 [node name="GridMap" type="GridMap" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+visible = false
 mesh_library = ExtResource("6_7500b")
 cell_size = Vector3(2, 1, 2)
 cell_center_x = false

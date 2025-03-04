@@ -248,15 +248,18 @@ texture = ExtResource("17_e4nfb")
 [node name="Painting2" parent="Props" instance=ExtResource("17_twp8h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 5, -12.1778)
 size_x = 2.0
+texture = null
 
 [node name="Painting3" parent="Props" instance=ExtResource("17_twp8h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 3, -12.2091)
 size_x = 2.0
 size_y = 2.0
+texture = null
 
 [node name="Painting4" parent="Props" instance=ExtResource("17_twp8h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 5, -12.2091)
 size_x = 2.0
+texture = null
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Props"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6, 2.3, -31)
