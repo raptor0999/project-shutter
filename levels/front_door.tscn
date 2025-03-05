@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=4 uid="uid://crwg1bxqcmqxe"]
+[gd_scene load_steps=44 format=4 uid="uid://crwg1bxqcmqxe"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_hdl3p"]
 [ext_resource type="PackedScene" uid="uid://b8pip6abm8k45" path="res://assets/art/pre-fabs/Exterior/wall_ext.tscn" id="2_brra1"]
@@ -21,8 +21,29 @@
 [ext_resource type="Script" path="res://scenes/characters/player/footsteps.gd" id="14_lf6pc"]
 [ext_resource type="PackedScene" uid="uid://b015oepp1sln2" path="res://assets/art/pre-fabs/Exterior/Wall_ext_pillar.tscn" id="16_ec5io"]
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_b631b"]
+sky_top_color = Color(0.225015, 0.274197, 0.342598, 1)
+sky_energy_multiplier = 3.0
+
+[sub_resource type="Sky" id="Sky_bbwc3"]
+sky_material = SubResource("ProceduralSkyMaterial_b631b")
+
+[sub_resource type="Environment" id="Environment_u2td3"]
+background_mode = 1
+sky = SubResource("Sky_bbwc3")
+ambient_light_source = 2
+ambient_light_color = Color(0.0349015, 0.160954, 0.272868, 1)
+reflected_light_source = 2
+ssr_enabled = true
+ssao_enabled = true
+ssil_enabled = true
+ssil_radius = 2.0
+sdfgi_energy = 0.1
+volumetric_fog_enabled = true
+adjustment_enabled = true
+
 [sub_resource type="PlaneMesh" id="PlaneMesh_ndhnf"]
-size = Vector2(12, 12)
+size = Vector2(16, 12)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yj84b"]
 
@@ -57,12 +78,6 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_rsav6")
-
-[sub_resource type="Environment" id="Environment_u2td3"]
-background_mode = 1
-background_color = Color(0.493545, 0.493546, 0.493546, 1)
-ambient_light_color = Color(1, 1, 1, 1)
-adjustment_enabled = true
 
 [sub_resource type="Animation" id="Animation_ljgqq"]
 length = 0.001
@@ -484,10 +499,13 @@ _data = {
 script = ExtResource("1_hdl3p")
 display_name = "Front Door"
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_u2td3")
+
 [node name="Blockout" type="Node3D" parent="."]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Blockout"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -8)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4, 0, -8)
 mesh = SubResource("PlaneMesh_ndhnf")
 
 [node name="CSGPolygon3D" type="CSGPolygon3D" parent="Blockout"]
@@ -504,23 +522,26 @@ size = Vector3(8, 1, 4)
 [node name="Wall-Ext" parent="Blockout/Ext-Walls" instance=ExtResource("2_brra1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
 
+[node name="Wall-Ext3" parent="Blockout/Ext-Walls" instance=ExtResource("2_brra1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -1)
+
 [node name="Wall-Ext7" parent="Blockout/Ext-Walls" instance=ExtResource("2_brra1")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, -2)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3, 0, -2)
 
 [node name="Wall-Ext8" parent="Blockout/Ext-Walls" instance=ExtResource("2_brra1")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, -4)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3, 0, -4)
 
 [node name="Wall-Ext9" parent="Blockout/Ext-Walls" instance=ExtResource("2_brra1")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, -6)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3, 0, -6)
 
 [node name="Wall-Ext10" parent="Blockout/Ext-Walls" instance=ExtResource("2_brra1")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, -8)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3, 0, -8)
 
 [node name="Wall-Ext11" parent="Blockout/Ext-Walls" instance=ExtResource("2_brra1")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, -10)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3, 0, -10)
 
 [node name="Wall-Ext12" parent="Blockout/Ext-Walls" instance=ExtResource("2_brra1")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, -12)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3, 0, -12)
 
 [node name="Wall-Ext13" parent="Blockout/Ext-Walls" instance=ExtResource("2_brra1")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 12, 0, -14)
@@ -550,7 +571,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -1)
 
 [node name="Wall-Ext-Corner" parent="Blockout/Ext-Walls" instance=ExtResource("3_xfmfa")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -1)
+
+[node name="Wall-Ext-Corner3" parent="Blockout/Ext-Walls" instance=ExtResource("3_xfmfa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -1)
 
 [node name="Wall-Ext-Corner2" parent="Blockout/Ext-Walls" instance=ExtResource("3_xfmfa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, -1)
@@ -580,6 +604,9 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5, 0, 
 
 [node name="Tree" parent="Blockout/Foliage" instance=ExtResource("7_7424o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, -5)
+
+[node name="Tree3" parent="Blockout/Foliage" instance=ExtResource("7_7424o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -8)
 
 [node name="Tree2" parent="Blockout/Foliage" instance=ExtResource("7_7424o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -6)
@@ -649,30 +676,56 @@ data = {
 }
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_u2td3")
-
 [node name="Lights" type="Node3D" parent="."]
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 4.5, -11)
+visible = false
 light_energy = 0.673
 shadow_enabled = true
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="Lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 4.5, -11)
+visible = false
 light_energy = 0.346
 shadow_enabled = true
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="Lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 4.5, -11)
+visible = false
 light_energy = 0.346
 shadow_enabled = true
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lights"]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, -1.56603, 22.8494, 24.4055)
-light_energy = 0.01
+light_color = Color(0.617374, 0.666272, 0.707538, 1)
+light_energy = 0.2
 shadow_enabled = true
+
+[node name="LightsEntrance" type="Node3D" parent="Lights"]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Lights/LightsEntrance"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 4.7, 3, -0.4)
+light_color = Color(0.888036, 0.745688, 0.555066, 1)
+light_energy = 4.0
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="Lights/LightsEntrance"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 7.1, 3, -0.4)
+light_color = Color(0.888036, 0.745688, 0.555066, 1)
+light_energy = 4.0
+
+[node name="LightsDoor" type="Node3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9, -12)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Lights/LightsDoor"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 4.7, 3, -0.4)
+light_color = Color(0.888036, 0.745688, 0.555066, 1)
+light_energy = 4.0
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="Lights/LightsDoor"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 7.1, 3, -0.4)
+light_color = Color(0.888036, 0.745688, 0.555066, 1)
+light_energy = 4.0
 
 [node name="Doors" type="Node3D" parent="."]
 
