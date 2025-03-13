@@ -1,10 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://b8bai81gpb2yn"]
-
-[ext_resource type="PackedScene" uid="uid://1udxibx8rwi0" path="res://assets/art/pre-fabs/Exterior/wall_house.tscn" id="1_jqp8d"]
+[gd_scene format=3 uid="uid://b8bai81gpb2yn"]
 
 [node name="HouseModuleRect" type="Node3D"]
-
-[node name="Wall" parent="." instance=ExtResource("1_jqp8d")]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2, -2.01)
