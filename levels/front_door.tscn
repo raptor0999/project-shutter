@@ -127,10 +127,10 @@ tracks/0/enabled = true
 tracks/0/path = NodePath("Camera3D")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 6, 21, 92.5, 3.96667, 1, 6, 21, 92.5, 20, 1, 6, 3, -6)
+tracks/0/keys = PackedFloat32Array(0, 1, 6, 4.52111, 2.32385, 3.96667, 1, 6, 4.52111, 2.32385, 20, 1, 6, 3, -6)
 tracks/1/type = "value"
 tracks/1/imported = false
-tracks/1/enabled = true
+tracks/1/enabled = false
 tracks/1/path = NodePath("Camera3D:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
@@ -510,7 +510,15 @@ mesh = SubResource("PlaneMesh_ndhnf")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="Blockout"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6, 0.5, -10.2)
-size = Vector3(1.2, 1, 2)
+size = Vector3(1.2, 1, 4)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Blockout"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8.5, 0.5, -10.2)
+size = Vector3(1.2, 1, 1)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Blockout"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.5, 0.5, -10.2)
+size = Vector3(1.2, 1, 1)
 
 [node name="CSGPolygon3D" type="CSGPolygon3D" parent="Blockout"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7, 0, -8.6)
@@ -743,7 +751,7 @@ y_rot = 180.0
 script = ExtResource("8_scbup")
 
 [node name="Camera3D" type="Camera3D" parent="Intro_Cut"]
-transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 6, 21, 92.5)
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 6, 4.52111, 2.32385)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Intro_Cut"]
 stream = ExtResource("8_gv67m")
