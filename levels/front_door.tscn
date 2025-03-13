@@ -127,7 +127,7 @@ tracks/0/enabled = true
 tracks/0/path = NodePath("Camera3D")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 6, 4.52111, 2.32385, 3.96667, 1, 6, 4.52111, 2.32385, 20, 1, 6, 3, -6)
+tracks/0/keys = PackedFloat32Array(0, 1, 6, 4.341, 0.357, 3.96667, 1, 6, 4.341, 0.357, 20, 1, 6, 3, -6)
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
@@ -751,7 +751,7 @@ y_rot = 180.0
 script = ExtResource("8_scbup")
 
 [node name="Camera3D" type="Camera3D" parent="Intro_Cut"]
-transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 6, 4.52111, 2.32385)
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 6, 3.00103, -5.99513)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Intro_Cut"]
 stream = ExtResource("8_gv67m")

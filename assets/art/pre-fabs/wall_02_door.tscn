@@ -29,7 +29,7 @@ transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0.4, 0, -1)
 [node name="Ceiling-Frame" parent="." index="2" instance=ExtResource("5_hejaw")]
 
 [node name="Ceiling" parent="." index="3" instance=ExtResource("6_mweg0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.309, 5.914, 0)
+transform = Transform3D(0.826875, 0, 0, 0, 1, 0, 0, 0, 1, 0.221, 5.914, 0)
 
 [node name="Node3D" type="Node3D" parent="." index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0, 0)
@@ -50,4 +50,8 @@ surface_material_override/0 = ExtResource("8_mllky")
 [node name="Wall_Ceiling_Frame_02" parent="Wall-02-4m" index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0)
 
+[node name="Ceiling" parent="Wall-02-4m" index="4"]
+visible = false
+
 [editable path="Wall-02-4m"]
+[editable path="Wall-02-4m/Wall_Ceiling_Frame_02"]
