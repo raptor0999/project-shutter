@@ -1,15 +1,6 @@
-[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://b6xvtcpvsjsqr"]
-
-[ext_resource type="Texture2D" uid="uid://cd0kuq7niyg66" path="res://assets/art/textures/concrete/concrete_wall_03_color_2k.png" id="1_qiq14"]
-[ext_resource type="Texture2D" uid="uid://br7dsf5aqx8b6" path="res://assets/art/textures/concrete/concrete_wall_03_ambient_occlusion_2k.png" id="2_6prv4"]
-[ext_resource type="Texture2D" uid="uid://dmabdraah2g2e" path="res://assets/art/textures/concrete/concrete_wall_03_normal_gl_2k.png" id="3_req0b"]
-[ext_resource type="Texture2D" uid="uid://ck6w8svpcsu5w" path="res://assets/art/textures/concrete/concrete_wall_03_roughness_2k.png" id="4_jcbtf"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://b6xvtcpvsjsqr"]
 
 [resource]
-albedo_texture = ExtResource("1_qiq14")
 metallic_specular = 0.0
-roughness_texture = ExtResource("4_jcbtf")
 normal_enabled = true
-normal_texture = ExtResource("3_req0b")
 ao_enabled = true
-ao_texture = ExtResource("2_6prv4")

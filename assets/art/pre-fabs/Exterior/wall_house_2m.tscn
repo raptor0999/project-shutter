@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://d2oye8p2esjnf"]
+
+[node name="Wall" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2, -0.125)
+visible = false
+size = Vector3(2, 4, 0.25)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.5, -0.125)
+size = Vector3(2, 1, 0.25)
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.85, 0.12)
+polygon = PackedVector2Array(0, 0, 0.1, 0.9, 1, 1, 0.3, 0.6)
+depth = 0.25
+
+[node name="CSGPolygon3D2" type="CSGPolygon3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2.85, 0.12)
+polygon = PackedVector2Array(0, 0, -0.1, 0.9, -1, 1, -0.3, 0.6)
+depth = 0.25

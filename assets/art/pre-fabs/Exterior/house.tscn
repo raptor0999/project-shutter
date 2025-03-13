@@ -1,10 +1,32 @@
-[gd_scene load_steps=9 format=3 uid="uid://cdexoaodndt1k"]
+[gd_scene load_steps=13 format=3 uid="uid://cdexoaodndt1k"]
 
 [ext_resource type="PackedScene" uid="uid://bf5ycq0kwo5i" path="res://assets/art/pre-fabs/Exterior/door_ext.tscn" id="1_dx6xv"]
 [ext_resource type="PackedScene" uid="uid://b8bai81gpb2yn" path="res://assets/art/pre-fabs/Exterior/rect_section_house.tscn" id="2_fec2u"]
 [ext_resource type="PackedScene" uid="uid://1udxibx8rwi0" path="res://assets/art/pre-fabs/Exterior/wall_house.tscn" id="2_nn5xv"]
 [ext_resource type="PackedScene" uid="uid://d3es70ab8md8v" path="res://assets/art/pre-fabs/Exterior/wall_house_half.tscn" id="3_icr8n"]
 [ext_resource type="PackedScene" uid="uid://8inaxhlf1emf" path="res://assets/art/pre-fabs/Exterior/wall_house_1m.tscn" id="4_kvbix"]
+[ext_resource type="PackedScene" uid="uid://d2oye8p2esjnf" path="res://assets/art/pre-fabs/Exterior/wall_house_2m.tscn" id="5_wiaep"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fgobw"]
+sky_top_color = Color(0.225015, 0.274197, 0.342598, 1)
+sky_energy_multiplier = 3.0
+
+[sub_resource type="Sky" id="Sky_bbwc3"]
+sky_material = SubResource("ProceduralSkyMaterial_fgobw")
+
+[sub_resource type="Environment" id="Environment_xsvfl"]
+background_mode = 1
+sky = SubResource("Sky_bbwc3")
+ambient_light_source = 2
+ambient_light_color = Color(0.0349015, 0.160954, 0.272868, 1)
+reflected_light_source = 2
+ssr_enabled = true
+ssao_enabled = true
+ssil_enabled = true
+ssil_radius = 2.0
+sdfgi_energy = 0.1
+volumetric_fog_enabled = true
+adjustment_enabled = true
 
 [sub_resource type="PrismMesh" id="PrismMesh_ulldj"]
 size = Vector3(8, 4, 2)
@@ -16,6 +38,9 @@ size = Vector3(4, 2, 1)
 size = Vector3(4, 2, 3)
 
 [node name="House" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_xsvfl")
 
 [node name="Door-Ext" parent="." instance=ExtResource("1_dx6xv")]
 visible = false
@@ -106,20 +131,8 @@ transform = Transform3D(0.923879, 0, -0.382683, 0, 1, 0, 0.382683, 0, 0.923879, 
 radius = 1.5
 height = 3.0
 
-[node name="Node3D" parent="." instance=ExtResource("3_icr8n")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5, 0, 0.3)
-
-[node name="Node3D3" parent="." instance=ExtResource("4_kvbix")]
-transform = Transform3D(1, 0, -7.35137e-08, 0, 1, 0, 7.35137e-08, 0, 1, 5, 0, -0.2)
-
-[node name="Node3D4" parent="." instance=ExtResource("4_kvbix")]
-transform = Transform3D(1, 0, -7.35137e-08, 0, 1, 0, 7.35137e-08, 0, 1, 6, 0, -0.2)
-
 [node name="Node3D5" parent="." instance=ExtResource("4_kvbix")]
 transform = Transform3D(2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, 7, 0, -0.45)
-
-[node name="Node3D2" parent="." instance=ExtResource("3_icr8n")]
-transform = Transform3D(1, 0, -7.35137e-08, 0, 1, 0, 7.35137e-08, 0, 1, 4.3, 0, 0.5)
 
 [node name="CSGPolygon3D" type="CSGPolygon3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 10, -1)
@@ -214,19 +227,61 @@ mesh = SubResource("PrismMesh_pkfm5")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.45, 0.5)
 size = Vector3(4, 2.9, 2)
 
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
-transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -1.8, 6.4, -3.7)
+[node name="House-Front" type="Node3D" parent="."]
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="House-Front"]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -1.8, 6.4, -2.7)
 radius = 10.0
 height = 5.0
 sides = 4
 cone = true
 
-[node name="CSGBox3D" type="CSGBox3D" parent="CSGCylinder3D"]
+[node name="CSGBox3D" type="CSGBox3D" parent="House-Front/CSGCylinder3D"]
 transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -3.53554, -3, -7.77818)
 operation = 2
 size = Vector3(3, 7, 21)
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCylinder3D"]
+[node name="CSGBox3D2" type="CSGBox3D" parent="House-Front/CSGCylinder3D"]
 transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -5.65686, -3, 4.24264)
 operation = 2
 size = Vector3(3, 7, 21)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="House-Front"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.1, 3, 1.1)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="House-Front"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -0.5, 1)
+snap = 0.1
+size = Vector3(12, 1, 4)
+
+[node name="Wall" parent="House-Front" instance=ExtResource("2_nn5xv")]
+transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 0.5, 0, 4.4)
+
+[node name="CSGBox3D2" parent="House-Front/Wall" index="2"]
+visible = false
+
+[node name="Node3D4" parent="House-Front" instance=ExtResource("4_kvbix")]
+transform = Transform3D(2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, 4.5, 0, 4)
+
+[node name="Wall2" parent="House-Front" instance=ExtResource("5_wiaep")]
+transform = Transform3D(-1, 0, -1.39091e-08, 0, 1, 0, 1.39091e-08, 0, -1, 0, 0, 2.75)
+
+[node name="Node3D5" parent="House-Front" instance=ExtResource("4_kvbix")]
+transform = Transform3D(2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, 0, 0, 4)
+
+[node name="Node3D6" parent="House-Front" instance=ExtResource("4_kvbix")]
+transform = Transform3D(-1, 0, -1.39091e-08, 0, 1, 0, 1.39091e-08, 0, -1, -2, 0, 2.75)
+
+[node name="Wall3" parent="House-Front" instance=ExtResource("2_nn5xv")]
+transform = Transform3D(-1, 0, -1.39091e-08, 0, 1, 0, 1.39091e-08, 0, -1, -3, 0, 2.75)
+
+[node name="Node3D7" parent="House-Front" instance=ExtResource("4_kvbix")]
+transform = Transform3D(-1, 0, -1.39091e-08, 0, 1, 0, 1.39091e-08, 0, -1, -6, 0, 2.75)
+
+[node name="Node3D2" parent="House-Front" instance=ExtResource("3_icr8n")]
+transform = Transform3D(1, 0, -7.35137e-08, 0, 1, 0, 7.35137e-08, 0, 1, 3.5, 0, 4.4)
+
+[node name="Node3D3" parent="House-Front" instance=ExtResource("3_icr8n")]
+transform = Transform3D(1, 0, -7.35137e-08, 0, 1, 0, 7.35137e-08, 0, 1, -2.38419e-07, 0, 4.4)
+
+[editable path="House-Front/Wall"]
