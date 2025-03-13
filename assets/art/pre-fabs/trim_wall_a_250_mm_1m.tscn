@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://drntkq70kaxqc"]
+
+[node name="Trim_Wall_250mm_1m" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 1.25, -0.125)
+size = Vector3(0.5, 0.5, 0.25)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 0.5, -0.125)
+size = Vector3(0.5, 1, 0.25)

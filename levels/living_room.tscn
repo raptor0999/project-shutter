@@ -173,11 +173,11 @@ metadata/_edit_lock_ = true
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 12.003, 0, -8)
 metadata/_edit_lock_ = true
 
-[node name="Wall-with Arch" parent="." instance=ExtResource("5_ruiw6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.62508, 1, -8.61305)
+[node name="Wall-with Arch" parent="Walls" instance=ExtResource("5_ruiw6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.62508, 0.6, -8.61305)
 
-[node name="Wall-with Arch2" parent="." instance=ExtResource("5_ruiw6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.62508, 1, -20.213)
+[node name="Wall-with Arch2" parent="Walls" instance=ExtResource("5_ruiw6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.62508, 0.5, -20.213)
 
 [node name="Props" type="Node3D" parent="."]
 
@@ -241,7 +241,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 1.2)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4, 0, 0)
 
 [node name="Painting" parent="Props/Couches" instance=ExtResource("7_rqprv")]
-transform = Transform3D(-1, 3.8097e-09, -8.72564e-08, -3.8097e-09, 0.996195, 0.0871557, 8.72564e-08, 0.0871557, -0.996195, 1, 2.5, -1)
+transform = Transform3D(-1, 3.8097e-09, -8.72564e-08, -3.8097e-09, 0.996195, 0.0871557, 8.72564e-08, 0.0871557, -0.996195, 1, 1.8, -1)
 size_x = 3.0
 size_y = 2.0
 texture = null
