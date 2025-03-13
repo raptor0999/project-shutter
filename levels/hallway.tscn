@@ -1,9 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://cyy8qeve4f58m"]
+[gd_scene load_steps=12 format=3 uid="uid://cyy8qeve4f58m"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_hb1yj"]
 [ext_resource type="PackedScene" uid="uid://bnjbxwpk8m1p0" path="res://assets/art/pre-fabs/wall_02.tscn" id="3_mrl8b"]
 [ext_resource type="PackedScene" uid="uid://cl5gpc4mf6qhe" path="res://assets/art/pre-fabs/wall_02_door.tscn" id="4_c1v6s"]
-[ext_resource type="MeshLibrary" uid="uid://b2kemvli5urdh" path="res://assets/Mesh-library-v1.tres" id="6_gj7n5"]
 [ext_resource type="PackedScene" uid="uid://dct634ct8ch0r" path="res://scenes/objects/doors/door_standard.tscn" id="7_5yqud"]
 [ext_resource type="Material" uid="uid://ijihm2hk1r74" path="res://assets/art/materials/m_tile_wood.tres" id="8_7ibdt"]
 [ext_resource type="Material" uid="uid://bhadhj0p4k41p" path="res://assets/art/materials/prototype/grid_light.tres" id="8_161w2"]
@@ -28,18 +27,6 @@ points = PackedVector3Array(-2.07937, -0.079334, -5.07738, 2.04762, 0.079334, 5.
 [node name="Hallway" type="Node3D"]
 script = ExtResource("1_hb1yj")
 display_name = "Hallway"
-
-[node name="GridMap" type="GridMap" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
-visible = false
-mesh_library = ExtResource("6_gj7n5")
-cell_size = Vector3(2, 1, 2)
-cell_center_x = false
-cell_center_z = false
-data = {
-"cells": PackedInt32Array(0, 0, 7, 0, 65534, 7, 0, 65532, 7, 2, 65532, 7, 2, 65534, 7, 2, 0, 7, 4, 65532, 7, 4, 65534, 7, 4, 0, 7)
-}
-metadata/_editor_floor_ = Vector3(0, 0, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_u2td3")
@@ -193,12 +180,20 @@ surface_material_override/0 = ExtResource("8_7ibdt")
 shape = SubResource("ConvexPolygonShape3D_6wgog")
 
 [editable path="Walls-2ndPass/Wall-08"]
+[editable path="Walls-2ndPass/Wall-08/Wall_Ceiling_Frame_02"]
 [editable path="Walls-2ndPass/Wall-09"]
+[editable path="Walls-2ndPass/Wall-09/Wall_Ceiling_Frame_02"]
 [editable path="Walls-2ndPass/Wall-10"]
+[editable path="Walls-2ndPass/Wall-10/Wall_Ceiling_Frame_02"]
 [editable path="Walls-2ndPass/Wall-11"]
+[editable path="Walls-2ndPass/Wall-11/Wall_Ceiling_Frame_02"]
 [editable path="Walls-2ndPass/Wall-12"]
+[editable path="Walls-2ndPass/Wall-12/Wall_Ceiling_Frame_02"]
 [editable path="Walls-2ndPass/Wall-13"]
+[editable path="Walls-2ndPass/Wall-13/Wall_Ceiling_Frame_02"]
 [editable path="Walls-2ndPass/Wall-door"]
 [editable path="Walls-2ndPass/Wall-door/Wall-02-4m"]
+[editable path="Walls-2ndPass/Wall-door/Wall-02-4m/Wall_Ceiling_Frame_02"]
 [editable path="Walls-2ndPass/Wall-door2"]
 [editable path="Walls-2ndPass/Wall-door2/Wall-02-4m"]
+[editable path="Walls-2ndPass/Wall-door2/Wall-02-4m/Wall_Ceiling_Frame_02"]
