@@ -1,18 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://nq4ol04r66wm"]
+[gd_scene load_steps=2 format=3 uid="uid://nq4ol04r66wm"]
 
 [ext_resource type="Script" path="res://assets/art/pre-fabs/props/tools/painting.gd" id="1_78qpu"]
-[ext_resource type="Texture2D" uid="uid://cd0kuq7niyg66" path="res://assets/art/textures/concrete/concrete_wall_03_color_2k.png" id="3_031hb"]
 
 [node name="Painting" type="Node3D"]
 script = ExtResource("1_78qpu")
 size_x = 1.0
 size_y = 1.0
-texture = ExtResource("3_031hb")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 size = Vector3(1, 1, 0.15)
 
 [node name="Sprite3D" type="Sprite3D" parent="CSGBox3D"]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, -0.0125, 0, 0, -0.085)
+transform = Transform3D(-0.2, -1.74846e-08, 0, 1.74846e-08, -0.2, 0, 0, 0, -0.0125, 0, 0, -0.085)
 pixel_size = 0.002
-texture = ExtResource("3_031hb")
