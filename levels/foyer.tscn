@@ -300,7 +300,7 @@ height = 6.0
 [node name="Table-entrance" parent="." instance=ExtResource("5_5s5e2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.1, 0.9, -3.7)
 
-[node name="Note" parent="Table-entrance" groups=["interactable"] instance=ExtResource("16_vmcoc")]
+[node name="Note" parent="Table-entrance" instance=ExtResource("16_vmcoc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.038548, 0.659757, -0.753254)
 clue_name = "Letter to Tony"
 description = "A letter written to Tony"
@@ -406,7 +406,7 @@ script = ExtResource("15_ms7ce")
 interactable_name = "Orange Couch"
 interactable_text = "This couch seems kind of hard. Not sure I will sit on it."
 
-[node name="Note" parent="Node3D" groups=["interactable"] instance=ExtResource("16_vmcoc")]
+[node name="Note" parent="Node3D" instance=ExtResource("16_vmcoc")]
 transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0.899372, -0.089507, 0.317459)
 clue_name = "Monica's Note"
 description = "A note written by Monica, your aunt"

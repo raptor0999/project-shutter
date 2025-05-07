@@ -140,6 +140,12 @@ func spawn_player(player_spawn:Node3D):
 	player.position = player_pos
 	player.rotation = player_rot
 	print("Player pos: " + str(player))
+	
+func save_scene(path):
+	var file_path = path
+	var scene = PackedScene.new()
+	scene.pack(self)
+	ResourceSaver.save(file_path, scene)
 
 func brightness_set(value):
 	Globals.brightness = value

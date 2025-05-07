@@ -70,10 +70,10 @@ shadow_enabled = true
 
 [node name="Doors" type="Node3D" parent="."]
 
-[node name="HallwayBathroom" parent="Doors" instance=ExtResource("7_7rx7c")]
+[node name="LivingRoomBathroom" parent="Doors" instance=ExtResource("7_7rx7c")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 6, 1, -1)
-to_level = "hallway"
-to_door = "BathroomHallway"
+to_level = "living_room"
+to_door = "BathroomLivingRoom"
 
 [node name="Tub" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.9, 1.15, -7.1)

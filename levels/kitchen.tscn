@@ -167,10 +167,10 @@ shadow_enabled = true
 
 [node name="Doors" type="Node3D" parent="."]
 
-[node name="LivingRoomKitchen" parent="Doors" instance=ExtResource("7_uf5vb")]
+[node name="HallwayKitchen" parent="Doors" instance=ExtResource("7_uf5vb")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5, 1, -6)
-to_level = "living_room"
-to_door = "KitchenLivingRoom"
+to_level = "hallway"
+to_door = "KitchenHallway"
 y_rot = -90.0
 
 [node name="UnknownKitchen" parent="Doors" instance=ExtResource("7_uf5vb")]

@@ -76,14 +76,15 @@ to_door = "HallwayDiningRoom"
 
 [node name="PantryHallway" parent="Doors" instance=ExtResource("7_5yqud")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, -11)
+locked = true
 to_level = "pantry"
 to_door = "HallwayPantry"
 y_rot = 180.0
 
-[node name="BathroomHallway" parent="Doors" instance=ExtResource("7_5yqud")]
+[node name="KitchenHallway" parent="Doors" instance=ExtResource("7_5yqud")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 1, -11)
-to_level = "bathroom"
-to_door = "HallwayBathroom"
+to_level = "kitchen"
+to_door = "HallwayKitchen"
 y_rot = 180.0
 
 [node name="Walls-2ndPass" type="Node3D" parent="."]
