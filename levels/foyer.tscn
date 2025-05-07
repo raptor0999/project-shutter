@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://bvhdtxrxbbl62"]
+[gd_scene load_steps=38 format=3 uid="uid://bvhdtxrxbbl62"]
 
 [ext_resource type="PackedScene" uid="uid://bnjbxwpk8m1p0" path="res://assets/art/pre-fabs/wall_02.tscn" id="1_4ocef"]
 [ext_resource type="Script" path="res://levels/level.gd" id="1_k5un2"]
@@ -28,6 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://d2jg8i8pv08go" path="res://assets/art/textures/wood/wood_planks_08_height_2k.png" id="26_ebldd"]
 [ext_resource type="Texture2D" uid="uid://b7rb2v4l7jimx" path="res://assets/art/textures/wood/wood_planks_08_normal_gl_2k.png" id="27_jijtt"]
 [ext_resource type="Texture2D" uid="uid://dnk07ksauwdqo" path="res://assets/art/textures/wood/wood_planks_08_roughness_2k.png" id="28_73v25"]
+[ext_resource type="PackedScene" uid="uid://c33wbw2oe15jg" path="res://scenes/objects/items/door_key.tscn" id="29_esxuu"]
 
 [sub_resource type="Environment" id="Environment_c5okn"]
 background_mode = 1
@@ -445,6 +446,11 @@ skeleton = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/MeshInstance3D3/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_5c8c1")
+
+[node name="Items" type="Node3D" parent="."]
+
+[node name="DoorKey" parent="Items" instance=ExtResource("29_esxuu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.34968, 1.47683, -13.0275)
 
 [editable path="Walls/Wall-02"]
 [editable path="Walls/Wall-02/Wall_Ceiling_Frame_02"]

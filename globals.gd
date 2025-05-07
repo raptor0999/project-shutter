@@ -19,6 +19,12 @@ signal add_clue(clue)
 signal remove_clue(clue)
 signal show_clue_description(clue)
 
+signal item_menu_toggle()
+signal pick_up_item(item)
+signal add_item(item)
+signal remove_item(item)
+signal show_item_description(item)
+
 signal start_music()
 signal stop_music()
 signal switch_track(number)

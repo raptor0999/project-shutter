@@ -35,6 +35,7 @@ enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
 player=""
 clue=""
 interactable=""
+item=""
 
 [gui]
 

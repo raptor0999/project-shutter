@@ -15,7 +15,7 @@ height = 0.05
 height = 0.05
 radius = 0.2
 
-[node name="Cookie" type="Node3D"]
+[node name="Cookie" type="Node3D" groups=["item"]]
 script = ExtResource("1_y5vs1")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
