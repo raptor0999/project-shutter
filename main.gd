@@ -87,13 +87,13 @@ func load_level(level_name: String, cam:String, named_element:String):
 	Globals.hud_level.emit(level_instance.display_name)
 	
 	var player_spawn:Node3D = level_instance.get_node("Doors/"+named_element)
-	var p:Node = spawn_player(player_spawn)
+	spawn_player(player_spawn)
 	print("Spawned player")
 	
 	if cam == "standard_cam":
-		p.standardCam.make_current()
+		player.standardCam.make_current()
 	else:
-		p.chaseCam.make_current()
+		player.chaseCam.make_current()
 	
 	Globals.hud_hint.emit(level_instance.display_description)
 	
@@ -129,18 +129,17 @@ func do_level_transition():
 	print("Transition finished")
 	
 func spawn_player(player_spawn:Node3D):
-	var player_scene = load("res://scenes/characters/player/player.tscn")
-	var player_instance = player_scene.instantiate()
-	
-	player = player_instance
+	if not is_instance_valid(player):
+		var player_scene = load("res://scenes/characters/player/player.tscn")
+		player = player_scene.instantiate()
+		add_child(player)
+		
 	var player_pos:Vector3 = player_spawn.get_node("PlayerSpawn").global_position
 	var player_rot:Vector3 = Vector3(0, deg_to_rad(player_spawn.y_rot), 0)
-	level_node.add_child(player_instance)
-	player_instance.position = player_pos
-	player_instance.rotation = player_rot
-	print("Player pos: " + str(player_pos))
-	
-	return player_instance
+
+	player.position = player_pos
+	player.rotation = player_rot
+	print("Player pos: " + str(player))
 
 func brightness_set(value):
 	Globals.brightness = value

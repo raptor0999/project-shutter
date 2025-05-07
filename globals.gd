@@ -19,6 +19,10 @@ signal add_clue(clue)
 signal remove_clue(clue)
 signal show_clue_description(clue)
 
+signal find_item(item)
+signal display_inventory_size()
+signal display_inventory()
+
 signal item_menu_toggle()
 signal pick_up_item(item)
 signal add_item(item)

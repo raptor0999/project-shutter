@@ -9,13 +9,17 @@ size = Vector3(0.1, 0.1, 0.2)
 height = 0.05
 radius = 0.2
 
-[node name="Key" type="Node3D" groups=["item"]]
+[node name="Key" type="Node3D" groups=["interactable", "item"]]
 script = ExtResource("1_nl5c8")
+opens = "LivingRoomFoyer"
+interactable_name = "DoorKey"
+interactable_hint = "A key"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_xj4rs")
 
 [node name="Area3D" type="Area3D" parent="."]
+collision_layer = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("CylinderShape3D_lyhvm")

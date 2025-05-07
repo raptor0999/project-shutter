@@ -32,9 +32,14 @@ var _total_yaw = 0.0
 
 var footstep_timer = 0.5
 
+var inventory: Inventory
+
 func _ready():
 	Globals.connect("pick_up_clue", pick_up_clue)
+	Globals.connect("pick_up_item", pick_up_item)
 	#anim.play("rotate_sound_test")
+	if not is_instance_valid(inventory):
+		inventory = Inventory.new()
 	
 func _input(event):
 	if Input.is_action_just_pressed("back_track"):
@@ -58,6 +63,9 @@ func _physics_process(delta: float) -> void:
 	# Handle doors and picking up clues, etc
 	if Input.is_action_just_pressed("interact") and is_on_floor():
 		interact()
+		
+	if Input.is_action_just_pressed("toggle_inventory"):
+		Globals.display_inventory.emit()
 		
 	if Input.is_action_just_pressed("chase_cam"):
 		if chaseCam.current:
@@ -145,8 +153,17 @@ func interact():
 		
 		if parent_node is Door:
 			if parent_node.locked:
-				Globals.play_sound_2d.emit("door_locked")
-				Globals.hud_text.emit("Door is locked...")
+				var key: Key = inventory.find_key(parent_node.name)
+				if is_instance_valid(key):
+					parent_node.locked = false
+					Globals.hud_text.emit("You unlocked the door!")
+					Globals.remove_item.emit(key)
+					Globals.play_sound_2d.emit("door_open")
+					Globals.load_level.emit(parent_node.to_level, "standard_cam", parent_node.to_door)
+					print("Door")
+				else:
+					Globals.play_sound_2d.emit("door_locked")
+					Globals.hud_text.emit("Door is locked...")
 			else:
 				Globals.play_sound_2d.emit("door_open")
 				Globals.load_level.emit(parent_node.to_level, "standard_cam", parent_node.to_door)
@@ -156,6 +173,9 @@ func interact():
 			if Globals.first_time_picking_up:
 				DialogueManager.show_dialogue_balloon(load("res://dialogue/main.dialogue"), "first_time_picking_up")
 			print("Clue")
+		if parent_node is Key:
+			Globals.pick_up_item.emit(parent_node)
+			print("Item")
 		if a is PlayerTurn:
 			global_position.x = a.global_position.x
 			global_position.z = a.global_position.z
@@ -166,6 +186,12 @@ func pick_up_clue(clue):
 	Globals.play_sound_2d.emit("clue_pick_up")
 	Globals.add_clue.emit(clue)
 	clue.queue_free()
+	
+func pick_up_item(item):
+	Globals.play_sound_2d.emit("item_pick_up")
+	Globals.add_item.emit(item)
+	# remove from scene tree, but don't queue free so we can store in Inventory
+	item.get_parent().remove_child(item)
 
 func _update_mouselook():
 	_mouse_position *= sensitivity
