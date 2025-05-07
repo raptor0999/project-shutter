@@ -1,5 +1,7 @@
-class_name Item
-extends Interactable
+class_name Key
+extends Item
+
+@export var opens: String
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

@@ -751,7 +751,7 @@ y_rot = 180.0
 script = ExtResource("8_scbup")
 
 [node name="Camera3D" type="Camera3D" parent="Intro_Cut"]
-transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 6, 3.00103, -5.99513)
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 6, 4.341, 0.357)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Intro_Cut"]
 stream = ExtResource("8_gv67m")

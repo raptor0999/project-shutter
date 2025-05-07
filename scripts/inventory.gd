@@ -19,7 +19,7 @@ func _remove_item(i: Item):
 	
 func _find_item(n: String) -> Item:
 	for item in items:
-		if item.name == n:
+		if item.interactable_name == n:
 			return item
 	return null
 	
@@ -30,4 +30,4 @@ func _display_items():
 	print("Inventory: ")
 	
 	for item in items:
-		print(item.name)
+		print(item.interactable_name)

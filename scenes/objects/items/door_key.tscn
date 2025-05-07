@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://c33wbw2oe15jg"]
 
-[ext_resource type="Script" path="res://scenes/objects/items/item.gd" id="1_qqx2g"]
+[ext_resource type="Script" path="res://scenes/objects/items/key.gd" id="1_nl5c8"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_xj4rs"]
 size = Vector3(0.1, 0.1, 0.2)
@@ -9,8 +9,8 @@ size = Vector3(0.1, 0.1, 0.2)
 height = 0.05
 radius = 0.2
 
-[node name="DoorKey" type="Node3D" groups=["item"]]
-script = ExtResource("1_qqx2g")
+[node name="Key" type="Node3D" groups=["item"]]
+script = ExtResource("1_nl5c8")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_xj4rs")
