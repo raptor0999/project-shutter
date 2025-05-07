@@ -1,6 +1,7 @@
 extends Node
 
 signal freeze_player()
+signal unfreeze_player()
 signal load_scene(scene_name)
 signal load_level(level_name, player_x)
 

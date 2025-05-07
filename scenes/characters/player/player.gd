@@ -37,6 +37,8 @@ var inventory: Inventory
 func _ready():
 	Globals.connect("pick_up_clue", pick_up_clue)
 	Globals.connect("pick_up_item", pick_up_item)
+	Globals.connect("freeze_player", freeze_player)
+	Globals.connect("unfreeze_player", unfreeze_player)
 	#anim.play("rotate_sound_test")
 	if not is_instance_valid(inventory):
 		inventory = Inventory.new()
@@ -54,11 +56,6 @@ func _input(event):
 		scale_factor = wrapi(scale_factor + 1, 1, 5)
 		viewport.scaling_3d_scale = 1.0 / scale_factor
 		print("Scale: %3.0f%%" % (100.0 / scale_factor))
-
-func _physics_process(delta: float) -> void:
-	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
 		
 	# Handle doors and picking up clues, etc
 	if Input.is_action_just_pressed("interact") and is_on_floor():
@@ -66,6 +63,13 @@ func _physics_process(delta: float) -> void:
 		
 	if Input.is_action_just_pressed("toggle_inventory"):
 		Globals.display_inventory.emit()
+		
+	
+
+func _physics_process(delta: float) -> void:
+	# Add the gravity.
+	if not is_on_floor():
+		velocity += get_gravity() * delta
 		
 	if Input.is_action_just_pressed("chase_cam"):
 		if chaseCam.current:
@@ -209,3 +213,9 @@ func _update_mouselook():
 
 	rotate_y(deg_to_rad(-yaw))
 	rotate_object_local(Vector3(1,0,0), deg_to_rad(-pitch))
+
+func freeze_player():
+	process_mode = ProcessMode.PROCESS_MODE_DISABLED
+	
+func unfreeze_player():
+	process_mode = ProcessMode.PROCESS_MODE_INHERIT
