@@ -78,21 +78,12 @@ display_name = "Foyer"
 [node name="Walls" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
 
-[node name="Wall-01" parent="Walls" instance=ExtResource("1_4ocef")]
-transform = Transform3D(-1, 0.000673089, -0.000510605, 0.00067342, 1, -0.000647672, 0.000510169, -0.000648016, -1, 12, 0, -32)
-
-[node name="Wall-02" parent="Walls" instance=ExtResource("1_4ocef")]
-transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 12, 0, -28)
-visible = false
-
-[node name="Ceiling" parent="Walls/Wall-02" index="4"]
-visible = false
-
 [node name="Wall-04" parent="Walls" instance=ExtResource("1_4ocef")]
 transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 12, 0, -20)
+visible = false
 
 [node name="RESIZE TO 1M WALL" parent="Walls" instance=ExtResource("1_4ocef")]
-transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 12, 0, -21.1)
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 12, 0, -20)
 
 [node name="Ceiling" parent="Walls/RESIZE TO 1M WALL" index="4"]
 visible = false
@@ -127,17 +118,11 @@ transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 8, 0, 
 [node name="Wall-16" parent="Walls" instance=ExtResource("1_4ocef")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
 
-[node name="Wall-05" parent="Walls" instance=ExtResource("1_4ocef")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7.15256e-07, 0, -32)
-
-[node name="Wall-10" parent="Walls" instance=ExtResource("1_4ocef")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7.15256e-07, 0, -32)
-
 [node name="Wall-17" parent="Walls" instance=ExtResource("1_4ocef")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -28)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -28)
 
 [node name="Wall-06" parent="Walls" instance=ExtResource("1_4ocef")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4, 0, -32)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4, 0, -28)
 
 [node name="Wall-20" parent="Walls" instance=ExtResource("1_4ocef")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8, 0, -32)
@@ -197,7 +182,7 @@ visible = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4601, 6.9144, -16)
 
 [node name="Ceiling8" parent="Ceiling" instance=ExtResource("8_waydg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4601, 7.1144, -12)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4601, 7.0144, -12)
 
 [node name="Props" type="Node3D" parent="."]
 
@@ -234,8 +219,64 @@ texture_albedo = ExtResource("13_3l11l")
 [node name="Coat-rack" parent="Props" instance=ExtResource("15_x2ddx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 1.5, -2)
 
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Props"]
+transform = Transform3D(-6.55671e-08, -1, 0, 1.5, -4.37114e-08, 0, 0, 0, 1.2, 7.5, 3.2, -4.7)
+height = 0.2
+sides = 16
+
+[node name="Front-Door-Commode" type="CSGBox3D" parent="Props"]
+transform = Transform3D(1.5, 0, 0, -7.10543e-15, 1, 0, 0, 0, 1.2, 6.5, 1.4, -4.7)
+size = Vector3(1, 1.2, 1.5)
+
+[node name="Note" parent="Props/Front-Door-Commode" instance=ExtResource("16_vmcoc")]
+transform = Transform3D(0.666667, 0, 0, 4.73695e-15, 1, 0, 0, 0, 0.833333, -0.292366, 0.559757, 0.205621)
+clue_name = "Letter to Tony"
+description = "A letter written to Tony"
+text = "Dear Tony, 
+
+I hope this letter finds you well after your trip here. Unfortunately, I could not be here for your arrival, but I should be back soon enough. Please make yourself comfortable. We will discuss what we need to when I make it back.
+
+Love, Aunt Monica
+
+P.S. Whenever you make it to the kitchen you will find your favorite snack!"
+interactable_hint = "A letter"
+
+[node name="Plant" type="CSGCylinder3D" parent="Props"]
+transform = Transform3D(1, 4.73695e-15, 0, -4.73695e-15, 1, 0, 0, 0, 1, 1.3, 1.05, -4.7)
+radius = 0.25
+height = 0.5
+
+[node name="CSGCylinder3D6" type="CSGBox3D" parent="Props"]
+transform = Transform3D(-6.55671e-08, -1, 0, 1.5, -4.37114e-08, 0, 0, 0, 1.2, 0.5, 3.1, -6)
+size = Vector3(1.2, 0.2, 1.8)
+
+[node name="Plant2" type="CSGCylinder3D" parent="Props"]
+transform = Transform3D(1, 4.73695e-15, 0, -4.73695e-15, 1, 0, 0, 0, 1, 1.3, 1.05, -7.5)
+radius = 0.25
+height = 0.5
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Props"]
+transform = Transform3D(-6.55671e-08, -1, 0, 1.5, -4.37114e-08, 0, 0, 0, 1.2, 7.5, 3.4, -5.8)
+radius = 0.1
+height = 0.2
+sides = 16
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="Props"]
+transform = Transform3D(-6.55671e-08, -1, 0, 1.5, -4.37114e-08, 0, 0, 0, 1.2, 7.5, 2.6, -3.6)
+radius = 0.2
+height = 0.2
+sides = 16
+
+[node name="CSGCylinder3D3" type="CSGBox3D" parent="Props"]
+transform = Transform3D(-6.55671e-08, -1, 0, 1.5, -4.37114e-08, 0, 0, 0, 1.2, 7.5, 2.9, -5.8)
+size = Vector3(0.3, 0.2, 0.4)
+
+[node name="CSGCylinder3D5" type="CSGBox3D" parent="Props"]
+transform = Transform3D(-6.55671e-08, -1, 0, -6.55671e-08, 1.91069e-15, 1.2, -1.5, 4.37114e-08, -5.24537e-08, 7.5, 3.5, -3.6)
+size = Vector3(0.3, 0.2, 0.5)
+
 [node name="Lamp" parent="Props" instance=ExtResource("16_85h3s")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 1.8, -7)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 1.8, -6.5)
 
 [node name="Lamp2" parent="Props" instance=ExtResource("16_85h3s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1.8, -16)
@@ -243,11 +284,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1.8, -16)
 [node name="Lamp3" parent="Props" instance=ExtResource("16_85h3s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1.8, -13)
 
+[node name="Withered Plant" parent="Props" instance=ExtResource("16_85h3s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 1.8, -24)
+
 [node name="Lamp4" parent="Props" instance=ExtResource("16_85h3s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 1.8, -13)
 
 [node name="Umbrella pot" type="CSGCylinder3D" parent="Props"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1, -3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 1, -3.2)
 radius = 0.2
 height = 0.5
 
@@ -256,6 +300,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.2, 3.7, -12.1778)
 size_x = 3.5
 size_y = 2.5
 texture = ExtResource("17_e4nfb")
+
+[node name="Painting8" parent="Props" instance=ExtResource("17_twp8h")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 11.2, 3, -15.9778)
+size_x = 2.5
+size_y = 1.5
+texture = ExtResource("17_e4nfb")
+
+[node name="Node3D" parent="Props/Painting8" instance=ExtResource("7_7q003")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.5, 0, 0.4)
+
+[node name="Node3D2" parent="Props/Painting8" instance=ExtResource("7_7q003")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.5, 0, 0.4)
 
 [node name="Painting2" parent="Props" instance=ExtResource("17_twp8h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.7, 5.6, -12.1778)
@@ -282,44 +338,68 @@ transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -2.4, 
 size_x = 0.8
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Props"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6, 2.3, -31)
-material_override = ExtResource("20_i1ywg")
-size = Vector3(2, 3, 1)
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="Props"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6, 2.3, -31)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.6, 2.3, -27)
 material_override = ExtResource("20_i1ywg")
 size = Vector3(2, 3, 1)
 
 [node name="CSGBox3D3" type="CSGCylinder3D" parent="Props"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 3.6, -29.8)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 3.6, -25.4)
 material_override = ExtResource("20_i1ywg")
 radius = 0.8
 height = 6.0
 
-[node name="Table-entrance" parent="." instance=ExtResource("5_5s5e2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.1, 0.9, -3.7)
+[node name="CSGBox3D5" type="CSGCylinder3D" parent="Props"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.37982e-07, 3.6, -18)
+material_override = ExtResource("20_i1ywg")
+radius = 0.8
+height = 6.0
 
-[node name="Note" parent="Table-entrance" instance=ExtResource("16_vmcoc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.038548, 0.659757, -0.753254)
-clue_name = "Letter to Tony"
-description = "A letter written to Tony"
-text = "Dear Tony, 
-
-I hope this letter finds you well after your trip here. Unfortunately, I could not be here for your arrival, but I should be back soon enough. Please make yourself comfortable. We will discuss what we need to when I make it back.
-
-Love, Aunt Monica
-
-P.S. Whenever you make it to the kitchen you will find your favorite snack!"
-interactable_hint = "A letter"
+[node name="CSGCylinder3D6" type="CSGCylinder3D" parent="."]
+transform = Transform3D(-6.55671e-08, -1, 0, 1.5, -4.37114e-08, 0, 0, 0, 1.2, 7.5, 0.8, -4.7)
+height = 0.2
+sides = 16
 
 [node name="Prop-Column-01" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0.8, -8)
 
 [node name="Stairs" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 1, -21)
 
 [node name="CSGCombiner3D" parent="Stairs" instance=ExtResource("7_dvjwa")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.9, 0.8, -21)
+
+[node name="Props" type="Node3D" parent="Stairs"]
+transform = Transform3D(0.965926, -0.258819, 0, 0.258819, 0.965926, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Stairs/Props"]
+transform = Transform3D(0.258819, -0.965927, 0, 0.965927, 0.258819, 0, 0, 0, 1, 5.21142, 5.53996, -3.4)
+height = 0.2
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="Stairs/Props"]
+transform = Transform3D(0.388229, -0.965926, 0, 1.44889, 0.258819, 0, 0, 0, 1, 4.40908, 2.54559, -1)
+height = 0.2
+sides = 16
+
+[node name="CSGCylinder3D6" type="CSGCylinder3D" parent="Stairs/Props"]
+transform = Transform3D(0.13588, -0.338074, 0, 0.507111, 0.0905867, 0, 0, 0, 0.35, 4.53849, 3.02855, -1.7)
+height = 0.2
+sides = 16
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="Stairs/Props"]
+transform = Transform3D(0.258819, -0.965926, 0, 0.965926, 0.258819, 0, 0, 0, 2, 4.90084, 4.38085, -3.5)
+height = 0.2
+sides = 16
+
+[node name="CSGCylinder3D2" type="CSGBox3D" parent="Stairs/Props"]
+transform = Transform3D(0.258819, -0.965927, 0, 0.965927, 0.258819, 0, 0, 0, 1, 5.13378, 5.25018, -1.4)
+size = Vector3(1, 0.2, 2)
+
+[node name="CSGCylinder3D3" type="CSGBox3D" parent="Stairs/Props"]
+transform = Transform3D(0.258819, -0.965927, 0, 0.965927, 0.258819, 0, 0, 0, 1, 4.71967, 3.7047, -1)
+size = Vector3(0.8, 0.2, 1)
+
+[node name="CSGCylinder3D7" type="CSGBox3D" parent="Stairs/Props"]
+transform = Transform3D(-4.68162e-08, -0.471372, -0.126304, -1.99919e-09, 0.126304, -0.471372, 0.488, -4.47035e-08, -2.13312e-08, 4.61614, 3.31833, -2.2)
+size = Vector3(0.8, 0.2, 1)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_c5okn")
@@ -401,7 +481,7 @@ to_door = "FoyerHallway"
 y_rot = -90.0
 
 [node name="Node3D" parent="." instance=ExtResource("12_12bsy")]
-transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 2, 1.4, -25)
+transform = Transform3D(-4.47035e-08, 0, -1, 0, 1, 0, 1, 0, -4.47035e-08, 7, 1.4, -23.6)
 script = ExtResource("15_ms7ce")
 interactable_name = "Orange Couch"
 interactable_text = "This couch seems kind of hard. Not sure I will sit on it."
@@ -429,6 +509,7 @@ shape = SubResource("ConvexPolygonShape3D_pgqfq")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.8, -18.2)
+material_override = ExtResource("24_ejwer")
 mesh = SubResource("PlaneMesh_jeoq3")
 skeleton = NodePath("../..")
 
@@ -452,8 +533,6 @@ shape = SubResource("ConvexPolygonShape3D_5c8c1")
 [node name="DoorKey" parent="Items" instance=ExtResource("29_esxuu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.34968, 1.47683, -13.0275)
 
-[editable path="Walls/Wall-02"]
-[editable path="Walls/Wall-02/Wall_Ceiling_Frame_02"]
 [editable path="Walls/Wall-04"]
 [editable path="Walls/Wall-04/Wall_Ceiling_Frame_02"]
 [editable path="Walls/RESIZE TO 1M WALL"]
