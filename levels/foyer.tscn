@@ -427,11 +427,52 @@ operation = 2
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Props/Chandelier"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -1.9, 0)
+visible = false
 light_indirect_energy = 16.0
 spot_range = 15.544
 spot_attenuation = 0.85
 spot_angle = 90.0
 spot_angle_attenuation = 1.18921
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="Props/Chandelier"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -1, -1.4, 0)
+visible = false
+light_color = Color(0.964843, 0.889403, 0.823047, 1)
+light_energy = 0.5
+light_indirect_energy = 16.0
+spot_range = 15.0
+spot_angle = 90.0
+spot_angle_attenuation = 0.57435
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="Props/Chandelier"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 1, -1.4, 0)
+visible = false
+light_color = Color(0.964843, 0.889403, 0.823047, 1)
+light_energy = 0.5
+light_indirect_energy = 16.0
+spot_range = 15.0
+spot_angle = 90.0
+spot_angle_attenuation = 0.57435
+
+[node name="SpotLight3D4" type="SpotLight3D" parent="Props/Chandelier"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -1.4, 1)
+visible = false
+light_color = Color(0.964843, 0.889403, 0.823047, 1)
+light_energy = 0.5
+light_indirect_energy = 16.0
+spot_range = 15.0
+spot_angle = 90.0
+spot_angle_attenuation = 0.57435
+
+[node name="SpotLight3D5" type="SpotLight3D" parent="Props/Chandelier"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -1.4, -1)
+visible = false
+light_color = Color(0.964843, 0.889403, 0.823047, 1)
+light_energy = 0.5
+light_indirect_energy = 16.0
+spot_range = 15.0
+spot_angle = 90.0
+spot_angle_attenuation = 0.57435
 
 [node name="CSGCylinder3D6" type="CSGCylinder3D" parent="."]
 transform = Transform3D(-6.55671e-08, -1, 0, 1.5, -4.37114e-08, 0, 0, 0, 1.2, 7.5, 0.8, -4.7)
@@ -487,8 +528,25 @@ environment = SubResource("Environment_c5okn")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lights"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -1.56603, 22.8494, 24.4055)
-light_energy = 0.215
-shadow_enabled = true
+light_color = Color(0.60907, 0.6006, 0.77, 1)
+light_energy = 1.046
+light_volumetric_fog_energy = 0.5
+shadow_opacity = 0.45
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 5.1, -4)
+light_color = Color(1, 0.835, 0.7, 1)
+light_energy = 0.3
+omni_range = 17.0
+omni_attenuation = 1.637
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 3.9, -16)
+light_color = Color(1, 0.835, 0.7, 1)
+light_energy = 0.5
+light_size = 0.2
+omni_range = 17.0
+omni_attenuation = 0.587
 
 [node name="Doors" type="Node3D" parent="."]
 
