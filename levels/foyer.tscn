@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://bvhdtxrxbbl62"]
+[gd_scene load_steps=43 format=3 uid="uid://bvhdtxrxbbl62"]
 
 [ext_resource type="PackedScene" uid="uid://bnjbxwpk8m1p0" path="res://assets/art/pre-fabs/wall_02.tscn" id="1_4ocef"]
 [ext_resource type="Script" path="res://levels/level.gd" id="1_k5un2"]
@@ -33,6 +33,9 @@
 [sub_resource type="Environment" id="Environment_c5okn"]
 background_mode = 1
 ambient_light_color = Color(1, 1, 1, 1)
+ssr_enabled = true
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.02
 adjustment_enabled = true
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_tch7o"]
@@ -69,6 +72,33 @@ size = Vector2(10, 10)
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_5c8c1"]
 points = PackedVector3Array(-5, 0, -5, -5, 0, 5, 5, 0, -5, 5, 0, 5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_31bs7"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.827451)
+
+[sub_resource type="Curve" id="Curve_3ymal"]
+_data = [Vector2(0.0126582, 0.945055), 0.0, 0.0, 0, 0, Vector2(0.848101, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_jlk4g"]
+curve = SubResource("Curve_3ymal")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gxf21"]
+emission_shape = 3
+emission_box_extents = Vector3(16, 1, 8)
+direction = Vector3(0, -1, 0)
+gravity = Vector3(0, -2, 0)
+linear_accel_min = -2.23517e-06
+linear_accel_max = 5.15
+scale_max = 2.0
+alpha_curve = SubResource("CurveTexture_jlk4g")
+
+[sub_resource type="SphereMesh" id="SphereMesh_yf2pq"]
+radius = 0.003
+height = 0.01
+radial_segments = 4
+rings = 2
 
 [node name="L01-Foyer" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000459909, -0.000665426, -0.00162315)
@@ -147,6 +177,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0.5, -8.35636)
 
 [node name="Node3D" parent="Walls" instance=ExtResource("7_7q003")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.9, 2.3, -11.6)
+
+[node name="SpotLight3D" parent="Walls/Node3D" index="1"]
+light_bake_mode = 1
 
 [node name="Node3D2" parent="Walls" instance=ExtResource("7_7q003")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.1, 2.5, -11.6)
@@ -354,6 +387,52 @@ material_override = ExtResource("20_i1ywg")
 radius = 0.8
 height = 6.0
 
+[node name="Chandelier" type="Node3D" parent="Props"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 6, -16)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Props/Chandelier"]
+radius = 0.05
+height = 0.5
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="Props/Chandelier"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4, 0)
+radius = 0.05
+height = 0.1
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Props/Chandelier"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, 0)
+radius = 0.15
+height = 0.1
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="Props/Chandelier"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.9, 0)
+radius = 0.15
+height = 0.1
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="Props/Chandelier"]
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, -0.7, 0)
+radius = 0.15
+height = 0.5
+cone = true
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Props/Chandelier"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.4, 0)
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="Props/Chandelier/CSGCombiner3D"]
+transform = Transform3D(1.84, 0, 0, 0, 1.84, 0, 0, 0, 1.84, 0, 0.5, 0)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Props/Chandelier/CSGCombiner3D/CSGSphere3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+operation = 2
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Props/Chandelier"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -1.9, 0)
+light_indirect_energy = 16.0
+spot_range = 15.544
+spot_attenuation = 0.85
+spot_angle = 90.0
+spot_angle_attenuation = 1.18921
+
 [node name="CSGCylinder3D6" type="CSGCylinder3D" parent="."]
 transform = Transform3D(-6.55671e-08, -1, 0, 1.5, -4.37114e-08, 0, 0, 0, 1.2, 7.5, 0.8, -4.7)
 height = 0.2
@@ -406,49 +485,9 @@ environment = SubResource("Environment_c5okn")
 
 [node name="Lights" type="Node3D" parent="."]
 
-[node name="OmniLight3D" type="OmniLight3D" parent="Lights"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 5, -5)
-shadow_enabled = true
-omni_range = 9.86
-
-[node name="OmniLight3D2" type="OmniLight3D" parent="Lights"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 5, -15)
-shadow_enabled = true
-omni_range = 9.86
-
-[node name="OmniLight3D3" type="OmniLight3D" parent="Lights"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 5, -24)
-shadow_enabled = true
-omni_range = 9.86
-
-[node name="OmniLight3D4" type="OmniLight3D" parent="Lights"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 5, -5)
-shadow_enabled = true
-omni_range = 9.86
-
-[node name="OmniLight3D5" type="OmniLight3D" parent="Lights"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 5, -15)
-shadow_enabled = true
-omni_range = 9.86
-
-[node name="OmniLight3D6" type="OmniLight3D" parent="Lights"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 5, -24)
-shadow_enabled = true
-omni_range = 9.86
-
-[node name="OmniLight3D7" type="OmniLight3D" parent="Lights"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 9, -29)
-shadow_enabled = true
-omni_range = 9.86
-
-[node name="OmniLight3D8" type="OmniLight3D" parent="Lights"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 11, -23)
-shadow_enabled = true
-omni_range = 9.86
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lights"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -1.56603, 22.8494, 24.4055)
-light_energy = 0.01
+light_energy = 0.215
 shadow_enabled = true
 
 [node name="Doors" type="Node3D" parent="."]
@@ -533,6 +572,13 @@ shape = SubResource("ConvexPolygonShape3D_5c8c1")
 [node name="DoorKey" parent="Items" instance=ExtResource("29_esxuu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.34968, 1.47683, -13.0275)
 
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.4, 3, -17)
+material_override = SubResource("StandardMaterial3D_31bs7")
+amount = 2500
+process_material = SubResource("ParticleProcessMaterial_gxf21")
+draw_pass_1 = SubResource("SphereMesh_yf2pq")
+
 [editable path="Walls/Wall-04"]
 [editable path="Walls/Wall-04/Wall_Ceiling_Frame_02"]
 [editable path="Walls/RESIZE TO 1M WALL"]
@@ -545,5 +591,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.34968, 1.47683, -13.0275)
 [editable path="Walls/Wall-base4"]
 [editable path="Walls/Wall-base4/Wall-02-4m"]
 [editable path="Walls/Wall-base4/Wall-02-4m/Wall_Ceiling_Frame_02"]
+[editable path="Walls/Node3D"]
 [editable path="Props/Rug"]
 [editable path="Props/Rug2"]

@@ -83,12 +83,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -16)
 [node name="Wall-13" parent="Walls" instance=ExtResource("2_08c5m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -20)
 
-[node name="Wall-21" parent="Walls" instance=ExtResource("2_08c5m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -24)
-
-[node name="Wall-14" parent="Walls" instance=ExtResource("2_08c5m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -28)
-
 [node name="Wall-09" parent="Walls" instance=ExtResource("2_08c5m")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 12, 0, -12)
 
@@ -98,20 +92,14 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 12, 0,
 [node name="Wall-15" parent="Walls" instance=ExtResource("2_08c5m")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 12, 0, -20)
 
-[node name="Wall-17" parent="Walls" instance=ExtResource("2_08c5m")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 12, 0, -28)
-
-[node name="Wall-18" parent="Walls" instance=ExtResource("2_08c5m")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 12, 0, -32)
-
-[node name="Wall-05" parent="Walls" instance=ExtResource("2_08c5m")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.99382e-07, 0, -32)
-
 [node name="Wall-06" parent="Walls" instance=ExtResource("2_08c5m")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4, 0, -32)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4, 0, -25)
 
-[node name="Wall-20" parent="Walls" instance=ExtResource("2_08c5m")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8, 0, -32)
+[node name="Wall-08" parent="Walls" instance=ExtResource("2_08c5m")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8, 0, -25)
+
+[node name="Wall-07" parent="Walls" instance=ExtResource("2_08c5m")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -25)
 
 [node name="Wall-11" parent="Walls" instance=ExtResource("2_08c5m")]
 transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 4, 0, -7.4)
@@ -152,19 +140,16 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 12.003
 [node name="Wall-with Arch" parent="Walls" instance=ExtResource("5_ruiw6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.62508, 0.6, -8.61305)
 
-[node name="Wall-with Arch2" parent="Walls" instance=ExtResource("5_ruiw6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.62508, 0.5, -20.213)
-
 [node name="Props" type="Node3D" parent="."]
 
 [node name="Table" parent="Props" instance=ExtResource("6_5ew2s")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5, 1, -31.1)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5, 1, -24)
 
 [node name="CSGBox3D6" type="CSGBox3D" parent="Props/Table"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.400002, 1.1, -1)
 
 [node name="Painting" parent="Props" instance=ExtResource("7_rqprv")]
-transform = Transform3D(-1, 0, 8.19564e-08, 0, 1, 0, -8.19564e-08, 0, -1, 6, 4, -31.1)
+transform = Transform3D(-1, 0, 8.19564e-08, 0, 1, 0, -8.19564e-08, 0, -1, 6, 3.1, -24.5)
 size_x = 1.5
 size_y = 2.0
 
@@ -174,15 +159,15 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4, 1.5
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="Props/Column02"]
 
 [node name="CSGBox3D9" type="CSGBox3D" parent="Props/Column02/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, -0.5, -4.76837e-07)
 size = Vector3(0.8, 0.5, 0.8)
 
 [node name="CSGBox3D10" type="CSGBox3D" parent="Props/Column02/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.01, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 1.01, -4.76837e-07)
 size = Vector3(0.6, 0.2, 0.6)
 
 [node name="CSGBox3D7" type="CSGBox3D" parent="Props/Column02/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 2.2, -4.76837e-07)
 size = Vector3(0.5, 6, 0.5)
 
 [node name="Column02-1" type="Node3D" parent="Props"]
@@ -191,19 +176,19 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8, 1.5
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="Props/Column02-1"]
 
 [node name="CSGBox3D9" type="CSGBox3D" parent="Props/Column02-1/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, -0.5, -4.76837e-07)
 size = Vector3(0.8, 0.5, 0.8)
 
 [node name="CSGBox3D10" type="CSGBox3D" parent="Props/Column02-1/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.01, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 1.01, -4.76837e-07)
 size = Vector3(0.6, 0.2, 0.6)
 
 [node name="CSGBox3D7" type="CSGBox3D" parent="Props/Column02-1/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 2.2, -4.76837e-07)
 size = Vector3(0.5, 6, 0.5)
 
 [node name="Carpet02" type="CSGBox3D" parent="Props"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6, 0.83, -27.73)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6, 0.83, -22.33)
 size = Vector3(3, 0.1, 4)
 
 [node name="Couches" parent="Props" instance=ExtResource("8_ww6f3")]
@@ -232,6 +217,44 @@ size = Vector3(3, 0.1, 4)
 
 [node name="Coffee Table" parent="Props/Couches" instance=ExtResource("11_tc52c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25728, -0.6, 3.66331)
+
+[node name="Chandelier" type="Node3D" parent="Props"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.7, 6.2, -16.1)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Props/Chandelier"]
+radius = 0.05
+height = 0.5
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="Props/Chandelier"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4, 0)
+radius = 0.05
+height = 0.1
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Props/Chandelier"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, 0)
+radius = 0.15
+height = 0.1
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="Props/Chandelier"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.9, 0)
+radius = 0.15
+height = 0.1
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="Props/Chandelier"]
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, -0.7, 0)
+radius = 0.15
+height = 0.5
+cone = true
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Props/Chandelier"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.4, 0)
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="Props/Chandelier/CSGCombiner3D"]
+transform = Transform3D(1.84, 0, 0, 0, 1.84, 0, 0, 0, 1.84, 0, 0.5, 0)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Props/Chandelier/CSGCombiner3D/CSGSphere3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+operation = 2
 
 [node name="Fireplace" type="Node3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.1, 1.3, -17.93)
@@ -292,6 +315,24 @@ size = Vector3(2.5, 0.15, 1)
 [node name="Picture" type="CSGBox3D" parent="Fireplace"]
 transform = Transform3D(-3.6121e-08, -1, 4.30473e-08, 0.984808, -4.30473e-08, -0.173648, 0.173648, 3.6121e-08, 0.984808, 0.9, 1.7, -0.300002)
 size = Vector3(0.3, 0.2, 0.03)
+
+[node name="Picture2" type="CSGBox3D" parent="Fireplace"]
+transform = Transform3D(-3.6121e-08, -1, 4.30473e-08, 0.984808, -4.30473e-08, -0.173648, 0.173648, 3.6121e-08, 0.984808, -1.1, 1.7, -0.300002)
+size = Vector3(0.3, 0.2, 0.03)
+
+[node name="Clock" type="CSGBox3D" parent="Fireplace"]
+transform = Transform3D(-3.6121e-08, -1, 4.30473e-08, 0.984808, -4.30473e-08, -0.173648, 0.173648, 3.6121e-08, 0.984808, 0, 1.7, -0.200002)
+size = Vector3(0.405, 0.6, 0.12)
+
+[node name="CandleHolder" type="CSGCylinder3D" parent="Fireplace"]
+transform = Transform3D(-0.984808, 8.67587e-08, 0.173648, -8.67587e-08, -1, 7.59036e-09, 0.173648, -7.5904e-09, 0.984808, 0.5, 1.7, -0.200002)
+radius = 0.02
+height = 0.25
+
+[node name="CandleHolder2" type="CSGCylinder3D" parent="Fireplace"]
+transform = Transform3D(-0.984808, 8.67587e-08, 0.173648, -8.67587e-08, -1, 7.59036e-09, 0.173648, -7.5904e-09, 0.984808, -0.5, 1.7, -0.200002)
+radius = 0.02
+height = 0.25
 
 [node name="CSGBox3D12" type="CSGBox3D" parent="Fireplace"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.72, 0.18)
