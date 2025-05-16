@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="PackedScene" path="res://levels/front_door.tscn" id="1_rybbc"]
+[ext_resource type="Script" path="res://levels/level.gd" id="2_m6pnn"]
+
+[node name="Level" type="Node3D"]
+
+[node name="FrontDoor" type="Node3D" parent="." instance=ExtResource("1_rybbc")]
+script = ExtResource("2_m6pnn")
+display_name = "Front Door"
+display_description = ""

@@ -37,8 +37,10 @@ func _on_back_to_main_menu_pressed() -> void:
 func pause_menu_toggle():
 	if Globals.paused:
 		Globals.paused = false
+		Globals.unfreeze_player.emit()
 		hide()
 	else:
 		$HBoxContainer/Resume.grab_focus()
+		Globals.freeze_player.emit()
 		Globals.paused = true
 		show()

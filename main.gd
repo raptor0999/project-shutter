@@ -24,6 +24,10 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 	
+func _input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("save_level"):
+		save_scene(level_node, "temp")
+	
 func pause_toggle():
 	if Globals.paused:
 		Globals.music_volume_adjust.emit(-Globals.pause_volume_adjustment)
@@ -49,6 +53,22 @@ func set_freeze_pause_menu(freeze:bool):
 	else:
 		pause_menu.process_mode = Node.PROCESS_MODE_ALWAYS
 		print("Pause menu active")
+		
+func save_scene(base_node, name):
+	if not DirAccess.dir_exists_absolute("res://persisted"):
+		DirAccess.make_dir_absolute("res://persisted");
+		
+	var file_path = "res://persisted/" + name + ".tscn"
+	for child in base_node.get_children():
+		child.set_owner(base_node)
+	var scene = PackedScene.new()
+	scene.pack(base_node)
+	var error = ResourceSaver.save(scene, file_path)
+	if error != OK:
+		push_error("An error occurred while saving the scene to disk.")
+		print("Error saving scene: " + str(error))
+	else:
+		print("Scene saved")
 		
 func load_scene(scene_name:String):
 	clear_current_level()
@@ -103,12 +123,14 @@ func load_level(level_name: String, cam:String, named_element:String):
 		DialogueManager.show_dialogue_balloon(load("res://dialogue/main.dialogue"), "first_time_in_foyer")
 	
 func clear_current_level():
+	save_scene(level_node, level_node.name)
 	for l in level_node.get_children():
 		l.queue_free()
 		
 func do_level_transition():
 	print("Doing level transition")
-	player.process_mode = Node.PROCESS_MODE_DISABLED
+	#player.process_mode = Node.PROCESS_MODE_DISABLED
+	Globals.freeze_player.emit()
 	#var screen_size = get_viewport().get_visible_rect().size
 	#fade_rect.size = screen_size	
 	var tween:Tween = create_tween()
@@ -120,13 +142,15 @@ func do_level_transition():
 	if music_player.current_track != 1:
 		Globals.switch_track.emit(1)
 		
-	player.process_mode = Node.PROCESS_MODE_INHERIT
+	#player.process_mode = Node.PROCESS_MODE_INHERIT
+	
 	
 	tween = create_tween()
 	tween.tween_property(fade_rect, "modulate:a", 0.0, 1.5).from(0.5)
 	tween.play()
 	await tween.finished
 	print("Transition finished")
+	Globals.unfreeze_player.emit()
 	
 func spawn_player(player_spawn:Node3D):
 	if not is_instance_valid(player):
@@ -141,11 +165,6 @@ func spawn_player(player_spawn:Node3D):
 	player.rotation = player_rot
 	print("Player pos: " + str(player))
 	
-func save_scene(path):
-	var file_path = path
-	var scene = PackedScene.new()
-	scene.pack(self)
-	ResourceSaver.save(file_path, scene)
 
 func brightness_set(value):
 	Globals.brightness = value
